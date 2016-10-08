@@ -1,0 +1,54 @@
+<%-- 
+    Document   : slider
+    Created on : 05-Oct-2016, 15:36:24
+    Author     : admin
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Slider</title>
+    </head>
+    <body>
+
+        <div id="fwslider">
+            <div class="slider_container">
+                <div class="slide"> 
+                    <!-- Slide image -->
+                    <img src="images/banner.jpg" alt=""/>
+                    <!-- /Slide image -->
+                    <!-- Texts container -->
+                    <div class="slide_content">
+                        <div class="slide_content_wrap">
+                            <!-- Text title -->
+                            <h4 class="title">Aluminium Club</h4>
+                            <!-- /Text title -->
+
+                            <!-- Text description -->
+                            <p class="description">Experiance ray ban</p>
+                            <!-- /Text description -->
+                        </div>
+                    </div>
+                    <!-- /Texts container -->
+                </div>
+                <!-- /Duplicate to create more slides -->
+                <div class="slide">
+                    <img src="images/banner1.jpg" alt=""/>
+                    <div class="slide_content">
+                        <div class="slide_content_wrap">
+                            <h4 class="title">consectetuer adipiscing </h4>
+                            <p class="description">diam nonummy nibh euismod</p>
+                        </div>
+                    </div>
+                </div>
+                <!--/slide -->
+            </div>
+            <div class="timers"></div>
+            <div class="slidePrev"><span></span></div>
+            <div class="slideNext"><span></span></div>
+        </div>
+
+    </body>
+</html>
