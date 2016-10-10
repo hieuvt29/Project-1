@@ -27,7 +27,7 @@ public class LaptopDAO {
         rs.next();
         res.setProduct_id(rs.getString("product_id"));
         res.setCategory_id(rs.getInt("category_id"));
-        res.setSupply_id(rs.getInt("supply_id"));
+        res.setSupply_id(rs.getInt("supplier_id"));
         res.setProduct_name(rs.getString("product_name"));
         res.setProduct_price(rs.getDouble("product_price"));
         res.setProduct_CPU(rs.getString("product_CPU"));
