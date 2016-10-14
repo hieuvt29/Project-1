@@ -21,7 +21,7 @@ public class LaptopDAO {
     public Laptop getLaptop(String product_id) throws ClassNotFoundException, SQLException {
         Laptop res = new Laptop();
         Connection con = DBConnector.getConnection();
-        String sql = "SELECT * FROM laptop WHERE product_id = 'mt0001'";
+        String sql = "SELECT * FROM laptop WHERE product_id '"+product_id+"'";
         PreparedStatement ps = con.prepareCall(sql);
         ResultSet rs = ps.executeQuery();
         rs.next();
@@ -53,6 +53,5 @@ public class LaptopDAO {
         System.out.println(lap.getCategory_id());
         System.out.println(lap.getProduct_name());
         System.out.println(lap.getProduct_weight() + "Kg");
-    }
-
+    } 
 }
