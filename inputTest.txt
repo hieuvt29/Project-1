@@ -1,0 +1,15 @@
+Name:	Laptop Acer Aspire E5 575G 515A i5 6200U/4GB/500GB/2GB 940M/Win10
+Price:	12.990.000
+CPU:	Intel, Core i5 Skylake, 6200U, 2.30 GHz
+RAM:	DDR4 (2 khe), 4 GB, 2133 MHz
+Đĩa cứng:	SSHD, HDD: 500GB + SSD: 8GB
+Màn hình rộng:	15.6 inch, FHD (1920 x 1080 pixels)
+Cảm ứng:	Không
+Đồ họa:	NVIDIA® GeForce® 940M, 2 GB
+Đĩa quang:	DVD Super Multi Double Layer
+Webcam:	1 MP
+Chất liệu vỏ:	Vỏ nhựa
+Cổng giao tiếp:	2 x USB 3.0, HDMI, LAN (RJ45), USB 2.0, USB Type-C, VGA (D-Sub)
+Kết nối khác:	Bluetooth v4.0
+PIN/Battery:	Li-Ion 4 cell
+Trọng lượng:	2.23
