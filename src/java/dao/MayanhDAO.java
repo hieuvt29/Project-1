@@ -24,7 +24,7 @@ public class MayanhDAO extends ProductDAO {
         rs.next();
         res.setProduct_id(rs.getString("product_id"));
         res.setCategory_id(rs.getInt("category_id"));
-        res.setSupply_id(rs.getInt("supplier_id"));
+        res.setSupplier_id(rs.getInt("supplier_id"));
         res.setProduct_name(rs.getString("product_name"));
         res.setProduct_price(rs.getDouble("product_price"));
         res.setProduct_image_processor(rs.getString("product_image_processor"));
@@ -46,7 +46,7 @@ public class MayanhDAO extends ProductDAO {
 }
       public static void main(String[] args) throws ClassNotFoundException, SQLException {
         MayanhDAO ldao = new MayanhDAO();
-        Mayanh lap = ldao.getMayanh("mt0001");
+        Mayanh lap = ldao.getMayanh("ma0001");
         System.out.println(lap.getCategory_id());
         System.out.println(lap.getProduct_name());
         System.out.println(lap.getProduct_weight() + "g");

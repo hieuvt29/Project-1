@@ -4,8 +4,8 @@
     Author     : admin
 --%>
 
-<%@page import="model.Supply"%>
-<%@page import="dao.SupplyDAO"%>
+<%@page import="model.Supplier"%>
+<%@page import="dao.SupplierDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,7 +15,7 @@
     </head>
     <body>
         <%
-            SupplyDAO supplyDAO = new SupplyDAO();
+            SupplierDAO supplierDAO = new SupplierDAO();
         %>
 
         <div class="header-top">
@@ -44,13 +44,13 @@
                             <li><a class="color4" href="dienthoai.jsp">Điện thoại</a>
                                 <div class="megapanel">
                                     <%
-                                        for (Supply s : supplyDAO.getSupplyList("supplier_dienthoai")) {
+                                        for (Supplier s : supplierDAO.getSupplierList("supplier_dienthoai")) {
                                     %>
                                     <div class="row">
                                         <div class="col1">
                                             <div class="h_nav">
                                                 <ul>
-                                                    <li><a href="products.jsp?supply_id=<%=s.getSupply_id()%>"><h4><%=s.getSupply_name()%></h4></a></li>
+                                                    <li><a href="products.jsp?supplier_id=<%=s.getSupplier_id()%>"><h4><%=s.getSupplier_name()%></h4></a></li>
                                                 </ul>	
                                             </div>							
                                         </div>                                                                               
@@ -63,13 +63,13 @@
                             <li><a class="color5" href="#">Laptop</a>
                                 <div class="megapanel">
                                     <%
-                                        for (Supply s : supplyDAO.getSupplyList("supplier_laptop")) {
+                                        for (Supplier s : supplierDAO.getSupplierList("supplier_laptop")) {
                                     %>
                                     <div class="row">
                                         <div class="col1">
                                             <div class="h_nav">
                                                 <ul>
-                                                    <li><a href="products.jsp?supply_id=<%=s.getSupply_id()%>"><h4><%=s.getSupply_name()%></h4></a></li>
+                                                    <li><a href="products.jsp?supplier_id=<%=s.getSupplier_id()%>"><h4><%=s.getSupplier_name()%></h4></a></li>
                                                 </ul>	
                                             </div>							
                                         </div>                                                                               
@@ -82,13 +82,13 @@
                             <li><a class="color6" href="#">Máy ảnh</a>
                                 <div class="megapanel">
                                     <%
-                                        for (Supply s : supplyDAO.getSupplyList("supplier_mayanh")) {
+                                        for (Supplier s : supplierDAO.getSupplierList("supplier_mayanh")) {
                                     %>
                                     <div class="row">
                                         <div class="col1">
                                             <div class="h_nav">
                                                 <ul>
-                                                    <li><a href="products.jsp?supply_id=<%=s.getSupply_id()%>"><h4><%=s.getSupply_name()%></h4></a></li>
+                                                    <li><a href="products.jsp?supplier_id=<%=s.getSupplier_id()%>"><h4><%=s.getSupplier_name()%></h4></a></li>
                                                 </ul>	
                                             </div>							
                                         </div>                                                                               

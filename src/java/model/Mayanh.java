@@ -13,7 +13,7 @@ public class Mayanh extends Product {
 
   //  private String  product_id ;
     private int  category_id ;
-    private int  supply_id ;
+    private int  supplier_id ;
 
     //private String  product_name ;
     private String product_categorize ;
@@ -48,20 +48,12 @@ public class Mayanh extends Product {
         this.category_id = category_id;
     }
 
-    public int getSupply_id() {
-        return supply_id;
+    public int getSupplier_id() {
+        return supplier_id;
     }
 
-    public void setSupply_id(int supply_id) {
-        this.supply_id = supply_id;
-    }
-
-    public String getProduct_name() {
-        return product_name;
-    }
-
-    public void setProduct_name(String product_name) {
-        this.product_name = product_name;
+    public void setSupplier_id(int supplier_id) {
+        this.supplier_id = supplier_id;
     }
 
     public String getProduct_categorize() {
@@ -166,21 +158,5 @@ public class Mayanh extends Product {
 
     public void setProduct_power_charger(String product_power_charger) {
         this.product_power_charger = product_power_charger;
-    }
-
-    public double getProduct_price() {
-        return product_price;
-    }
-
-    public void setProduct_price(double product_price) {
-        this.product_price = product_price;
-    }
-
-    public double getProduct_discount() {
-        return product_discount;
-    }
-
-    public void setProduct_discount(double product_discount) {
-        this.product_discount = product_discount;
     }
 }
