@@ -16,7 +16,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Dienthoai;
+import model.Product;
 
 /**
  *
@@ -24,6 +27,33 @@ import model.Dienthoai;
  */
 public class DienthoaiDAO extends ProductDAO {
 
+    public ArrayList<Product> getProducts(String supplier) {
+        ArrayList<Product> listProduct = new ArrayList<>();
+        Connection con;
+        try {
+            con = DBConnector.getConnection();
+            String sql = null;
+            if(supplier.equals("*")){
+                sql = "SELECT product_id FROM dienthoai";
+            }else{
+                sql = "SELECT product_id FROM dienthoai WHERE supplier_id = '"+supplier+"'";
+            }
+            PreparedStatement ps = con.prepareCall(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                String product_id = rs.getString(1);
+                Dienthoai lt = getDienthoai(product_id);
+                listProduct.add(lt);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return listProduct;
+    }
+    
     public ArrayList<Dienthoai> getDienthoai(int supplier_id) throws ClassNotFoundException, SQLException {
         ArrayList<Dienthoai> list = new ArrayList<>();
         Connection con = DBConnector.getConnection();

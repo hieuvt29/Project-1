@@ -39,10 +39,13 @@
     </head>
     <body>
         <%
-            String product = null;
+            String  product = null,
+                    supplier = null;
             ProductDAO productDAO = null;
+            
             product = request.getParameter("product");
-
+            supplier = request.getParameter("supplier_id");
+            
             if (product.equals("Dienthoai")) {
                 productDAO = new DienthoaiDAO();
             } else if (product.equals("Laptop")) {
@@ -100,13 +103,21 @@
                             </div>
                             <div class="top-box">  
                             <%  
-                                for (Product p : productDAO.getProducts()) {
+                                for (Product p : productDAO.getProducts(supplier)) {
                             %>
                             <div class="col_1_of_3 span_1_of_3">                                
                                 <a href="single.jsp?product_id=<%=p.getProduct_id()%>">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
-                                            <img src="<%="images/" + p.getProduct_name() + ".jpg"%>" alt=""/>
+                                            <%
+                                                String img = null;
+                                                if(product.equals("Laptop")){
+                                                    img = "images/" + p.getProduct_name().split("/")[0] +" (1)" + ".jpg";
+                                                }else{
+                                                    img = "images/" + p.getProduct_name()+ ".jpg";
+                                                }
+                                            %>
+                                            <img src="<%=img%>" alt=""/>
                                         </div>
                                         <%
                                             if (p.getCategory_id() == 1) {

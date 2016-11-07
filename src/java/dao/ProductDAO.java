@@ -18,9 +18,11 @@ import model.Product;
  * @author admin
  */
 public abstract class ProductDAO {
-    
-    public ArrayList<Product> getProducts(){
 
-    return null;
-    }
+    /**
+     *
+     * @param product
+     * @return list of product
+     */
+    public abstract ArrayList<Product> getProducts(String product);
 }
