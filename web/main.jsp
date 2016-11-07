@@ -20,7 +20,7 @@
                         <h2 class="head">Iphone</h2>
                         <div class="top-box">
                             <div class="col_1_of_3 span_1_of_3"> 
-                                <a href="single.html">
+                                <a href="single.jsp">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
                                             <img src="images/Iphone7 Plus 256GB.jpg" alt=""/>
@@ -40,7 +40,7 @@
                                 </a>
                             </div>
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="single.html">
+                                <a href="single.jsp">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
                                             <img src="images/Iphone 6S Plus 16GB.jpg" alt=""/>
@@ -59,7 +59,7 @@
                                 </a>
                             </div>
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="single.html">
+                                <a href="single.jsp">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
                                             <img src="images/Iphone5S64GB.jpg" alt=""/>
@@ -84,7 +84,7 @@
                         <h2 class="head">Samsung</h2>
                         <div class="top-box">
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="single.html">
+                                <a href="single.jsp">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
                                             <img src="images/SamsungGalaxyA9Pro.jpg" alt=""/>
@@ -103,7 +103,7 @@
                                 </a>
                             </div>
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="single.html">
+                                <a href="single.jsp">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
                                             <img src="images/SamsungGalaxyS7EDGE.jpg" alt=""/>
@@ -123,7 +123,7 @@
                                 </a>
                             </div>
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="single.html">
+                                <a href="single.jsp">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
                                             <img src="images/SamsungGalaxyA7(2016).jpg" alt=""/>
@@ -146,7 +146,7 @@
                         <h2 class="head">Xiaomi</h2>
                         <div class="top-box1">
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="single.html">
+                                <a href="single.jsp">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
                                             <img src="images/XiaomiMi5.jpg" alt=""/>
@@ -166,7 +166,7 @@
                                 </a>
                             </div>
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="single.html">
+                                <a href="single.jsp">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
                                             <img src="images/XiaomiRedmi3S.jpg" alt=""/>
@@ -187,7 +187,7 @@
                                 </a>
                             </div>
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="single.html">
+                                <a href="single.jsp">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
                                             <img src="images/XiaomiMi4.jpg" alt=""/>
@@ -210,7 +210,7 @@
                         <h2 class="head">Sony</h2>
                         <div class="top-box1">
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="single.html">
+                                <a href="single.jsp">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
                                             <img src="images/SonyXperiaX.jpg" alt=""/>
@@ -230,7 +230,7 @@
                                 </a>
                             </div>
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="single.html">
+                                <a href="single.jsp">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
                                             <img src="images/SonyXperiaZ5Dual.jpg" alt=""/>
@@ -249,7 +249,7 @@
                                 </a>
                             </div>
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="single.html">
+                                <a href="single.jsp">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
                                             <img src="images/SonyXperiaM5.jpg" alt=""/>
@@ -288,7 +288,7 @@
                                     <img src="images/t-img3.jpg"  alt="" />
                                 </div>
                             </div>
-                            <div class="btn"><a href="single.html">Check it Out</a></div>
+                            <div class="btn"><a href="single.jsp">Check it Out</a></div>
                         </div>
                         <div class="top-border"> </div>
                         <div class="sidebar-bottom">
