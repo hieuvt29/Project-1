@@ -26,7 +26,7 @@ import model.Laptop;
  *
  * @author LOREMSUM
  */
-public class LaptopDAO {
+public class LaptopDAO extends ProductDAO {
 
     public Laptop getLaptop(String product_id) throws ClassNotFoundException, SQLException {
         Laptop res = new Laptop();

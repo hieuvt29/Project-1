@@ -4,6 +4,8 @@
     Author     : admin
 --%>
 
+<%@page import="model.Supply"%>
+<%@page import="dao.SupplyDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +14,9 @@
         <title>Header</title>
     </head>
     <body>
+        <%
+            SupplyDAO supplyDAO = new SupplyDAO();
+        %>
 
         <div class="header-top">
             <div class="wrap"> 
@@ -36,9 +41,63 @@
                     <div class="menu">
                         <ul class="megamenu skyblue">
                             <li class="active grid"><a href="index.jsp">Home</a></li>
-                            <li><a class="color4" href="products.jsp">Điện thoại</a></li>				
-                            <li><a class="color5" href="products.jsp">Laptop</a></li>
-                            <li><a class="color6" href="products.jsp">Máy ảnh</a></li>
+                            <li><a class="color4" href="dienthoai.jsp">Điện thoại</a>
+                                <div class="megapanel">
+                                    <%
+                                        for (Supply s : supplyDAO.getSupplyList("supplier_dienthoai")) {
+                                    %>
+                                    <div class="row">
+                                        <div class="col1">
+                                            <div class="h_nav">
+                                                <ul>
+                                                    <li><a href="products.jsp?supply_id=<%=s.getSupply_id()%>"><h4><%=s.getSupply_name()%></h4></a></li>
+                                                </ul>	
+                                            </div>							
+                                        </div>                                                                               
+                                    </div>
+                                    <%
+                                        }
+                                    %>
+                                </div>
+                            </li>				
+                            <li><a class="color5" href="#">Laptop</a>
+                                <div class="megapanel">
+                                    <%
+                                        for (Supply s : supplyDAO.getSupplyList("supplier_laptop")) {
+                                    %>
+                                    <div class="row">
+                                        <div class="col1">
+                                            <div class="h_nav">
+                                                <ul>
+                                                    <li><a href="products.jsp?supply_id=<%=s.getSupply_id()%>"><h4><%=s.getSupply_name()%></h4></a></li>
+                                                </ul>	
+                                            </div>							
+                                        </div>                                                                               
+                                    </div>
+                                    <%
+                                        }
+                                    %>
+                                </div>
+                            </li>
+                            <li><a class="color6" href="#">Máy ảnh</a>
+                                <div class="megapanel">
+                                    <%
+                                        for (Supply s : supplyDAO.getSupplyList("supplier_mayanh")) {
+                                    %>
+                                    <div class="row">
+                                        <div class="col1">
+                                            <div class="h_nav">
+                                                <ul>
+                                                    <li><a href="products.jsp?supply_id=<%=s.getSupply_id()%>"><h4><%=s.getSupply_name()%></h4></a></li>
+                                                </ul>	
+                                            </div>							
+                                        </div>                                                                               
+                                    </div>
+                                    <%
+                                        }
+                                    %>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>

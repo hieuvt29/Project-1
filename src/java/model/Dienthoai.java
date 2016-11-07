@@ -9,30 +9,32 @@ package model;
  *
  * @author LOREMSUM
  */
-public class Dienthoai {
+public class Dienthoai extends Product {
 
-    private String product_id;
-    private int category_id;
+  //  private int category_id;
+   // private String product_id;
+    //private String product_name;
     private int supply_id;
-
-    private String product_name;
-    private double product_price;
     private String product_resolution;
 
+    private String product_os;
+    private int product_camera_after; // MP //
+    private int product_camera_front; // MP //
+    private String product_cpu;
+    private int product_ram; // GB //
+    private int product_memory; // GB // 
+    private String product_mem_card;
+    private String product_sim_card;
+    private String product_connection;
+    private int product_battery; // mAh //
+    private String product_design;
+    private String product_extra_info;
+    //private double product_price;
+   // private double product_discount; // phần trăm giảm giá //
+
+        @Override
     public String getProduct_id() {
         return product_id;
-    }
-
-    public void setProduct_id(String product_id) {
-        this.product_id = product_id;
-    }
-
-    public int getCategory_id() {
-        return category_id;
-    }
-
-    public void setCategory_id(int category_id) {
-        this.category_id = category_id;
     }
 
     public int getSupply_id() {
@@ -41,22 +43,6 @@ public class Dienthoai {
 
     public void setSupply_id(int supply_id) {
         this.supply_id = supply_id;
-    }
-
-    public String getProduct_name() {
-        return product_name;
-    }
-
-    public void setProduct_name(String product_name) {
-        this.product_name = product_name;
-    }
-
-    public double getProduct_price() {
-        return product_price;
-    }
-
-    public void setProduct_price(double product_price) {
-        this.product_price = product_price;
     }
 
     public String getProduct_resolution() {
@@ -162,26 +148,4 @@ public class Dienthoai {
     public void setProduct_extra_info(String product_extra_info) {
         this.product_extra_info = product_extra_info;
     }
-
-    public double getProduct_discount() {
-        return product_discount;
-    }
-
-    public void setProduct_discount(double product_discount) {
-        this.product_discount = product_discount;
-    }
-    private String product_os;
-    private int product_camera_after; // MP //
-    private int product_camera_front; // MP //
-    private String product_cpu;
-    private int product_ram; // GB //
-    private int product_memory; // GB // 
-    private String product_mem_card;
-    private String product_sim_card;
-    private String product_connection;
-    private int product_battery; // mAh //
-    private String product_design;
-    private String product_extra_info;
-    private double product_discount; // phần trăm giảm giá //
-
 }

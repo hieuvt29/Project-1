@@ -9,14 +9,12 @@ package model;
  *
  * @author LOREMSUM
  */
-public class Laptop {
-
-    private String product_id;
-    private int category_id;
+public class Laptop extends Product {
+    
+   // private int category_id;
+    //private String product_name;
+    
     private int supply_id;
-
-    private String product_name;
-    private double product_price;
     private String product_CPU;
     private String product_RAM;
     private String product_hard_disk;
@@ -30,22 +28,9 @@ public class Laptop {
     private String product_connection;
     private String product_battery;
     private double product_weight; // Kg //
-
-    public String getProduct_id() {
-        return product_id;
-    }
-
-    public void setProduct_id(String product_id) {
-        this.product_id = product_id;
-    }
-
-    public int getCategory_id() {
-        return category_id;
-    }
-
-    public void setCategory_id(int category_id) {
-        this.category_id = category_id;
-    }
+    //private double product_price;
+    //private double product_discount; // phần trăm giảm giá //
+    
 
     public int getSupply_id() {
         return supply_id;
@@ -53,22 +38,6 @@ public class Laptop {
 
     public void setSupply_id(int supply_id) {
         this.supply_id = supply_id;
-    }
-
-    public String getProduct_name() {
-        return product_name;
-    }
-
-    public void setProduct_name(String product_name) {
-        this.product_name = product_name;
-    }
-
-    public double getProduct_price() {
-        return product_price;
-    }
-
-    public void setProduct_price(double product_price) {
-        this.product_price = product_price;
     }
 
     public String getProduct_CPU() {
@@ -182,5 +151,5 @@ public class Laptop {
     public void setProduct_discount(double product_discount) {
         this.product_discount = product_discount;
     }
-    private double product_discount; // phần trăm giảm giá //
+    
 }

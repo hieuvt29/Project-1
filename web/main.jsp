@@ -23,7 +23,7 @@
                                 <a href="single.html">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
-                                            <img src="images/Iphone7Plus256GB.jpg" alt=""/>
+                                            <img src="images/Iphone7 Plus 256GB.jpg" alt=""/>
                                         </div>
                                         <div class="sale-box"><span class="on_sale title_shop">New</span></div>	
                                         <div class="price">
@@ -43,7 +43,7 @@
                                 <a href="single.html">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
-                                            <img src="images/Iphone6SPlus16GB.jpg" alt=""/>
+                                            <img src="images/Iphone 6S Plus 16GB.jpg" alt=""/>
                                         </div>                                       	
                                         <div class="price">
                                             <div class="cart-left">

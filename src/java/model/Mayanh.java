@@ -9,13 +9,13 @@ package model;
  *
  * @author LOREMSUM
  */
-public class Mayanh {
+public class Mayanh extends Product {
 
-    private String  product_id ;
+  //  private String  product_id ;
     private int  category_id ;
     private int  supply_id ;
 
-    private String  product_name ;
+    //private String  product_name ;
     private String product_categorize ;
     private String  product_sensor ;
     private String  product_image_processor ;
@@ -29,8 +29,8 @@ public class Mayanh {
     private double product_weight  ; // g //
     private double product_size  ; // mm //
     private String  product_power_charger ;
-    private double  product_price ;
-    private  double product_discount ; // phần trăm giảm giá //
+   // private double  product_price ;
+ //   private  double product_discount ; // phần trăm giảm giá //
 
     public String getProduct_id() {
         return product_id;

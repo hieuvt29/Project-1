@@ -13,7 +13,7 @@ import model.Laptop;
 import model.Mayanh;
 
 
-public class MayanhDAO {
+public class MayanhDAO extends ProductDAO {
     
     public Mayanh getMayanh(String product_id) throws ClassNotFoundException, SQLException {
         Mayanh res = new Mayanh();
