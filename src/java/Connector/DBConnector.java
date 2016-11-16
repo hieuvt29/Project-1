@@ -16,7 +16,7 @@ import java.sql.SQLException;
 public class DBConnector {
 
     private static String username = "root";
-    private static String password = "123321@@";
+    private static String password = "164584125";
 
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
         //load driver
