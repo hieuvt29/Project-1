@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+<%@page import="model.User"%>
 <%@page import="model.Supplier"%>
 <%@page import="dao.SupplierDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -24,6 +25,12 @@
     <body>
         <%
             SupplierDAO supplierDAO = new SupplierDAO();
+            
+            User user = null;
+            if(session.getAttribute("user") != null){
+                user = (User) session.getAttribute("user");
+            }
+            
         %>
 
         <div class="header-top">
@@ -33,8 +40,19 @@
                         <li class="active"><a href="login.jsp">Account</a></li> |
                         <li><a href="checkout.jsp">Wishlist</a></li> |
                         <li><a href="checkout.jsp">Checkout</a></li> |
+                        <% if (user != null){ 
+                        %>
+                            <li><a href="profile.jsp"><%=user.getUser_name()%></a></li> |
+                            <li><a href="UserControllerServlet?command=logout" >Log out</a></li> |
+                    
+                        <% }else{
+
+                        %>
                         <li><a href="login.jsp">Log In</a></li> |
                         <li><a href="register.jsp">Sign Up</a></li>
+                        <% } 
+                        %>
+                        
                     </ul>
                 </div>
                 <div class="clear"></div>

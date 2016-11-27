@@ -1031,13 +1031,13 @@ table {
 .register_account table td {
 	width: 100%;
 }
-.register_account form input[type="text"], .register_account form select {
+.register_account form input[type="text"], .register_account form select, .register_account form input[type="password"] {
 	font-size:0.95em;
 	color:#777;
 	padding: 8px;
 	outline: none;
 	margin:10px 0;
-	width:91%;
+	width:50%;
 	font-family: 'Exo 2', sans-serif;
 	border:none;
 	box-shadow:0 0 2px #aaa;
@@ -1051,6 +1051,7 @@ table {
 	-moz-box-shadow:0 0 4px #aaa;
 	-o-box-shadow:0 0 4px #aaa;
 }
+
 .register_account form input[type="text"].code {
 	width: 15%;
 }
@@ -1066,7 +1067,7 @@ p.terms {
 	font-size: 12px;
 	padding: 15px 0 0 15px;
 }
-button.grey{
+.register_account form input[type="submit"]{
 	display: inline-block;
 	text-decoration: none;
 	cursor: pointer;
@@ -1081,7 +1082,7 @@ button.grey{
 	font-family: 'Exo 2', sans-serif;
 	outline:none;
 }
-button.grey:hover {
+.register_account form input[type="submit"]:hover {
 	background:#4CB1CA;
 	color: #FFF;
 }

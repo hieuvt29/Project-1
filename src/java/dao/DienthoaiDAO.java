@@ -41,6 +41,7 @@ public class DienthoaiDAO extends ProductDAO {
                 Dienthoai lt = getDienthoai(product_id);
                 listProduct.add(lt);
             }
+            con.close();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -101,6 +102,7 @@ public class DienthoaiDAO extends ProductDAO {
             res.setProduct_discount(rs.getDouble("product_discount"));
             list.add(res);
         }
+        con.close();
         return list;
     }
 
@@ -131,6 +133,7 @@ public class DienthoaiDAO extends ProductDAO {
             dt.setProduct_extra_info(rs.getString("product_extra_info"));
             dt.setProduct_discount(rs.getInt("product_discount"));
         }
+        con.close();
         return dt;
     }
 

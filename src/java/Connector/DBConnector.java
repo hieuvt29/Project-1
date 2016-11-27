@@ -14,7 +14,8 @@ import java.sql.SQLException;
  * @author LOREMSUM
  */
 public class DBConnector {
-
+//Starting Index in ResultSet is 1
+    
     private static String username = "root";
     private static String password = "164584125";
 
