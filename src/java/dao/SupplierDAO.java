@@ -36,6 +36,7 @@ public class SupplierDAO {
             
             resultList.add(category);
         }
+        con.close();
         return resultList;
     }
     public static void main(String[] args) throws ClassNotFoundException, SQLException {

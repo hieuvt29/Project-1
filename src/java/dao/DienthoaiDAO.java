@@ -33,18 +33,19 @@ public class DienthoaiDAO extends ProductDAO {
         try {
             con = DBConnector.getConnection();
             String sql = null;
-            if(supplier.equals("*")){
+            if (supplier.equals("*")) {
                 sql = "SELECT product_id FROM dienthoai";
-            }else{
-                sql = "SELECT product_id FROM dienthoai WHERE supplier_id = '"+supplier+"'";
+            } else {
+                sql = "SELECT product_id FROM dienthoai WHERE supplier_id = '" + supplier + "'";
             }
             PreparedStatement ps = con.prepareCall(sql);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 String product_id = rs.getString(1);
                 Dienthoai lt = getDienthoai(product_id);
                 listProduct.add(lt);
             }
+            con.close();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -53,7 +54,7 @@ public class DienthoaiDAO extends ProductDAO {
 
         return listProduct;
     }
-    
+
     public ArrayList<Dienthoai> getDienthoai(int supplier_id) throws ClassNotFoundException, SQLException {
         ArrayList<Dienthoai> list = new ArrayList<>();
         Connection con = DBConnector.getConnection();
@@ -83,6 +84,7 @@ public class DienthoaiDAO extends ProductDAO {
             res.setProduct_discount(rs.getDouble("product_discount"));
             list.add(res);
         }
+        con.close();
         return list;
     }
 
@@ -113,11 +115,10 @@ public class DienthoaiDAO extends ProductDAO {
             dt.setProduct_extra_info(rs.getString("product_extra_info"));
             dt.setProduct_discount(rs.getInt("product_discount"));
         }
+        con.close();
         return dt;
     }
 
-    
-    
     public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
         DienthoaiDAO dtDAO = new DienthoaiDAO();
         ArrayList<Dienthoai> list = new ArrayList<>();
