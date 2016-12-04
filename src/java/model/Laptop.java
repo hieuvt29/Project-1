@@ -72,7 +72,7 @@ public class Laptop extends Product {
         this.product_screen = product_screen;
     }
 
-    public boolean isProduct_touch() {
+    public boolean getProduct_touch() {
         return product_touch;
     }
 

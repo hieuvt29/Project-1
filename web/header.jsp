@@ -13,6 +13,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Header</title>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
     </head>
     <body>
         <%
@@ -78,7 +86,7 @@
                                     %>
                                 </div>
                             </li>				
-                            <li><a class="color5" href="products.jsp?product=Laptop&&supplier_id=*"">Laptop</a>
+                            <li><a class="color5" href="products.jsp?product=Laptop&&supplier_id=*">Laptop</a>
                                 <div class="megapanel">
                                     <%
                                         for (Supplier s : supplierDAO.getSupplierList("supplier_laptop")) {
