@@ -12,23 +12,23 @@ package model;
 public class Mayanh extends Product {
 
   //  private String  product_id ;
-    private int  category_id ;
-    private int  supplier_id ;
+    private int category_id ;
+    private int supplier_id ;
 
     //private String  product_name ;
     private String product_categorize ;
-    private String  product_sensor ;
-    private String  product_image_processor ;
-    private double product_lens ; // mm //
-     private double product_film ; // pixel //
+    private String product_sensor ;
+    private String product_image_processor ;
+    private String product_lens ; // mm //
+    private String product_film ; // pixel //
     private String product_shutter_speed  ;
-    private String  product_connection ;
-    private String  product_screen ;
+    private String product_connection ;
+    private String product_screen ;
     private String product_battery ;
-    private String  product_mem_card ;
-    private double product_weight  ; // g //
-    private double product_size  ; // mm //
-    private String  product_power_charger ;
+    private String product_mem_card ;
+    private String product_made_in  ;
+    private String product_warranty  ;
+    private double product_weight ;
    // private double  product_price ;
  //   private  double product_discount ; // phần trăm giảm giá //
 
@@ -80,19 +80,19 @@ public class Mayanh extends Product {
         this.product_image_processor = product_image_processor;
     }
 
-    public double getProduct_lens() {
+    public String getProduct_lens() {
         return product_lens;
     }
 
-    public void setProduct_lens(double product_lens) {
+    public void setProduct_lens(String product_lens) {
         this.product_lens = product_lens;
     }
 
-    public double getProduct_film() {
+    public String getProduct_film() {
         return product_film;
     }
 
-    public void setProduct_film(double product_film) {
+    public void setProduct_film(String product_film) {
         this.product_film = product_film;
     }
 
@@ -144,19 +144,19 @@ public class Mayanh extends Product {
         this.product_weight = product_weight;
     }
 
-    public double getProduct_size() {
-        return product_size;
+    public String getProduct_made_in() {
+        return product_made_in;
     }
 
-    public void setProduct_size(double product_size) {
-        this.product_size = product_size;
+    public void setProduct_made_in(String product_made_in) {
+        this.product_made_in = product_made_in;
     }
 
-    public String getProduct_power_charger() {
-        return product_power_charger;
+    public String getProduct_warranty() {
+        return product_warranty;
     }
 
-    public void setProduct_power_charger(String product_power_charger) {
-        this.product_power_charger = product_power_charger;
+    public void setProduct_warranty(String product_warranty) {
+        this.product_warranty = product_warranty;
     }
 }

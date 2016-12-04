@@ -21,11 +21,13 @@ public class CategoryDAO {
     public ArrayList<Category> getCategoryList() throws ClassNotFoundException, SQLException{
         ArrayList<Category> resultList = new ArrayList<>();
         Connection con = DBConnector.getConnection();
-        
+              
         String sql = "SELECT * FROM category";
         
+        // Thuc thi cau truy van.
         PreparedStatement ps = con.prepareCall(sql);
-        
+                
+        // Tra ve cac ket qua tu CSDL thuc thi boi lenh SQL
         ResultSet rs = ps.executeQuery();
         
         while(rs.next()){

@@ -64,7 +64,6 @@
                 <div class="main">
                     <div class="wrap">
                         <div class="cont span_2_of_3">
-                            <h2 class="head">Điện thoại</h2>
                             <div class="mens-toolbar">
                                 <div class="sort">
                                     <div class="sort-by">
@@ -114,7 +113,7 @@
                                                 if(product.equals("Laptop")){
                                                     img = "images/" + p.getProduct_name().split("/")[0] +" (1)" + ".jpg";
                                                 }else{
-                                                    img = "images/" + p.getProduct_name()+ ".jpg";
+                                                    img = "images/" + p.getProduct_name() + " (1)" + ".jpg";
                                                 }
                                             %>
                                             <img src="<%=img%>" alt=""/>
@@ -123,12 +122,39 @@
                                             if (p.getCategory_id() == 1) {
                                         %>
                                         <div class="sale-box"><span class="on_sale title_shop">New</span></div>
-
                                         <div class="price">
                                             <div class="cart-left">
                                                 <p class="title"><%=p.getProduct_name()%></p>
                                                 <div class="price1">
                                                     <span class="actual"><%=p.getProduct_price()%><span>0.000₫</span></span>
+                                                </div>
+                                            </div>
+                                            <div class="cart-right"> </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <%
+                                            }else if(p.getCategory_id() == 2) {
+                                        %>
+                                        <div class="price">
+                                            <div class="cart-left">
+                                                <p class="title"><%=p.getProduct_name()%></p>
+                                                <div class="price1">
+                                                    <span class="actual"><%=p.getProduct_price()%><span>0.000₫</span></span>
+                                                </div>
+                                            </div>
+                                            <div class="cart-right"> </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <%
+                                            }else if(p.getCategory_id() == 3) {
+                                        %>
+                                        <div class="sale-box1"><span class="on_sale title_shop">Sale</span></div>
+                                        <div class="price">
+                                            <div class="cart-left">
+                                                <p class="title"><%=p.getProduct_name()%></p>
+                                                <div class="price1">
+                                                    <span class="reducedfrom"><%=p.getProduct_price()%><span>0.000₫</span></span>
+                                                    <span class="actual"><%=p.getProduct_price() - (p.getProduct_price() * p.getProduct_discount() / 100)%><span>0.000₫</span></span>
                                                 </div>
                                             </div>
                                             <div class="cart-right"> </div>

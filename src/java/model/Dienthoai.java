@@ -32,11 +32,6 @@ public class Dienthoai extends Product {
     //private double product_price;
    // private double product_discount; // phần trăm giảm giá //
 
-        @Override
-    public String getProduct_id() {
-        return product_id;
-    }
-
     public int getSupply_id() {
         return supply_id;
     }

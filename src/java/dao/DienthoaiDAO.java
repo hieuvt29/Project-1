@@ -6,11 +6,7 @@
 package dao;
 
 import Connector.DBConnector;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,14 +29,14 @@ public class DienthoaiDAO extends ProductDAO {
         try {
             con = DBConnector.getConnection();
             String sql = null;
-            if(supplier.equals("*")){
+            if (supplier.equals("*")) {
                 sql = "SELECT product_id FROM dienthoai";
-            }else{
-                sql = "SELECT product_id FROM dienthoai WHERE supplier_id = '"+supplier+"'";
+            } else {
+                sql = "SELECT product_id FROM dienthoai WHERE supplier_id = '" + supplier + "'";
             }
             PreparedStatement ps = con.prepareCall(sql);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 String product_id = rs.getString(1);
                 Dienthoai lt = getDienthoai(product_id);
                 listProduct.add(lt);
@@ -53,7 +49,29 @@ public class DienthoaiDAO extends ProductDAO {
 
         return listProduct;
     }
-    
+
+    public ArrayList<Dienthoai> getManyProduct(int category_id) {
+        ArrayList<Dienthoai> list = new ArrayList<>();
+        try {
+            Connection con = DBConnector.getConnection();
+            String sql = "SELECT * FROM dienthoai WHERE category_id = '" + category_id + "' ORDER BY RAND() LIMIT 6";
+            PreparedStatement ps = con.prepareCall(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Dienthoai dt = new Dienthoai();
+                dt.setProduct_id(rs.getString("product_id"));
+                dt.setProduct_name(rs.getString("product_name"));
+                dt.setSupply_id(rs.getInt("supplier_id"));
+                list.add(dt);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
     public ArrayList<Dienthoai> getDienthoai(int supplier_id) throws ClassNotFoundException, SQLException {
         ArrayList<Dienthoai> list = new ArrayList<>();
         Connection con = DBConnector.getConnection();
@@ -116,24 +134,25 @@ public class DienthoaiDAO extends ProductDAO {
         return dt;
     }
 
-    
-    
     public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
         DienthoaiDAO dtDAO = new DienthoaiDAO();
-        ArrayList<Dienthoai> list = new ArrayList<>();
-        for (Dienthoai dt : dtDAO.getDienthoai(2)) {
-            System.out.println(dt.getProduct_id());
-            System.out.println(dt.getCategory_id());
-            System.out.println(dt.getProduct_name());
-            System.out.println(dt.getProduct_cpu());
-            System.out.println(Math.round(dt.getProduct_price() * Math.pow(10, 6)));
-            System.out.println("---------------------------");
-        }
+        for (Dienthoai dt : dtDAO.getManyProduct(2)) {
+//            System.out.println(dt.getProduct_id());
+//            System.out.println(dt.getCategory_id());
+//            System.out.println(dt.getProduct_name());
+//            System.out.println(dt.getProduct_cpu());
+//            
+//            System.out.println("---------------------------");
+//        }
 
-//        System.out.println(dtDAO.getDienthoai("dt0003").getProduct_name());
+//        System.out.println(dtDAO.getDienthoai("dt0012").getProduct_name());
 //        System.out.println(dtDAO.getDienthoai("dt0003").getProduct_os());
 //        System.out.println(dtDAO.getDienthoai("dt0003").getCategory_id());
 //        System.out.println(dtDAO.getDienthoai("dt0003").getProduct_sim_card());
 //        System.out.println(dtDAO.getDienthoai("dt0003").getProduct_connection());
+            System.out.println(dt.getProduct_id());
+            System.out.println(dt.getProduct_name());
+            System.out.println(dt.getSupply_id());
+        }
     }
 }
