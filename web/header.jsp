@@ -85,8 +85,12 @@
                                         }
                                     %>
                                 </div>
-                            </li>				
-                            <li><a class="color5" href="products.jsp?product=Laptop&supplier_id=*">Laptop</a>
+                            </li>
+                                                    <form name='queryform' action='ProductsPageServlet' method='get'>
+                                                        <input type='hidden' name='product' value="Laptop">
+                                                        <input type='hidden' name='supplier' value="*">
+                                                    </form>
+                            <li><a class="color5" href="#" onClick="document.queryform.submit()">Laptop</a>
                                 <div class="megapanel">
                                     <%
                                         for (Supplier s : supplierDAO.getSupplierList("supplier_laptop")) {

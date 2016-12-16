@@ -24,6 +24,7 @@ public class CheckUserpassServlet extends HttpServlet {
    
     UserDAO userDAO = new UserDAO();
     
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -35,7 +36,7 @@ public class CheckUserpassServlet extends HttpServlet {
         }else{
             response.getWriter().write("<img src=\"img/available.png\" />");
         }
-        
+
     }
 
   

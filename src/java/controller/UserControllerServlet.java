@@ -38,7 +38,6 @@ public class UserControllerServlet extends HttpServlet {
         String command = request.getParameter("command");
         HttpSession session = request.getSession();
         String url = "index.jsp";
-
         //Register Handler
         if (command.equals("register")) {
             String user_name = request.getParameter("user_name").trim(),
@@ -55,7 +54,7 @@ public class UserControllerServlet extends HttpServlet {
             } catch (SQLException ex) {
                 Logger.getLogger(UserControllerServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-        //Login Handler
+            //Login Handler
         } else if (command.equals("login")) {
             String user_email = request.getParameter("user_email").trim(),
                     user_password = MD5.encryption(request.getParameter("user_pass").trim());
@@ -63,7 +62,7 @@ public class UserControllerServlet extends HttpServlet {
                 user = userDAO.login(user_email, user_password);
                 if (user == null) {
                     url = "login.jsp";
-                    session.setAttribute("error", "Email or Password is invalid!");
+                    request.setAttribute("error", "Email or Password is invalid!");
                 }
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(UserControllerServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -75,12 +74,11 @@ public class UserControllerServlet extends HttpServlet {
 
         if (user != null) {
             session.setAttribute("user", user);
-            session.setMaxInactiveInterval(60*10);
+            session.setMaxInactiveInterval(10 * 60);
         }
 
-//        RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
-//        rd.forward(request, response);
-        response.sendRedirect(url);
+        RequestDispatcher rd = request.getRequestDispatcher(url);
+        rd.forward(request, response);
 
     }
 
@@ -91,9 +89,10 @@ public class UserControllerServlet extends HttpServlet {
         HttpSession session = request.getSession();
         String url = "index.jsp";
         //Logout Handler
-        if(command.equals("logout")){
-            session.removeAttribute("user");
-            response.sendRedirect(url);
+        if (command.equals("logout")) {
+            session.invalidate();
+            RequestDispatcher rd = request.getRequestDispatcher(url);
+            rd.forward(request, response);
         }
     }
 }

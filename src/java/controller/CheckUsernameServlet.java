@@ -31,13 +31,14 @@ public class CheckUsernameServlet extends HttpServlet {
             throws ServletException, IOException {
         String username = request.getParameter("username").trim();
         if (username.length() < 4) {
-            response.getWriter().write("<font color='red'>less than 4 characters!</font>");
+            response.getWriter().write("short");
         } else {
             try {
                 if (userDAO.checkUsername(username)) {
-                    response.getWriter().write("<img src=\"img/not-available.png\" />");
+                    response.getWriter().write("not available");
                 } else {
-                    response.getWriter().write("<img src=\"img/available.png\" />");
+                    
+                    response.getWriter().write("available");
                 }
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(CheckUsernameServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -45,7 +46,7 @@ public class CheckUsernameServlet extends HttpServlet {
                 Logger.getLogger(CheckUsernameServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
+        
     }
 
 }

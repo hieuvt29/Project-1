@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+<%@page import="model.Laptop"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="dao.LaptopDAO"%>
 <%@page import="dao.MayanhDAO"%>
@@ -39,25 +40,7 @@
         </script>
     </head>
     <body>
-        <%
-            String product = null,
-                    supplier = null;
-            ProductDAO productDAO = null;
 
-            product = request.getParameter("product");
-            supplier = request.getParameter("supplier_id");
-
-            if (product.equals("Dienthoai")) {
-                productDAO = new DienthoaiDAO();
-            } else if (product.equals("Laptop")) {
-                productDAO = new LaptopDAO();
-            } else if (product.equals("Mayanh")) {
-                productDAO = new MayanhDAO();
-            } else {
-                //redirect response
-            }
-
-        %>
 
         <jsp:include page="header.jsp"></jsp:include>
 
@@ -101,10 +84,12 @@
                                 </div>
                                 <div class="clear"></div>
                             </div>
+                            
+                        <%  
+                            ArrayList<Product> productList = (ArrayList < Product >) request.getAttribute("productList");
 
-                        <%                            
-                            ArrayList<Product> productList = productDAO.getProducts(supplier);
                             int numProducts = productList.size();
+                          
                             for (int i = 0; i < numProducts; i++) {
                                 Product p = productList.get(i);
                                 if (i % 3 == 0) {
@@ -119,7 +104,7 @@
                                         <div class="product_image">
                                             <%
                                                 String img = null;
-                                                if (product.equals("Laptop")) {
+                                                if (p instanceof Laptop) {
                                                     img = "images/" + p.getProduct_name().split("/")[0] + " (1)" + ".jpg";
                                                 } else {
                                                     img = "images/" + p.getProduct_name() + " (1)" + ".jpg";

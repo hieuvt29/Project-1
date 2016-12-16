@@ -26,10 +26,10 @@
     </head>
     <body>
         <% String error = null;
-            error = (String) session.getAttribute("error");
+            error = (String) request.getAttribute("error");
+
         %>
         <jsp:include page="header.jsp"></jsp:include>
-
             <div class="login">
                 <div class="wrap">
                     <div class="col_1_of_login span_1_of_login">
@@ -45,7 +45,7 @@
                             <h4 class="title">Registered Customers</h4>
                             <div id="loginbox" class="loginbox">
                             <% if (error != null) {
-                                   session.removeAttribute("error");
+                                    request.removeAttribute("error");
                             %>
                             <font color="red"><%=error%></font>
                             <% }
