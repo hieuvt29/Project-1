@@ -16,9 +16,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 /**
  *
@@ -33,26 +30,15 @@ public class CheckUsernameServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String username = request.getParameter("username").trim();
-        //init json object
-        response.setContentType("application/json;charset=utf-8");
-        JSONObject resJson = new JSONObject();
-        PrintWriter pw = response.getWriter();
-
-        //retrieve data for json
-        boolean error = false;
-        String message = null;
-
         if (username.length() < 4) {
-            error = true;
-            message = "<font color='red'>less than 4 characters!</font>";
+            response.getWriter().write("short");
         } else {
             try {
                 if (userDAO.checkUsername(username)) {
-                    error = true;
-                    message = "<img src=\"img/not-available.png\"/> <font color='red'>Username has already been taken!</font>";
+                    response.getWriter().write("not available");
                 } else {
-                    error = false;
-                    message = "<img src=\"img/available.png\" />";
+                    
+                    response.getWriter().write("available");
                 }
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(CheckUsernameServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -60,18 +46,7 @@ public class CheckUsernameServlet extends HttpServlet {
                 Logger.getLogger(CheckUsernameServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        try {
-            //write data and close
-            resJson.put("error", error);
-            resJson.put("message", message);
-            pw.print(resJson.toString());
-
-        } catch (JSONException ex) {
-            Logger.getLogger(CheckUsernameServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            pw.close();
-        }
-
+        
     }
 
 }

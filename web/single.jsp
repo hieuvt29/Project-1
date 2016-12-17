@@ -4,6 +4,8 @@
     Author     : admin
 --%>
 
+<%@page import="model.Product"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="model.Mayanh"%>
 <%@page import="dao.MayanhDAO"%>
 <%@page import="model.Laptop"%>
@@ -72,17 +74,22 @@
     </head>
     <body>
         <%
-            String product_id = request.getParameter("product_id");;
-            String s1 = product_id.substring(0, 2);
+            String product_id = request.getParameter("product_id");
+            double d = 0;
+            Dienthoai dt = null;
+            Laptop lt = null;
+            Mayanh ma = null;
+            Product pd = (Product) request.getAttribute("product");
+            ArrayList<Product> listManyProduct = (ArrayList<Product>) request.getAttribute("listManyProduct");
 
-            DienthoaiDAO dienthoaiDAO = new DienthoaiDAO();
-            Dienthoai dt = new Dienthoai();
+            if (pd instanceof Dienthoai) {
+                dt = (Dienthoai) pd;
+            } else if (pd instanceof Laptop) {
+                lt = (Laptop) pd;
+            } else if (pd instanceof Mayanh) {
+                ma = (Mayanh) pd;
+            }
 
-            LaptopDAO laptopDAO = new LaptopDAO();
-            Laptop lt = new Laptop();
-
-            MayanhDAO mayanhDAO = new MayanhDAO();
-            Mayanh ma = new Mayanh();
         %>
 
         <jsp:include page="header.jsp"></jsp:include>
@@ -92,15 +99,11 @@
                     <div class="wrap">
                         <ul class="breadcrumb breadcrumb__t"><a class="home" href="index.jsp">Home</a>/<a href="single.jsp">Single</a></ul>
                         <div class="cont span_2_of_3">
-                        <%
-                            if (s1.equals("dt")) {
-                                dt = dienthoaiDAO.getDienthoai(product_id);
-                        %>
-                        <div class="grid images_3_of_2">
-
-                            <ul id="etalage">
-                                <%
-                                    for (int i = 2; i < 6; i++) {
+                            <div class="grid images_3_of_2">
+                                <ul id="etalage">
+                                <%                                    
+                                    if (dt != null) {
+                                        for (int i = 2; i < 6; i++) {
                                 %>
                                 <li>
                                     <a href="optionallink.html">
@@ -112,14 +115,13 @@
                                     }
                                 %>
                             </ul>
-
                             <div class="clearfix"></div>
                         </div>
                         <div class="desc1 span_3_of_2">
                             <h3 class="m_3"><%=dt.getProduct_name()%></h3>
                             <%
                                 if (dt.getCategory_id() == 3) {
-                                    double d = dt.getProduct_price() - (dt.getProduct_price() * dt.getProduct_discount() / 100);
+                                    d = dt.getProduct_price() - (dt.getProduct_price() * dt.getProduct_discount() / 100);
                             %>
                             <p class="m_5"><font color="red"><%=(double) Math.round((d * 1000) / 1000)%><span>0.000₫ </span></font><span class="reducedfrom"><%=dt.getProduct_price()%><span>0.000₫</span></span> <a href="#">click for offer</a></p>
                                 <%
@@ -155,30 +157,27 @@
                             <h3 class="m_3">Các sản phẩm khác cùng loại</h3>
                             <ul id="flexiselDemo3">
                                 <%
-                                    if (dt.getCategory_id() == 1) {
-                                        for (Dienthoai d : dienthoaiDAO.getManyProduct(1)) {
+                                    for (int i = 0; i < listManyProduct.size(); i++) {
+                                        if (listManyProduct.get(i).getCategory_id() == 1) {
                                 %>
-                                <li><img src="<%="images/" + d.getProduct_name() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=d.getProduct_id()%>"><%=d.getProduct_name()%></a></li>
+                                <li><img src="<%="images/" + listManyProduct.get(i).getProduct_name() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=listManyProduct.get(i).getProduct_id()%>"><%=listManyProduct.get(i).getProduct_name()%></a></li>
                                     <%
-                                        }
-                                    } else if (dt.getCategory_id() == 2) {
-                                        for (Dienthoai d : dienthoaiDAO.getManyProduct(2)) {
+                                    } else if (listManyProduct.get(i).getCategory_id() == 2) {
                                     %>
-                                <li><img src="<%="images/" + d.getProduct_name() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=d.getProduct_id()%>"><%=d.getProduct_name()%></a></li>
+                                <li><img src="<%="images/" + listManyProduct.get(i).getProduct_name() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=listManyProduct.get(i).getProduct_id()%>"><%=listManyProduct.get(i).getProduct_name()%></a></li>
                                     <%
-                                        }
-                                    } else if (dt.getCategory_id() == 3) {
-                                        for (Dienthoai d : dienthoaiDAO.getManyProduct(3)) {
+                                    } else if (listManyProduct.get(i).getCategory_id() == 3) {
                                     %>
-                                <li><img src="<%="images/" + d.getProduct_name() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=d.getProduct_id()%>"><%=d.getProduct_name()%></a></li>
+                                <li><img src="<%="images/" + listManyProduct.get(i).getProduct_name() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=listManyProduct.get(i).getProduct_id()%>"><%=listManyProduct.get(i).getProduct_name()%></a></li>
                                     <%
+                                                }
                                             }
                                         }
                                     %>
                             </ul>
                             <%
-                            } else if (s1.equals("mt")) {
-                                lt = laptopDAO.getLaptop(product_id);
+                                if (lt != null) {
+
                             %>
                             <div class="grid images_3_of_2">
                                 <ul id="etalage">
@@ -195,7 +194,7 @@
                                 <h3 class="m_3"><%=lt.getProduct_name()%></h3>
                                 <%
                                     if (lt.getCategory_id() == 3) {
-                                        double d = lt.getProduct_price() - (lt.getProduct_price() * lt.getProduct_discount() / 100);
+                                        d = lt.getProduct_price() - (lt.getProduct_price() * lt.getProduct_discount() / 100);
                                 %>
                                 <p class="m_5"><font color="red"><%=(double) Math.round((d * 1000) / 1000)%><span>0.000₫ </span></font><span class="reducedfrom"><%=lt.getProduct_price()%><span>0.000₫</span></span> <a href="#">click for offer</a></p>
                                     <%
@@ -231,30 +230,28 @@
                                 <h3 class="m_3">Các sản phẩm khác cùng loại</h3>
                                 <ul id="flexiselDemo3">
                                     <%
-                                        if (lt.getCategory_id() == 1) {
-                                            for (Laptop l : laptopDAO.getManyProduct(1)) {
+                                        ArrayList<Laptop> laptopList = (ArrayList<Laptop>) request.getAttribute("listManyProductLaptop");
+                                        for (int i = 0; i < laptopList.size(); i++) {
+                                            if (laptopList.get(i).getCategory_id() == 1) {
                                     %>
-                                    <li><img src="<%="images/" + l.getProduct_name() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=l.getProduct_id()%>"><%=l.getProduct_name()%></a></li>
+                                    <li><img src="<%="images/" + laptopList.get(i).getProduct_name() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=laptopList.get(i).getProduct_id()%>"><%=laptopList.get(i).getProduct_name()%></a></li>
                                         <%
-                                            }
-                                        } else if (lt.getCategory_id() == 2) {
-                                            for (Laptop l : laptopDAO.getManyProduct(2)) {
+                                        } else if (laptopList.get(i).getCategory_id() == 2) {
                                         %>
-                                    <li><img src="<%="images/" + l.getProduct_name() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=l.getProduct_id()%>"><%=l.getProduct_name()%></a></li>
+                                    <li><img src="<%="images/" + laptopList.get(i).getProduct_name() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=laptopList.get(i).getProduct_id()%>"><%=laptopList.get(i).getProduct_name()%></a></li>
                                         <%
-                                            }
-                                        } else if (lt.getCategory_id() == 3) {
-                                            for (Laptop l : laptopDAO.getManyProduct(3)) {
+                                        } else if (laptopList.get(i).getCategory_id() == 3) {
                                         %>
-                                    <li><img src="<%="images/" + l.getProduct_name() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=l.getProduct_id()%>"><%=l.getProduct_name()%></a></li>
+                                    <li><img src="<%="images/" + laptopList.get(i).getProduct_name() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=laptopList.get(i).getProduct_id()%>"><%=laptopList.get(i).getProduct_name()%></a></li>
                                         <%
+                                                    }
                                                 }
                                             }
                                         %>
                                 </ul>
                                 <%
-                                } else if (s1.equals("ma")) {
-                                    ma = mayanhDAO.getMayanh(product_id);
+                                    if (ma != null) {
+
                                 %>
                                 <div class="grid images_3_of_2">
                                     <ul id="etalage">
@@ -271,7 +268,7 @@
                                     <h3 class="m_3"><%=ma.getProduct_name()%></h3>
                                     <%
                                         if (ma.getCategory_id() == 3) {
-                                            double d = ma.getProduct_price() - (ma.getProduct_price() * ma.getProduct_discount() / 100);
+                                            d = ma.getProduct_price() - (ma.getProduct_price() * ma.getProduct_discount() / 100);
                                     %>
                                     <p class="m_5"><font color="red"><%=(double) Math.round((d * 1000) / 1000)%><span>0.000₫ </span></font><span class="reducedfrom"><%=ma.getProduct_price()%><span>0.000₫</span></span> <a href="#">click for offer</a></p>
                                         <%
@@ -307,30 +304,25 @@
                                     <h3 class="m_3">Các sản phẩm khác cùng loại</h3>
                                     <ul id="flexiselDemo3">
                                         <%
-                                            if (ma.getCategory_id() == 1) {
-                                                for (Mayanh m : mayanhDAO.getManyProduct(1)) {
+                                            ArrayList<Mayanh> mayanhList = (ArrayList<Mayanh>) request.getAttribute("listManyProductMayanh");
+                                            for (int i = 0; i < mayanhList.size(); i++) {
+                                                if (mayanhList.get(i).getCategory_id() == 1) {
                                         %>
-                                        <li><img src="<%="images/" + m.getProduct_name() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=m.getProduct_id()%>"><%=m.getProduct_name()%></a></li>
+                                        <li><img src="<%="images/" + mayanhList.get(i).getProduct_name() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=mayanhList.get(i).getProduct_id()%>"><%=mayanhList.get(i).getProduct_name()%></a></li>
                                             <%
-                                                }
-                                            } else if (ma.getCategory_id() == 2) {
-                                                for (Mayanh m : mayanhDAO.getManyProduct(2)) {
+                                            } else if (mayanhList.get(i).getCategory_id() == 2) {
                                             %>
-                                        <li><img src="<%="images/" + m.getProduct_name() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=m.getProduct_id()%>"><%=m.getProduct_name()%></a></li>
+                                        <li><img src="<%="images/" + mayanhList.get(i).getProduct_name() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=mayanhList.get(i).getProduct_id()%>"><%=mayanhList.get(i).getProduct_name()%></a></li>
                                             <%
-                                                }
-                                            } else if (ma.getCategory_id() == 3) {
-                                                for (Mayanh m : mayanhDAO.getManyProduct(3)) {
+                                            } else if (mayanhList.get(i).getCategory_id() == 3) {
                                             %>
-                                        <li><img src="<%="images/" + m.getProduct_name() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=m.getProduct_id()%>"><%=m.getProduct_name()%></a></li>
+                                        <li><img src="<%="images/" + mayanhList.get(i).getProduct_name() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=mayanhList.get(i).getProduct_id()%>"><%=mayanhList.get(i).getProduct_name()%></a></li>
                                             <%
+                                                        }
                                                     }
                                                 }
                                             %>
                                     </ul>
-                                    <%
-                                        }
-                                    %>
                                     <script type="text/javascript">
                                         $(window).load(function () {
                                             $("#flexiselDemo1").flexisel();
@@ -387,82 +379,6 @@
                                     <h3 class="m_3">More Information</h3>
                                     <p class="m_text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
                                 </div>
-                            </div>
-                            <div class="rsingle span_1_of_single">
-                                <h5 class="m_1">DANH MỤC</h5>
-                                <select class="dropdown" tabindex="8" data-settings='{"wrapperClass":"metro"}'>
-                                    <option value="1">ĐIỆN THOẠI</option>                               
-                                </select>
-                                <select class="dropdown" tabindex="8" data-settings='{"wrapperClass":"metro"}'>
-                                    <option value="1">LAPTOP</option>
-                                </select>
-                                <ul class="kids">
-                                    <li><a href="#">MÁY ẢNH</a></li>
-                                </ul>
-                                <section  class="sky-form">
-                                    <h4>GIÁ</h4>
-                                    <div class="row row1 scroll-pane">
-                                        <div class="col col-4">
-                                            <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Rs 500 - Rs 700</label>
-                                        </div>
-                                        <div class="col col-4">
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 700 - Rs 1000</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 1000 - Rs 1500</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 1500 - Rs 2000</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 2000 - Rs 2500</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>Rs 2500 - Rs 3000</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 3500 - Rs 4000</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 4000 - Rs 4500</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 4500 - Rs 5000</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 5000 - Rs 5500</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 5500 - Rs 6000</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 6000 - Rs 6500</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 6500 - Rs 7000</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 7000 - Rs 7500</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 7500 - Rs 8000</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 8000 - Rs 8500</label>	
-                                        </div>
-                                    </div>
-                                </section>
-                                <section  class="sky-form">
-                                    <h4>Brand Name</h4>
-                                    <div class="row row1 scroll-pane">
-                                        <div class="col col-4">
-                                            <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>John Jacobs</label>
-                                        </div>
-                                        <div class="col col-4">
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Tag Heuer</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Lee Cooper</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Mikli</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>S Oliver</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>Hackett</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Killer</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>IDEE</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Vogue</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Gunnar</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Accu Reader</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>CAT</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Excellent</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Feelgood</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Odysey</label>
-                                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Animal</label>	
-                                        </div>
-                                    </div>
-                                </section>
-
-                                <section  class="sky-form">
-                                    <h4>MÀU SẮC</h4>
-                                    <ul class="color-list">
-                                        <li><a href="#"> <span class="color1"> </span><p class="red">Red</p></a></li>
-                                        <li><a href="#"> <span class="color2"> </span><p class="red">Green</p></a></li>
-                                        <li><a href="#"> <span class="color3"> </span><p class="red">Blue</p></a></li>
-                                        <li><a href="#"> <span class="color4"> </span><p class="red">Yellow</p></a></li>
-                                        <li><a href="#"> <span class="color5"> </span><p class="red">Violet</p></a></li>
-                                        <li><a href="#"> <span class="color6"> </span><p class="red">Orange</p></a></li>
-                                        <li><a href="#"> <span class="color7"> </span><p class="red">Gray</p></a></li>
-                                    </ul>
-                                </section>
-                                <script src="js/jquery.easydropdown.js"></script>
                             </div>
                             <div class="clear"></div>
                             <div>
