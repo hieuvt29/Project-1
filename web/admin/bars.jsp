@@ -43,10 +43,10 @@
                 </div>
             </form>
             <ul class="nav menu">
-                <li class="active"><a href="index.jsp"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
-                <li><a href="products_admin.jsp"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg> Products</a></li>
-                <li><a href="categories_admin.jsp"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"/></svg> Categories</a></li>
-                <li><a href="bills_admin.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Bills </a></li>
+                <li class="active"><a href="dashboard.jsp"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
+                <li><a href="productManager.jsp"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg> Products</a></li>
+                <li><a href="categoryManager.jsp"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"/></svg> Categories</a></li>
+                <li><a href="billManager.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Bills </a></li>
                 
                 <li class="parent ">
                     <a href="#">
