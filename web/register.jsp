@@ -30,9 +30,9 @@
             <div class="register_account">
                 <div class="wrap">
                     <h4 class="title">Create an Account</h4>
-                    <form action="UserControllerServlet" method="post">
+                    <form action="UserControllerServlet" method="post" onsubmit="return submitController();">
                         <div class="col_2_of_2 span_2_of_2">
-                            <div>Username *: <input type="text" id="user_name" name="user_name" placeholder="Nguyễn Văn A">
+                            <div>Username *: <input type="text" id="user_name" name="user_name" placeholder="anguyenvan1996">
 
                                 <span id="check-username-result"></span>
                             </div>
@@ -70,19 +70,20 @@
 //            var submitBtn = $('input[type="submit"]');
 //            submitBtn.attr('disabled', true);
 
-            $(document).ready(function () {
-                function setContent(element, data) {
-                    if (data == "short") {
-                        $("#check-username-result").html("<font color='red'>less than 4 characters!</font>");
-                    } else if (data == "not available") {
-                        $("#check-username-result").html("<img src=\"img/not-available.png\" />");
-                    } else if (data == "available") {
-                        $("#check-username-result").html("<img src=\"img/available.png\" />");
-                    } else {
-                        //do something else
-                    }
+            var check_email_timer, check_username_timer, check_pass_timer,
+                    email_ok, username_ok, pass_ok;
+
+            function submitController() {
+                
+                if (email_ok && username_ok && pass_ok && $('input[name="user_phonenumber"').val() != "") {
+                    return true;
+                } else {
+                    alert("Correct the form before submit!");
+                    return false;
                 }
-                var check_email_timer, check_username_timer, check_pass_timer;
+            }
+            $(document).ready(function () {
+
                 $("#user_name").keyup(function (e) {
                     clearTimeout(check_username_timer);
                     var username = $(this).val();
@@ -93,14 +94,11 @@
                 });
                 function check_username_ajax(username) {
                     $.post('CheckUsernameServlet', {'username': username}, function (data) {
-                        if (data == "short") {
-                            $("#check-username-result").html("<font color='red'>less than 4 characters!</font>");
-                        } else if (data == "not available") {
-                            $("#check-username-result").html("<img src=\"img/not-available.png\" />");
-                        } else if (data == "available") {
-                            $("#check-username-result").html("<img src=\"img/available.png\" />");
+                        $("#check-username-result").html(data.message);
+                        if (data.error) {
+                            username_ok = false;
                         } else {
-                            //do something else
+                            username_ok = true;
                         }
                     });
                 }
@@ -115,7 +113,12 @@
                 });
                 function check_email_ajax(email) {
                     $.post('CheckEmailServlet', {'email': email}, function (data) {
-                        $("#check-useremail-result").html(data);
+                        $("#check-useremail-result").html(data.message);
+                        if (data.error) {
+                            email_ok = false;
+                        } else {
+                            email_ok = true;
+                        }
                     });
                 }
                 ;
@@ -130,7 +133,12 @@
                 });
                 function check_pass_ajax(pass) {
                     $.post('CheckUserpassServlet', {'password': pass}, function (data) {
-                        $("#check-userpass-result").html(data);
+                        $("#check-userpass-result").html(data.message);
+                        if (data.error) {
+                            pass_ok = false;
+                        } else {
+                            pass_ok = true;
+                        }
                     });
                 }
             });
