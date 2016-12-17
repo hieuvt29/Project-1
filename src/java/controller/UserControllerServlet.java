@@ -76,7 +76,7 @@ public class UserControllerServlet extends HttpServlet {
             session.setAttribute("user", user);
             session.setMaxInactiveInterval(10 * 60);
             if(user.isUser_role()){
-                url = "admin/index.jsp";
+                url = "admin/dashboard.jsp";
             }
         }
 

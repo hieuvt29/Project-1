@@ -117,7 +117,7 @@ public class UserDAO {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         UserDAO userDAO = new UserDAO();
-        User user = userDAO.login("1234@gmail.com", MD5.encryption("123321123"));
-        System.out.println(user);
+        User user = userDAO.login("hieu1@gmail.com", MD5.encryption("123321123"));
+        System.out.println(user.getUser_password());
     }
 }
