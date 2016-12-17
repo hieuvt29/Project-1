@@ -75,9 +75,6 @@ public class UserControllerServlet extends HttpServlet {
         if (user != null) {
             session.setAttribute("user", user);
             session.setMaxInactiveInterval(10 * 60);
-            if(user.isUser_role()){
-                url = "admin/index.jsp";
-            }
         }
 
         RequestDispatcher rd = request.getRequestDispatcher(url);
