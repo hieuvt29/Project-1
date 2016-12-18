@@ -75,8 +75,8 @@ public class UserControllerServlet extends HttpServlet {
         if (user != null) {
             session.setAttribute("user", user);
             session.setMaxInactiveInterval(10 * 60);
-            if(user.isUser_role()){
-                url = "dashboard.jsp";
+            if (user.isUser_role()) {
+                url = "admin/dashboard.jsp";
             }
         }
 
@@ -90,12 +90,25 @@ public class UserControllerServlet extends HttpServlet {
             throws ServletException, IOException {
         String command = request.getParameter("command");
         HttpSession session = request.getSession();
-        String url = "index.jsp";
+        User user = (User) session.getAttribute("user");
+        
+        String url = null;
         //Logout Handler
-        if (command.equals("logout")) {
+        if (command != null && command.equals("logout")) {
             session.invalidate();
+            
+            url = "index.jsp";
+            RequestDispatcher rd = request.getRequestDispatcher(url);
+            rd.forward(request, response);
+        }else
+        //Profile Handler
+        if(command != null && command.equals("profile")){
+            url = "profile.jsp";
+            
             RequestDispatcher rd = request.getRequestDispatcher(url);
             rd.forward(request, response);
         }
+        
+
     }
 }

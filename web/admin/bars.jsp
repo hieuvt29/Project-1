@@ -33,9 +33,8 @@
                         <li class="dropdown pull-right">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg><%=(user!=null)?(user.getUser_name()):("User")%><span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
-                                <li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
-                                <li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
+                                <li><a href="UserControllerServlet?command=profile"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
+                                <li><a href="UserControllerServlet?command=logout"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -50,10 +49,10 @@
                 </div>
             </form>
             <ul class="nav menu">
-                <li class="active"><a href="dashboard.jsp"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
-                <li><a href="productManager.jsp"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg> Products</a></li>
-                <li><a href="categoryManager.jsp"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"/></svg> Categories</a></li>
-                <li><a href="billManager.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Bills </a></li>
+                <li class="active"><a href="${root}/WebBanHang/admin/dashboard.jsp"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
+                <li><a href="${root}/WebBanHang/admin/productManager.jsp"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg> Products</a></li>
+                <li><a href="${root}/WebBanHang/admin/categoryManager.jsp"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"/></svg> Categories</a></li>
+                <li><a href="${root}/WebBanHang/admin/billManager.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Bills </a></li>
 
                 <li class="parent ">
                     <a href="#">

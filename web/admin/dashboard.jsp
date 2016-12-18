@@ -4,6 +4,7 @@
     Author     : LOREMSUM
 --%>
 
+<%@page import="model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,21 +14,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Lumino - Dashboard</title>
 
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/datepicker3.css" rel="stylesheet">
-        <link href="css/styles.css" rel="stylesheet">
+        <link href="${root}/WebBanHang/admin/css/bootstrap.min.css" rel="stylesheet">
+        <link href="${root}/WebBanHang/admin/css/datepicker3.css" rel="stylesheet">
+        <link href="${root}/WebBanHang/admin/css/styles.css" rel="stylesheet">
 
         <!--Icons-->
-        <script src="js/lumino.glyphs.js"></script>
+        <script src="${root}/WebBanHang/admin/js/lumino.glyphs.js"></script>
 
         <!--[if lt IE 9]>
-        <script src="js/html5shiv.js"></script>
-        <script src="js/respond.min.js"></script>
+        <script src="${root}/WebBanHang/admin/js/html5shiv.js"></script>
+        <script src="${root}/WebBanHang/admin/js/respond.min.js"></script>
         <![endif]-->
 
     </head>
     <body>
         <jsp:include page="bars.jsp" ></jsp:include>
+
         <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
             <div class="row">
                 <ol class="breadcrumb">
@@ -250,14 +252,14 @@
             </div><!--/.row-->
         </div>	<!--/.main-->
 
-        <script src="js/jquery-1.11.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/chart.min.js"></script>
-        <script src="js/chart-data.js"></script>
-        <script src="js/easypiechart.js"></script>
-        <script src="js/easypiechart-data.js"></script>
-        <script src="js/bootstrap-datepicker.js"></script>
-        <script src="js/bootstrap-table.js"></script>
+        <script src="${root}/WebBanHang/admin/js/jquery-1.11.1.min.js"></script>
+        <script src="${root}/WebBanHang/admin/js/bootstrap.min.js"></script>
+        <script src="${root}/WebBanHang/admin/js/chart.min.js"></script>
+        <script src="${root}/WebBanHang/admin/js/chart-data.js"></script>
+        <script src="${root}/WebBanHang/admin/js/easypiechart.js"></script>
+        <script src="${root}/WebBanHang/admin/js/easypiechart-data.js"></script>
+        <script src="${root}/WebBanHang/admin/js/bootstrap-datepicker.js"></script>
+        <script src="${root}/WebBanHang/admin/js/bootstrap-table.js"></script>
         <script>
             $("#calendar").datepicker({
             });

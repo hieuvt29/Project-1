@@ -39,15 +39,24 @@
         <div class="wrap"> 
             <div class="cssmenu">
                 <ul>
+
+                    <% if (user != null) {
+                            if (user.isUser_role()) {
+                    %>
+                    <li><a href="profile.jsp"><%=user.getUser_name()%></a></li> |
+                    <li><a href="UserControllerServlet?command=gotoDashboard" >Dashboard</a></li>|
+                    <li><a href="UserControllerServlet?command=logout" >Log out</a></li>
+                        <%
+                        } else {
+                        %>
                     <li class="active"><a href="login.jsp">Account</a></li> |
                     <li><a href="checkout.jsp">Wishlist</a></li> |
                     <li><a href="checkout.jsp">Checkout</a></li> |
-                        <% if (user != null) {
-                        %>
                     <li><a href="profile.jsp"><%=user.getUser_name()%></a></li> |
-                    <li><a href="UserControllerServlet?command=logout" >Log out</a></li> |
+                    <li><a href="UserControllerServlet?command=logout" >Log out</a></li>
 
-                    <% } else {
+                    <% }
+                    } else {
 
                     %>
                     <li><a href="login.jsp">Log In</a></li> |
