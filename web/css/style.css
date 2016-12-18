@@ -41,7 +41,7 @@ body{
 	-ms-transition:all .2s linear;
 }
 .header-top{
-	background:#4cb1ca;
+	background:#000;
 }
 .header-top-left{
 	width:54.5%;
@@ -640,7 +640,7 @@ p.m_text{
 /*--footer--*/
 /*  GRID OF TWO   ============================================================================= */
 .footer-top{
-	background:#4cb1ca;
+	background:#000;
 }
 .col_1_of_2{
 	display: block;

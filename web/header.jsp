@@ -59,8 +59,8 @@
                     } else {
 
                     %>
-                    <li><a href="login.jsp">Log In</a></li> |
-                    <li><a href="register.jsp">Sign Up</a></li>
+                    <li><a href="login.jsp">LOG IN</a></li> |
+                    <li><a href="register.jsp">SIGN UP</a></li>
                         <% }
                         %>
 
