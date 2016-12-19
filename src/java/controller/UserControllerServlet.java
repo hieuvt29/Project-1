@@ -7,7 +7,6 @@ package controller;
 
 import dao.UserDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +24,7 @@ import utils.MD5;
  *
  * @author user
  */
-@WebServlet(name = "UserControllerServlet", urlPatterns = {"/UserControllerServlet"})
+@WebServlet(name = "UserControllerServlet", urlPatterns = {"/UserControllerServlet", "admin/*"})
 public class UserControllerServlet extends HttpServlet {
 
     UserDAO userDAO = new UserDAO();
@@ -70,14 +69,39 @@ public class UserControllerServlet extends HttpServlet {
                 Logger.getLogger(UserControllerServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
 
+        } else if (command != null && command.equals("update")) {
+            User oldUser = (User) session.getAttribute("user");
+            User newUser = new User();
+            newUser.setUser_id(oldUser.getUser_id());
+            newUser.setUser_name(oldUser.getUser_name());
+            newUser.setUser_email(request.getParameter("user_email"));
+            newUser.setUser_phonenumber(request.getParameter("user_phonenumber"));
+
+            String pass = request.getParameter("user_pass");
+            if (pass.length() >= 8) {
+                newUser.setUser_password(MD5.encryption(pass));
+            }else{
+                newUser.setUser_password(oldUser.getUser_password());
+            }
+            try {
+                user = userDAO.update(newUser);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(UserControllerServlet.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(UserControllerServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
         if (user != null) {
-            session.setAttribute("user", user);
-            session.setMaxInactiveInterval(10 * 60);
             if (user.isUser_role()) {
+                session.setAttribute("admin", user);
+                session.setMaxInactiveInterval(10 * 60);
                 url = "admin/dashboard.jsp";
+            } else {
+                session.setAttribute("user", user);
+                session.setMaxInactiveInterval(10 * 60);
             }
+
         }
 
         RequestDispatcher rd = request.getRequestDispatcher(url);
@@ -104,9 +128,6 @@ public class UserControllerServlet extends HttpServlet {
             //Profile Handler
             url = "profile.jsp";
 
-        } else if (command != null && command.equals("gotoDashboard") && user != null && user.isUser_role()) {
-            // Dashboard redirect
-            url = "admin/dashboard.jsp";
         }
 
         RequestDispatcher rd = request.getRequestDispatcher(url);

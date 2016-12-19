@@ -12,6 +12,7 @@ import java.io.StringWriter;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import javax.servlet.Filter;
@@ -49,29 +50,26 @@ public class AdminAccessControllerFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
-
-        if (debug) {
-            log("AdminAccessControllerFilter:doFilter()");
-        }
         
-            
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
         
+        
         User user = null;
         HttpSession session = req.getSession();
-        user = (User) session.getAttribute("user");
+        user = (User) session.getAttribute("admin");
+        String url = null;
         
-        
-        if (user == null || (user != null && !user.isUser_role())) {
-            res.sendRedirect("index.jsp");
+        if(user == null){
+            url = req.getContextPath() + "/login.jsp";
+            res.sendRedirect(url);
         }
-
+        
         Throwable problem = null;
 
         
         try {
-            chain.doFilter(request, response);
+            chain.doFilter(req, res);
         } catch (Throwable t) {
             // If an exception is thrown somewhere down the filter chain,
             // we still want to execute our after processing, and then

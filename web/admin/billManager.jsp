@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Product Manager</title>
+        <title>Bill Manager</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/datepicker3.css" rel="stylesheet">
         <link href="css/styles.css" rel="stylesheet">
@@ -43,7 +43,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">Basic Table</div>
                         <div class="panel-body">
-                            <table data-toggle="table" data-url="tables/data2.json" >
+                            <table data-toggle="table" data-url="tables/data1.json" >
                                 <thead>
                                     <tr>
                                         <th data-field="id" data-align="right">Item ID</th>

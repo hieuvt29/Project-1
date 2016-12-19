@@ -12,6 +12,7 @@
         <title>Register</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
         <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
         <script type="text/javascript" src="js/jquery1.min.js"></script>
@@ -30,21 +31,25 @@
             <div class="register_account">
                 <div class="wrap">
                     <h4 class="title">Create an Account</h4>
-                    <form action="UserControllerServlet" method="post" onsubmit="return submitController();">
-                        <div class="col_2_of_2 span_2_of_2">
-                            <div>Username *: <input type="text" id="user_name" name="user_name" placeholder="anguyenvan1996">
+                    <form class="form-inline" action="UserControllerServlet" method="post" onsubmit="return submitController();">
+                        <div class="col_3_of_3 span_3_of_3">
+                            <div><label>User name* :</label>
+                                <input class="form-control" type="text" id="user_name" name="user_name" placeholder="anguyenvan1996">
 
                                 <span id="check-username-result"></span>
                             </div>
-                            <div>Email *: <input type="text" id="user_email" name="user_email" placeholder="nguyenvana@gmail.com">
+                            <div><label>Email* :</label>
+                                <input class="form-control" type="text" id="user_email" name="user_email" placeholder="nguyenvana@gmail.com">
 
                                 <span id="check-useremail-result"></span>
                             </div>
-                            <div>Password *: <input type="password" id="user_pass" name="user_pass">
+                            <div><label>Password* :</label>
+                                <input class="form-control" type="password" id="user_pass" name="user_pass">
 
                                 <span id="check-userpass-result"></span>
                             </div>
-                            <div>Phone Number *: <input type="text" name="user_phonenumber" placeholder="0918273645"></div>
+                            <div><label>Phone number* :</label>
+                                <input class="form-control" type="text" name="user_phonenumber" placeholder="0918273645"></div>
                             <input type="hidden" name="command" value="register"/>
                             <br>
                             <div>

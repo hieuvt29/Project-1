@@ -215,15 +215,14 @@ public class LaptopDAO extends ProductDAO {
     }
     
     public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
-        System.out.println("It's run!");
-
         LaptopDAO ldao = new LaptopDAO();
+
         System.out.println(ldao.getProduct("mt0002").getProduct_CPU());
         System.out.println(ldao.getProduct("mt0002").getProduct_RAM());
         System.out.println(ldao.getProduct("mt0002").getProduct_screen());
+
 //        ArrayList<Product> list = ldao.getProducts("*");
 //        System.out.println(list.size());
-        
 
     }
 

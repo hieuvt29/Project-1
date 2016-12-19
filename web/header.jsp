@@ -27,37 +27,23 @@
 <body>
     <%
         SupplierDAO supplierDAO = new SupplierDAO();
-
         User user = null;
         if (session.getAttribute("user") != null) {
             user = (User) session.getAttribute("user");
         }
-
     %>
 
     <div class="header-top">
         <div class="wrap"> 
             <div class="cssmenu">
                 <ul>
-
                     <% if (user != null) {
-                            if (user.isUser_role()) {
                     %>
-                    <li><a href="profile.jsp"><%=user.getUser_name()%></a></li> |
-                    <li><a href="UserControllerServlet?command=gotoDashboard" >Dashboard</a></li>|
-                    <li><a href="UserControllerServlet?command=logout" >Log out</a></li>
-                        <%
-                        } else {
-                        %>
-                    <li class="active"><a href="login.jsp">Account</a></li> |
-                    <li><a href="checkout.jsp">Wishlist</a></li> |
-                    <li><a href="checkout.jsp">Checkout</a></li> |
-                    <li><a href="profile.jsp"><%=user.getUser_email()%></a></li> |
-                    <li><a href="UserControllerServlet?command=logout" >Log out</a></li>
-
-                    <% }
-                    } else {
-
+                    <li><a href="checkout.jsp">WISHLIST</a></li> |
+                    <li><a href="checkout.jsp">CHECKOUT</a></li> |
+                    <li><a href="profile.jsp"><%=user.getUser_name()%> - (<%=user.getUser_email()%>)</a></li> |
+                    <li><a href="UserControllerServlet?command=logout" >LOG OUT</a></li>
+                    <% } else {
                     %>
                     <li><a href="login.jsp">LOG IN</a></li> |
                     <li><a href="register.jsp">SIGN UP</a></li>
@@ -170,10 +156,6 @@
             <div class="clear"></div>
         </div>
     </div>
-    <form name='queryform' action='ProductsPageServlet' method='post'>
-        <input type='hidden' name='product' value="">
-        <input type='hidden' name='supplier' value="">
-    </form>
 
 </body>
 </html>

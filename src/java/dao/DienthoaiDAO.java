@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Dienthoai;
 import model.Product;
+import model.Supplier;
 
 /**
  *
@@ -137,9 +138,40 @@ public class DienthoaiDAO extends ProductDAO {
         return dt;
     }
 
+    // remove Supply
+//    public boolean removeSupply(Supplier supplier) {
+//        try {
+//            Connection con = DBConnector.getConnection();
+//            String sql = "DELETE FROM supplier_dienthoai WHERE supplier_id = ?";
+//            PreparedStatement ps = con.prepareCall(sql);
+//            ps.setInt(1, supplier.getSupplier_id());
+//            ps.executeUpdate();
+//            return true;
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return false;
+//    }
+//    public boolean insertProduct(Dienthoai dienthoai) {
+//        try {
+//            Connection con = DBConnector.getConnection();
+//            String sql = "INSERT INTO dienthoai VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+//            PreparedStatement ps = con.prepareCall(sql);
+//            ps.setString(1, dienthoai.getProduct_name());
+//            ps.setInt(2, dienthoai.getCategory_id());
+//            ps.setInt(3, dienthoai.getSupply_id());
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
     public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
         DienthoaiDAO dtDAO = new DienthoaiDAO();
-        for (Dienthoai dt : dtDAO.getManyProduct(2)) {
+        Supplier s = new Supplier();
+        s.setSupplier_id(1);
 //            System.out.println(dt.getProduct_id());
 //            System.out.println(dt.getCategory_id());
 //            System.out.println(dt.getProduct_name());
@@ -153,9 +185,5 @@ public class DienthoaiDAO extends ProductDAO {
 //        System.out.println(dtDAO.getProduct("dt0003").getCategory_id());
 //        System.out.println(dtDAO.getProduct("dt0003").getProduct_sim_card());
 //        System.out.println(dtDAO.getProduct("dt0003").getProduct_connection());
-            System.out.println(dt.getProduct_id());
-            System.out.println(dt.getProduct_name());
-            System.out.println(dt.getSupply_id());
-        }
     }
 }
