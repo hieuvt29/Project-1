@@ -7,7 +7,6 @@ package controller;
 
 import dao.UserDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,8 +35,7 @@ public class CheckUsernameServlet extends HttpServlet {
             try {
                 if (userDAO.checkUsername(username)) {
                     response.getWriter().write("not available");
-                } else {
-                    
+                } else {                   
                     response.getWriter().write("available");
                 }
             } catch (ClassNotFoundException ex) {

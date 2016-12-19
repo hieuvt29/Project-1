@@ -7,6 +7,7 @@ package dao;
 
 import java.util.ArrayList;
 import model.Product;
+import model.Supplier;
 
 /**
  *
@@ -20,4 +21,5 @@ public abstract class ProductDAO {
      * @return list of product
      */
     public abstract ArrayList<Product> getProducts(String product);
+//    public abstract boolean insertProduct(Product product);
 }

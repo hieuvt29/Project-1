@@ -27,12 +27,10 @@
 <body>
     <%
         SupplierDAO supplierDAO = new SupplierDAO();
-
         User user = null;
         if (session.getAttribute("user") != null) {
             user = (User) session.getAttribute("user");
         }
-
     %>
 
     <div class="header-top">
@@ -48,7 +46,6 @@
                     <li><a href="UserControllerServlet?command=logout" >Log out</a></li> |
 
                     <% } else {
-
                     %>
                     <li><a href="login.jsp">Log In</a></li> |
                     <li><a href="register.jsp">Sign Up</a></li>

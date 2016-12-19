@@ -15,6 +15,7 @@ import model.Mayanh;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Product;
+import model.Supplier;
 
 public class MayanhDAO extends ProductDAO {
 

@@ -99,7 +99,7 @@
                         %>
 
                             <div class="col_1_of_3 span_1_of_3">                                
-                                <a href="single.jsp?product_id=<%=p.getProduct_id()%>">
+                                <a href="SingleServlet?product_id=<%=p.getProduct_id()%>">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
                                             <%

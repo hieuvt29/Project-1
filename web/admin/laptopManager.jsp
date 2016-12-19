@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Product Manager</title>
+        <title>Laptop Manager</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/datepicker3.css" rel="stylesheet">
         <link href="css/styles.css" rel="stylesheet">
@@ -34,21 +34,25 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Tables</h1>
+                    <h1 class="page-header">Laptop</h1>
                 </div>
             </div><!--/.row-->
             
             <div class="row">
                 <div class="col-md-10">
                     <div class="panel panel-default">
-                        <div class="panel-heading">Basic Table</div>
+                        <div class="panel-heading">
+                            <a href="insertProduct.jsp">Add Item</a>
+                        </div>
                         <div class="panel-body">
                             <table data-toggle="table" data-url="tables/data2.json" >
                                 <thead>
                                     <tr>
-                                        <th data-field="id" data-align="right">Item ID</th>
+                                        <th data-field="id" data-align="left">Item ID</th>
                                         <th data-field="name">Item Name</th>
                                         <th data-field="price">Item Price</th>
+                                        <th data-field="price">Item Sale</th>
+
                                     </tr>
                                 </thead>
                             </table>
