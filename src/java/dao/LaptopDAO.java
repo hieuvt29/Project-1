@@ -41,7 +41,7 @@ public class LaptopDAO extends ProductDAO {
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 String product_id = rs.getString(1);
-                Laptop lt = getLaptop(product_id);
+                Laptop lt = getProduct(product_id);
                 listProduct.add(lt);
             }
         } catch (ClassNotFoundException ex) {
@@ -53,7 +53,7 @@ public class LaptopDAO extends ProductDAO {
         return listProduct;
     }
 
-    public Laptop getLaptop(String product_id) {
+    public Laptop getProduct(String product_id) {
         Laptop res = new Laptop();
         try {
             Connection con = DBConnector.getConnection();
@@ -218,9 +218,9 @@ public class LaptopDAO extends ProductDAO {
         System.out.println("It's run!");
 
         LaptopDAO ldao = new LaptopDAO();
-        System.out.println(ldao.getLaptop("mt0002").getProduct_CPU());
-        System.out.println(ldao.getLaptop("mt0002").getProduct_RAM());
-        System.out.println(ldao.getLaptop("mt0002").getProduct_screen());
+        System.out.println(ldao.getProduct("mt0002").getProduct_CPU());
+        System.out.println(ldao.getProduct("mt0002").getProduct_RAM());
+        System.out.println(ldao.getProduct("mt0002").getProduct_screen());
 //        ArrayList<Product> list = ldao.getProducts("*");
 //        System.out.println(list.size());
         

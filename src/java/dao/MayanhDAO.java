@@ -33,7 +33,7 @@ public class MayanhDAO extends ProductDAO {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 String product_id = rs.getString(1);
-                Mayanh lt = getMayanh(product_id);
+                Mayanh lt = getProduct(product_id);
                 listProduct.add(lt);
             }
         } catch (ClassNotFoundException ex) {
@@ -65,7 +65,7 @@ public class MayanhDAO extends ProductDAO {
         return list;
     }
     
-    public Mayanh getMayanh(String product_id) {
+    public Mayanh getProduct(String product_id) {
         Mayanh res = new Mayanh();
         try {
             Connection con = DBConnector.getConnection();
@@ -103,9 +103,9 @@ public class MayanhDAO extends ProductDAO {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         MayanhDAO ldao = new MayanhDAO();
-        System.out.println(ldao.getMayanh("ma0001").getCategory_id());
-        System.out.println(ldao.getMayanh("ma0001").getProduct_name());
-        System.out.println(ldao.getMayanh("ma0001").getProduct_weight() + "g");
+        System.out.println(ldao.getProduct("ma0001").getCategory_id());
+        System.out.println(ldao.getProduct("ma0001").getProduct_name());
+        System.out.println(ldao.getProduct("ma0001").getProduct_weight() + "g");
     }
 
 }

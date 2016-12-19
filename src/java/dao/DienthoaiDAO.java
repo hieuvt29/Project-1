@@ -73,7 +73,7 @@ public class DienthoaiDAO extends ProductDAO {
         return list;
     }
 
-    public ArrayList<Dienthoai> getDienthoai(int supplier_id) throws ClassNotFoundException, SQLException {
+    public ArrayList<Dienthoai> getProduct(int supplier_id) throws ClassNotFoundException, SQLException {
         ArrayList<Dienthoai> list = new ArrayList<>();
         Connection con = DBConnector.getConnection();
         String sql = "SELECT * FROM dienthoai WHERE supplier_id = '" + supplier_id + "'";
@@ -148,11 +148,11 @@ public class DienthoaiDAO extends ProductDAO {
 //            System.out.println("---------------------------");
 //        }
 
-//        System.out.println(dtDAO.getDienthoai("dt0012").getProduct_name());
-//        System.out.println(dtDAO.getDienthoai("dt0003").getProduct_os());
-//        System.out.println(dtDAO.getDienthoai("dt0003").getCategory_id());
-//        System.out.println(dtDAO.getDienthoai("dt0003").getProduct_sim_card());
-//        System.out.println(dtDAO.getDienthoai("dt0003").getProduct_connection());
+//        System.out.println(dtDAO.getProduct("dt0012").getProduct_name());
+//        System.out.println(dtDAO.getProduct("dt0003").getProduct_os());
+//        System.out.println(dtDAO.getProduct("dt0003").getCategory_id());
+//        System.out.println(dtDAO.getProduct("dt0003").getProduct_sim_card());
+//        System.out.println(dtDAO.getProduct("dt0003").getProduct_connection());
             System.out.println(dt.getProduct_id());
             System.out.println(dt.getProduct_name());
             System.out.println(dt.getSupply_id());

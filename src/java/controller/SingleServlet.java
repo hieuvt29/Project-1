@@ -56,7 +56,7 @@ public class SingleServlet extends HttpServlet {
             } else if(s1.equals("mt")) {
                 LaptopDAO laptopDAO = new LaptopDAO();
                 Laptop laptop = new Laptop();
-                laptop = laptopDAO.getLaptop(product_id);
+                laptop = laptopDAO.getProduct(product_id);
                 
                 ArrayList<Laptop> listManyProductLaptop = new ArrayList<>();
                 
@@ -72,7 +72,7 @@ public class SingleServlet extends HttpServlet {
             } else if(s1.equals("ma")) {
                 MayanhDAO mayanhDAO = new MayanhDAO();
                 Mayanh mayanh = new Mayanh();
-                mayanh = mayanhDAO.getMayanh(product_id);
+                mayanh = mayanhDAO.getProduct(product_id);
                 
                 ArrayList<Mayanh> listManyProductMayanh = new ArrayList<>();
                 
