@@ -91,24 +91,26 @@ public class UserControllerServlet extends HttpServlet {
         String command = request.getParameter("command");
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        
+
         String url = null;
-        //Logout Handler
+
         if (command != null && command.equals("logout")) {
+            //Logout Handler
             session.invalidate();
-            
+
             url = "index.jsp";
-            RequestDispatcher rd = request.getRequestDispatcher(url);
-            rd.forward(request, response);
-        }else
-        //Profile Handler
-        if(command != null && command.equals("profile")){
+
+        } else if (command != null && command.equals("profile")) {
+            //Profile Handler
             url = "profile.jsp";
-            
-            RequestDispatcher rd = request.getRequestDispatcher(url);
-            rd.forward(request, response);
+
+        } else if (command != null && command.equals("gotoDashboard") && user != null && user.isUser_role()) {
+            // Dashboard redirect
+            url = "admin/dashboard.jsp";
         }
-        
+
+        RequestDispatcher rd = request.getRequestDispatcher(url);
+        rd.forward(request, response);
 
     }
 }

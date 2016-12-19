@@ -52,7 +52,7 @@
                     <li class="active"><a href="login.jsp">Account</a></li> |
                     <li><a href="checkout.jsp">Wishlist</a></li> |
                     <li><a href="checkout.jsp">Checkout</a></li> |
-                    <li><a href="profile.jsp"><%=user.getUser_name()%></a></li> |
+                    <li><a href="profile.jsp"><%=user.getUser_email()%></a></li> |
                     <li><a href="UserControllerServlet?command=logout" >Log out</a></li>
 
                     <% }

@@ -4,6 +4,7 @@
     Author     : user
 --%>
 
+<%@page import="model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -32,9 +33,39 @@
     </head>
     <body>
         <jsp:include page="header.jsp"></jsp:include>
-        
-        
-        
+
+        <%
+            User user = (User) session.getAttribute("user");
+
+        %>
+        <div class="main">
+            <div class="wrap">
+                <div class="section group">
+                    <div class="cont span_2_of_3">
+                        <h2 class="head">INFORMATION</h2>
+                        <div class="top-box">
+                            <div class="col_3_of_3 span_3_of_3">
+                                <form action="#" >
+                                    <h3 >User name :</h3> <input type="text" disabled="true" value="<%=user.getUser_name()%>"/> 
+                                    <h3 >Email : </h3><input type="text" disabled="true" value="<%=user.getUser_email()%>"/>
+                                    <h3 >Phone number : </h3> <input type="text" disabled="true" value="<%=user.getUser_phonenumber()%>"/>
+                                </form>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <h2 class="head">BILLS</h2>
+                        <div class="top-box">
+
+                            <div class="clear"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+
         <jsp:include page="footer.jsp"></jsp:include>
     </body>
 </html>
