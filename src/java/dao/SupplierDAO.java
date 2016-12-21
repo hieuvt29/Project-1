@@ -24,9 +24,8 @@ public class SupplierDAO {
         ArrayList<Supplier> resultList = new ArrayList<>();
         Connection con = DBConnector.getConnection();
         
-        String sql = "SELECT * FROM "+ table;
-        
-         
+        String sql = "SELECT * FROM " + table;
+             
         PreparedStatement ps = con.prepareCall(sql);
         
         ResultSet rs = ps.executeQuery();
@@ -43,10 +42,10 @@ public class SupplierDAO {
     }
     
     // them moi supply
-    public boolean insertSupply(Supplier supplier) {
+    public boolean insertSupply(Supplier supplier, String table) {
         try {
             Connection con = DBConnector.getConnection();
-            String sql = "INSERT INTO supplier_dienthoai VALUES (?, ?)";
+            String sql = "INSERT INTO " + table + " VALUES(?, ?)";
             PreparedStatement ps = con.prepareCall(sql);
             ps.setInt(1, supplier.getSupplier_id());
             ps.setString(2, supplier.getSupplier_name());
@@ -61,9 +60,8 @@ public class SupplierDAO {
     
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         SupplierDAO categoryDao = new SupplierDAO();
-        for(Supplier c: categoryDao.getSupplierList("supplier_dienthoai")){
+        for(Supplier c: categoryDao.getSupplierList("supplier_laptop")){
             System.out.println(c.getSupplier_id() +"--"+ c.getSupplier_name());
         }
     }
 }
-

@@ -1,7 +1,7 @@
 <%-- 
-    Document   : product_admin
-    Created on : Oct 24, 2016, 9:45:00 AM
-    Author     : LOREMSUM
+    Document   : dienthoaiManager
+    Created on : 17-Dec-2016, 22:35:23
+    Author     : admin
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Supply Camera Manager</title>
+        <title>Insert Product</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/datepicker3.css" rel="stylesheet">
         <link href="css/styles.css" rel="stylesheet">
@@ -24,6 +24,7 @@
     </head>
     <body>
         <jsp:include page="bars.jsp"></jsp:include>
+
         <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
             <div class="row">
                 <ol class="breadcrumb">
@@ -34,35 +35,21 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Supply Camera</h1>
+                    <h1 class="page-header">Add Product</h1>
                 </div>
             </div><!--/.row-->
-            
-            <div class="row">
-                <div class="col-md-10">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a href="insertProduct.jsp">Add Supply</a>
-                        </div>
-                        <div class="panel-body">
-                            <table data-toggle="table" data-url="tables/data2.json" >
-                                <thead>
-                                    <tr>
-                                        <th data-field="id" data-align="left">Supply ID</th>
-                                        <th data-field="name">Supply Name</th>
-                                    </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                
-            </div><!--/.row-->	
 
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        
+                </div><!-- /.col-->
+            </div><!-- /.row -->
 
         </div><!--/.main-->
-        
-        
+
+
         <script src="js/jquery-1.11.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/chart.min.js"></script>

@@ -6,9 +6,6 @@
 
 <%@page import="model.Laptop"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="dao.LaptopDAO"%>
-<%@page import="dao.MayanhDAO"%>
-<%@page import="dao.ProductDAO"%>
 <%@page import="model.Product"%>
 <%@page import="model.Category"%>
 <%@page import="model.Dienthoai"%>
@@ -105,7 +102,7 @@
                                             <%
                                                 String img = null;
                                                 if (p instanceof Laptop) {
-                                                    img = "images/" + p.getProduct_name().split("/")[0] + " (1)" + ".jpg";
+                                                    img = "images/" + p.getProduct_id() + " (1)" + ".jpg";
                                                 } else {
                                                     img = "images/" + p.getProduct_name() + " (1)" + ".jpg";
                                                 }
@@ -118,7 +115,7 @@
                                         <div class="sale-box"><span class="on_sale title_shop">New</span></div>
                                         <div class="price">
                                             <div class="cart-left">
-                                                <p class="title"><%=p.getProduct_name().length() > 20 ? p.getProduct_name().substring(0, 30) + "... " : p.getProduct_name()%></p>
+                                                <p class="title"><%=p.getProduct_name()%></p>
                                                 <div class="price1">
                                                     <span class="actual"><%=p.getProduct_price()%><span>0.000₫</span></span>
                                                 </div>

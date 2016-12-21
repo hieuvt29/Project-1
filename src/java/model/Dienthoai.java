@@ -32,6 +32,31 @@ public class Dienthoai extends Product {
     //private double product_price;
    // private double product_discount; // phần trăm giảm giá //
 
+    public Dienthoai() {
+    }
+
+    public Dienthoai(String product_id, int category_id, double product_price, double product_discount) {
+        super(product_id, category_id, product_price, product_discount);
+    }   
+
+    public Dienthoai(int supply_id, String product_resolution, String product_os, int product_camera_after, int product_camera_front, String product_cpu, int product_ram, int product_memory, String product_mem_card, String product_sim_card, String product_connection, int product_battery, String product_design, String product_extra_info, int category_id, String product_id, String product_name, double product_price, double product_discount) {
+        super(category_id, product_id, product_name, product_price, product_discount);
+        this.supply_id = supply_id;
+        this.product_resolution = product_resolution;
+        this.product_os = product_os;
+        this.product_camera_after = product_camera_after;
+        this.product_camera_front = product_camera_front;
+        this.product_cpu = product_cpu;
+        this.product_ram = product_ram;
+        this.product_memory = product_memory;
+        this.product_mem_card = product_mem_card;
+        this.product_sim_card = product_sim_card;
+        this.product_connection = product_connection;
+        this.product_battery = product_battery;
+        this.product_design = product_design;
+        this.product_extra_info = product_extra_info;
+    }
+    
     public int getSupply_id() {
         return supply_id;
     }

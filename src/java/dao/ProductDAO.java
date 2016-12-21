@@ -21,5 +21,7 @@ public abstract class ProductDAO {
      * @return list of product
      */
     public abstract ArrayList<Product> getProducts(String product);
-//    public abstract boolean insertProduct(Product product);
+    public abstract boolean insertProduct(Product product);
+    public abstract boolean updateProduct(Product product);
+    public abstract boolean removeProduct(Product product);
 }

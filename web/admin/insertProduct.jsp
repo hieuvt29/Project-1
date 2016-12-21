@@ -23,145 +23,363 @@
         <![endif]-->
     </head>
     <body>
+        <%
+            String product = request.getParameter("product");
+            String error = null;
+            error = (String) request.getAttribute("error");
+        %>
+
         <jsp:include page="bars.jsp"></jsp:include>
 
-        <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
-            <div class="row">
-                <ol class="breadcrumb">
-                    <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-                    <li class="active">Icons</li>
-                </ol>
-            </div><!--/.row-->
+            <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
+                <div class="row">
+                    <ol class="breadcrumb">
+                        <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+                        <li class="active">Icons</li>
+                    </ol>
+                </div><!--/.row-->
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Forms</h1>
-                </div>
-            </div><!--/.row-->
-
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Form Elements</div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Add Product</h1>
+                    </div>
+                </div><!--/.row-->
+                <div class="row">
+                    <div class="col-lg-12">                   
+                        <div class="panel panel-default">
+                        <% if (product.equals("mobile")) { %>
                         <div class="panel-body">
-                            <div class="col-md-6">
-                                <form role="form">
-
+                            <form role="form" action="/WebBanHang/ManagerProductServlet" method="post">
+                                <%
+                                    if (error != null) {
+                                        request.removeAttribute("error");
+                                %>
+                                <font color="red"><%=error%></font>
+                                <%}%>
+                                <div class="col-md-6">                                
                                     <div class="form-group">
-                                        <label>Text Input</label>
-                                        <input class="form-control" placeholder="Placeholder">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Password</label>
-                                        <input type="password" class="form-control">
-                                    </div>
-
-                                    <div class="form-group checkbox">
-                                        <label>
-                                            <input type="checkbox">Remember me</label>
+                                        <label>Product Id</label>
+                                        <input class="form-control" name="product_id">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>File input</label>
-                                        <input type="file">
-                                        <p class="help-block">Example block-level help text here.</p>
+                                        <label>Category Id</label>
+                                        <input class="form-control" name="category_id">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Text area</label>
-                                        <textarea class="form-control" rows="3"></textarea>
+                                        <label>Supply Id</label>
+                                        <input class="form-control" name="supply_id">
                                     </div>
 
-                                    <label>Validation</label>
-                                    <div class="form-group has-success">
-                                        <input class="form-control" placeholder="Success">
-                                    </div>
-                                    <div class="form-group has-warning">
-                                        <input class="form-control" placeholder="Warning">
-                                    </div>
-                                    <div class="form-group has-error">
-                                        <input class="form-control" placeholder="Error">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input class="form-control" name="name">
                                     </div>
 
-                            </div>
-                            <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Price</label>
+                                        <input class="form-control" name="price">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label>Checkboxes</label>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" value="">Checkbox 1
-                                        </label>
+                                    <div class="form-group">
+                                        <label>Resolution</label>
+                                        <input class="form-control" name="resolution">
                                     </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" value="">Checkbox 2
-                                        </label>
+
+                                    <div class="form-group">
+                                        <label>Opera System</label>
+                                        <input class="form-control" name="operaSystem">
                                     </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" value="">Checkbox 3
-                                        </label>
+
+                                    <div class="form-group">
+                                        <label>Camera After</label>
+                                        <input class="form-control" name="cameraAfter">
                                     </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" value="">Checkbox 4
-                                        </label>
+                                    <div class="form-group">
+                                        <label>Camera Front</label>
+                                        <input class="form-control" name="cameraFront">
                                     </div>
+                                    <div class="form-group">
+                                        <label>CPU</label>
+                                        <input class="form-control" name="cpu">
+                                    </div>
+
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label>RAM</label>
+                                            <input class="form-control" name="ram">
+                                        </div>
 
-                                <div class="form-group">
-                                    <label>Radio Buttons</label>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Radio Button 1
-                                        </label>
-                                    </div>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Radio Button 2
-                                        </label>
-                                    </div>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">Radio Button 3
-                                        </label>
-                                    </div>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">Radio Button 4
-                                        </label>
-                                    </div>
-                                </div>
+                                        <div class="form-group">
+                                            <label>Memory</label>
+                                            <input class="form-control" name="memory">
+                                        </div>
 
-                                <div class="form-group">
-                                    <label>Selects</label>
-                                    <select class="form-control">
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
-                                        <option>Option 4</option>
-                                    </select>
-                                </div>
+                                        <div class="form-group">
+                                            <label>Memory Card</label>
+                                            <input class="form-control"name="memoryCard">
+                                        </div>
 
-                                <div class="form-group">
-                                    <label>Multiple Selects</label>
-                                    <select multiple class="form-control">
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
-                                        <option>Option 4</option>
-                                    </select>
-                                </div>
+                                        <div class="form-group">
+                                            <label>SIM Card</label>
+                                            <input class="form-control" name="simCard">
+                                        </div>
+                                    </div>
 
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label>Connection</label>
+                                            <input class="form-control" name="connection">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Battery</label>
+                                            <input class="form-control" name="battery">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Design</label>
+                                            <input class="form-control" name="design">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Extra Information</label>
+                                            <input class="form-control" name="extraInfo">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Discount</label>
+                                            <input class="form-control" name="discount">
+                                        </div>
+                                    </div>                              
+                                </div>                           
                                 <button type="submit" class="btn btn-primary">Submit Button</button>
-                                <button type="reset" class="btn btn-default">Reset Button</button>
-                            </div>
+                                <input type="hidden" name="command" value="insert">
                             </form>
                         </div>
+
+                        <% } else if (product.equals("laptop")) { %>
+                        <div class="panel-body">
+                            <form role="form" action="/WebBanHang/ManagerProductServlet" method="post">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Product Id</label>
+                                        <input class="form-control" name="product_id">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Category Id</label>
+                                        <input class="form-control" name="category_id">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Supply Id</label>
+                                        <input class="form-control" name="supply_id">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input class="form-control" name="name">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Price</label>
+                                        <input class="form-control" name="price">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>CPU</label>
+                                        <input class="form-control" name="cpu">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>RAM</label>
+                                        <input class="form-control" name="ram">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Hard Disk</label>
+                                        <input class="form-control" name="hardDisk">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Screen</label>
+                                        <input class="form-control" name="screen">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Touch</label>
+                                        <input class="form-control" name="touch">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label>Graphic</label>
+                                            <input class="form-control" name="graphic">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Optical Disk</label>
+                                            <input class="form-control" name="opticalDisk">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Webcam</label>
+                                            <input class="form-control"name="webcam">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Material</label>
+                                            <input class="form-control" name="material">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label>Gates</label>
+                                            <input class="form-control" name="gates">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Connection</label>
+                                            <input class="form-control" name="connection">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Battery</label>
+                                            <input class="form-control" name="battery">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Weight</label>
+                                            <input class="form-control" name="weight">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Discount</label>
+                                            <input class="form-control" name="discount">
+                                        </div>
+                                    </div>                              
+                                </div>                           
+
+                                <button type="submit" class="btn btn-primary">Submit Button</button
+                                <input type="hidden" name="command" value="insert">
+                            </form>
+                        </div>
+
+                        <% } else if (product.equals("camera")) { %>
+                        <div class="panel-body">
+                            <form role="form" action="/WebBanHang/ManagerProductServlet" method="post">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Product Id</label>
+                                        <input class="form-control" name="product_id">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Category Id</label>
+                                        <input class="form-control" name="category_id">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Supply Id</label>
+                                        <input class="form-control" name="supply_id">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input class="form-control" name="name">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Categorize</label>
+                                        <input class="form-control" name="categorize">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Sensor</label>
+                                        <input class="form-control" name="sensor">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Image Processor</label>
+                                        <input class="form-control" name="imageProcessor">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Lens</label>
+                                        <input class="form-control" name="lens">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Film</label>
+                                        <input class="form-control" name="film">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Shutter Speed</label>
+                                        <input class="form-control" name="shutterSpeed">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label>Connection</label>
+                                            <input class="form-control" name="connection">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Screen</label>
+                                            <input class="form-control" name="screen">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Battery</label>
+                                            <input class="form-control"name="battery">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Memory Card</label>
+                                            <input class="form-control" name="memoryCard">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label>Made in</label>
+                                            <input class="form-control" name="madeIn">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Warranty</label>
+                                            <input class="form-control" name="warranty">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Weight</label>
+                                            <input class="form-control" name="weight">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Price</label>
+                                            <input class="form-control" name="price">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Discount</label>
+                                            <input class="form-control" name="discount">
+                                        </div>
+                                    </div>                              
+                                </div>                                                     
+                                <button type="submit" class="btn btn-primary">Submit Button</button>
+                                <input type="hidden" name="command" value="insert">
+                            </form>
+                        </div>
+                        <% }%>
                     </div>
+
                 </div><!-- /.col-->
             </div><!-- /.row -->
 

@@ -7,7 +7,6 @@ package controller;
 
 import dao.SupplierDAO;
 import java.io.IOException;
-import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,23 +33,32 @@ public class ManagerSupplyServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String command = request.getParameter("command");
+        String table = request.getParameter("table");
         String supplyId = request.getParameter("supplyId");
         String supplyName = request.getParameter("supplyName");
         
-        String url = "", error= "";
-        if(supplyName.equals("")) {
-            error = "Please enter supply name!";
+        String url = null , error = null ;
+        if(supplyId.equals("") || supplyName.equals("") || table == null) {
+            error = "Please enter supply id or supply name!";
             request.setAttribute("error", error);
         }
         
         try {
-            if(error.length() == 0) {
+            if(error == null) {
                 if(command.equals("insert")) {
-                    supplierDAO.insertSupply(new Supplier(Integer.parseInt(supplyId), supplyName));
-                    url = "/admin/supplyMobileManager.jsp";
+                    if(table.equals("supplier_dienthoai")) {
+                        supplierDAO.insertSupply(new Supplier(Integer.parseInt(supplyId), supplyName), table);
+                        url = "admin/supplyMobileAndProduct.jsp";
+                    } else if(table.equals("supplier_laptop")) {
+                        supplierDAO.insertSupply(new Supplier(Integer.parseInt(supplyId), supplyName), table);
+                        url = "admin/supplyLaptopAndProduct.jsp";
+                    } else if(table.equals("supplier_mayanh")) {
+                        supplierDAO.insertSupply(new Supplier(Integer.parseInt(supplyId), supplyName), table);
+                        url = "admin/supplyCameraAndProduct.jsp";
+                    }
                 }
             } else {
-                url = "/admin/insertSupply.jsp";
+                url = "admin/insertSupply.jsp";
             }
         } catch(Exception e) {
             e.getMessage();
@@ -58,5 +66,10 @@ public class ManagerSupplyServlet extends HttpServlet {
         RequestDispatcher rd = request.getRequestDispatcher(url);
         rd.forward(request, response);
     }
-
+    
+    public static void main(String[] args) {
+        String table = "supplier_dienthoai";
+        SupplierDAO supplierDAO = new SupplierDAO();
+        supplierDAO.insertSupply(new Supplier(8, "a"), table);
+    }
 }

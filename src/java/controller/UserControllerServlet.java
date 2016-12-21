@@ -69,11 +69,39 @@ public class UserControllerServlet extends HttpServlet {
                 Logger.getLogger(UserControllerServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
 
+        } else if (command != null && command.equals("update")) {
+            User oldUser = (User) session.getAttribute("user");
+            User newUser = new User();
+            newUser.setUser_id(oldUser.getUser_id());
+            newUser.setUser_name(oldUser.getUser_name());
+            newUser.setUser_email(request.getParameter("user_email"));
+            newUser.setUser_phonenumber(request.getParameter("user_phonenumber"));
+
+            String pass = request.getParameter("user_pass");
+            if (pass.length() >= 8) {
+                newUser.setUser_password(MD5.encryption(pass));
+            }else{
+                newUser.setUser_password(oldUser.getUser_password());
+            }
+            try {
+                user = userDAO.update(newUser);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(UserControllerServlet.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(UserControllerServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
         if (user != null) {
-            session.setAttribute("user", user);
-            session.setMaxInactiveInterval(10 * 60);
+            if (user.isUser_role()) {
+                session.setAttribute("admin", user);
+                session.setMaxInactiveInterval(10 * 60);
+                url = "admin/dashboard.jsp";
+            } else {
+                session.setAttribute("user", user);
+                session.setMaxInactiveInterval(10 * 60);
+            }
+
         }
 
         RequestDispatcher rd = request.getRequestDispatcher(url);
@@ -86,12 +114,24 @@ public class UserControllerServlet extends HttpServlet {
             throws ServletException, IOException {
         String command = request.getParameter("command");
         HttpSession session = request.getSession();
-        String url = "index.jsp";
-        //Logout Handler
-        if (command.equals("logout")) {
+        User user = (User) session.getAttribute("user");
+
+        String url = null;
+
+        if (command != null && command.equals("logout")) {
+            //Logout Handler
             session.invalidate();
-            RequestDispatcher rd = request.getRequestDispatcher(url);
-            rd.forward(request, response);
+
+            url = "index.jsp";
+
+        } else if (command != null && command.equals("profile")) {
+            //Profile Handler
+            url = "profile.jsp";
+
         }
+
+        RequestDispatcher rd = request.getRequestDispatcher(url);
+        rd.forward(request, response);
+
     }
 }

@@ -25,11 +25,16 @@
         <script src="js/jquery.easydropdown.js"></script>
     </head>
     <body>
-        <% String error = null;
+        <jsp:include page="header.jsp"></jsp:include>
+        <% 
+            if(session.getAttribute("user") != null){
+                response.sendRedirect("index.jsp");
+            }
+            String error = null;
             error = (String) request.getAttribute("error");
 
         %>
-        <jsp:include page="header.jsp"></jsp:include>
+        
             <div class="login">
                 <div class="wrap">
                     <div class="col_1_of_login span_1_of_login">

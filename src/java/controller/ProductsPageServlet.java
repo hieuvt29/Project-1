@@ -94,8 +94,9 @@ public class ProductsPageServlet extends HttpServlet {
         }
 
         ArrayList<Product> productList = productDAO.getProducts(supplier);
+        
         for (Product pd : productList) {
-            System.out.println(pd.getProduct_name());
+            System.out.println(pd.getProduct_id() +": "+ pd.getProduct_name());
         }
     }
 }

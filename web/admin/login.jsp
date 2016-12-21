@@ -39,7 +39,7 @@
                         %>
                         <font color="red"><%=error%></font>
                         <%}%>
-                        <form role="form" action="AdminLoginServlet" method="post">
+                        <form role="form" action="UserControllerServlet" method="post">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="user_email" type="email" autofocus="">
@@ -53,7 +53,7 @@
                                     </label>
                                 </div>
                                 <input type="hidden" value="login" name="command" />
-                                <a href="AdminLoginServlet" class="btn btn-primary" value="Login">Login</a>
+                                <input class="btn btn-primary" type="submit" value="Login"/>
                             </fieldset>
                         </form>
                     </div>

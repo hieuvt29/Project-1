@@ -37,18 +37,16 @@
         <div class="wrap"> 
             <div class="cssmenu">
                 <ul>
-                    <li class="active"><a href="login.jsp">Account</a></li> |
-                    <li><a href="checkout.jsp">Wishlist</a></li> |
-                    <li><a href="checkout.jsp">Checkout</a></li> |
-                        <% if (user != null) {
-                        %>
-                    <li><a href="profile.jsp"><%=user.getUser_name()%></a></li> |
-                    <li><a href="UserControllerServlet?command=logout" >Log out</a></li> |
-
+                    <% if (user != null) {
+                    %>
+                    <li><a href="checkout.jsp">WISHLIST</a></li> |
+                    <li><a href="checkout.jsp">CHECKOUT</a></li> |
+                    <li><a href="profile.jsp"><%=user.getUser_name()%> - (<%=user.getUser_email()%>)</a></li> |
+                    <li><a href="UserControllerServlet?command=logout" >LOG OUT</a></li>
                     <% } else {
                     %>
-                    <li><a href="login.jsp">Log In</a></li> |
-                    <li><a href="register.jsp">Sign Up</a></li>
+                    <li><a href="login.jsp">LOG IN</a></li> |
+                    <li><a href="register.jsp">SIGN UP</a></li>
                         <% }
                         %>
 
@@ -158,10 +156,6 @@
             <div class="clear"></div>
         </div>
     </div>
-    <form name='queryform' action='ProductsPageServlet' method='post'>
-        <input type='hidden' name='product' value="">
-        <input type='hidden' name='supplier' value="">
-    </form>
 
 </body>
 </html>
