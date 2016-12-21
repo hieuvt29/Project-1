@@ -38,7 +38,7 @@ public class CustomSearchDAO {
 
         String sql = "SELECT product_id as pid FROM dienthoai WHERE instr(lower(product_name), ?) > 0 "
                 + "UNION SELECT product_id as pid FROM laptop WHERE instr(lower(product_name), ?) > 0 "
-                + "UNION SELECT product_id as pid FROM laptop WHERE instr(lower(product_name), ?) > 0";
+                + "UNION SELECT product_id as pid FROM mayanh WHERE instr(lower(product_name), ?) > 0";
 
         PreparedStatement ps = con.prepareCall(sql);
 

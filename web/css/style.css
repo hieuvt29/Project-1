@@ -136,7 +136,6 @@ body{
     margin-top:10px;
 }
 .search {
-    background:#fff;
     position: relative;
     float:left;
     margin:0 20px 0 0;
@@ -145,8 +144,8 @@ body{
 .search input[type="text"] {
     border: 1px solid #4CB1CA;
     outline: none;
-    background: none;
-    font-size:0.85em;
+    background: #fff;
+    font-size:1em;
     font-family: 'Exo 2', sans-serif;
     color:#777;
     width:130px;
@@ -2176,10 +2175,10 @@ ul.delivery-list li a:hover{
         width: 240px;
     }
     .search input[type="text"] {
-        width: 110px;
+        width: 200px;
     }
     .search input[type="text"]:focus {
-        width: 132px;
+        width: 300px;
     }
     .like_box {
         width: 114%;
@@ -2202,7 +2201,7 @@ ul.delivery-list li a:hover{
         width: 47.7%;
     }
     .search input[type="text"]:focus {
-        width: 132px;
+        width: 250px;
     }
 }
 @media (max-width:1024px){
@@ -2380,7 +2379,8 @@ ul.delivery-list li a:hover{
         width:43.5%;
     }
     .tag-list {
-        margin-left:38.5%;
+        display: none; 
+        margin-left:0%;
     }
     .span_1_of_f_1 {
         width: 100%;
@@ -2497,7 +2497,8 @@ ul.delivery-list li a:hover{
         width: 20.5%;
     }
     .tag-list {
-        margin-left:46.5%;
+        display: none; 
+        margin-left:0%;
     }
     .span_2_of_3 {
         width: 100%;
@@ -2674,7 +2675,8 @@ ul.delivery-list li a:hover{
         width: 20.5%;
     }
     .tag-list {
-        margin-left:30.5%;
+        display: none; 
+        margin-left:0%;
     }
     .span_2_of_3 {
         width: 100%;
@@ -2841,7 +2843,8 @@ ul.delivery-list li a:hover{
         width: 20.5%;
     }
     .tag-list {
-        margin-left:9.5%;
+        display: none; 
+        margin-left:0%;
     }
     .span_2_of_3 {
         width: 100%;
@@ -2984,6 +2987,7 @@ ul.delivery-list li a:hover{
     .search input[type="text"] {
         width:55px;
     }
+
     h2.m_1 {
         font-size: 1em;
     }
@@ -3036,6 +3040,7 @@ ul.delivery-list li a:hover{
         width: 20.5%;
     }
     .tag-list {
+        display: none; 
         margin-left:0%;
     }
     .span_2_of_3 {

@@ -129,25 +129,26 @@
             </div>
             <div class="header-bottom-right">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="search" >
-                            <form action="CustomSearchServlet" method="Get">
-                                <input class="form-control" type="text" name="product_name" class="textbox" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {
+                            <form action="CustomSearchServlet" method="Get" onsubmit="(function () {
+                                        document.forms['select-form'].submit();
+                                        return false;
+                                    })();">
+                                <input class="form-control" type="text" name="product_name" class="textbox" value="Search" onfocus="if(this.value == 'Search') this.value='';" onblur="if (this.value == '') {
                                             this.value = 'Search';
                                         }">
+                                <select class="form-control" id="price" name="price" tyle="width: 150px">
+                                    <option value="0">Select Price (vnđ) </option>
+                                    <option value="1">dưới 8 triệu</option>
+                                    <option value="2">từ 8 triệu - 10 triệu</option>
+                                    <option value="3">từ 10 triệu - 12 triệu</option>
+                                    <option value="4">trên 12 triệu</option>
+                                </select>
                             </form>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <select class="form-control" id="price" name="price" style="width: 150px">
-                            <option value="0">Select Price (vnđ) </option>
-                            <option value="1">dưới 8 triệu</option>
-                            <option value="2">từ 8 triệu - 10 triệu</option>
-                            <option value="3">từ 10 triệu - 12 triệu</option>
-                            <option value="4">trên 12 triệu</option>
-                        </select>
-                    </div>
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <div class="tag-list">
                             <ul class="icon1 sub-icon1 profile_img">
                                 <li><a class="active-icon c1" href="#"> </a>

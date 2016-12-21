@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -33,22 +34,36 @@ public class CustomSearchServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         customSearchDAO = new CustomSearchDAO();
-        
+
         String product_name, product, supplier, category,
                 url;
+        int price;
         product_name = request.getParameter("product_name");
-//        product = request.getParameter("product");
-//        supplier = request.getParameter("supplier");
-//        category = request.getParameter("category");
+        price = Integer.parseInt(request.getParameter("price"));
 
         try {
             ArrayList<Product> resList = customSearchDAO.searchProducts(product_name);
-            if(resList != null){
+            //process price searching
+            Iterator<Product> it = resList.iterator();
+            while (it.hasNext()) {
+                Product pd = it.next();
+                double product_price = pd.getProduct_price()*(100 - pd.getProduct_discount())/100;
+                if (price == 1 && product_price > 8.0) {
+                    it.remove();
+                }else if(price == 2 && (product_price <= 8.0 || product_price > 10.0)){
+                    it.remove();
+                }else if(price == 3 && (product_price <= 10.0 || product_price > 12.0)){
+                    it.remove();
+                }else if(price == 4 && product_price <= 12.0){
+                    it.remove();
+                }
+            }
+            if (resList != null) {
                 request.setAttribute("productList", resList);
                 url = "products.jsp";
                 RequestDispatcher rd = request.getRequestDispatcher(url);
                 rd.forward(request, response);
-            }else{
+            } else {
                 response.sendRedirect(request.getHeader("referer"));
             }
         } catch (ClassNotFoundException ex) {
