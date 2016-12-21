@@ -18,17 +18,18 @@ import model.Product;
 
 public class MayanhDAO extends ProductDAO {
 
-    public ArrayList<Product> getProducts(String supplier) {
+    public ArrayList<Product> getProducts(String supplier, String category) {
         ArrayList<Product> listProduct = new ArrayList<>();
         Connection con;
         try {
             con = DBConnector.getConnection();
             String sql = null;
-            if (supplier.equals("*")) {
-                sql = "SELECT product_id FROM mayanh";
-            } else {
-                sql = "SELECT product_id FROM mayanh WHERE supplier_id = '" + supplier + "'";
-            }
+//            if (supplier.equals("*")) {
+//                sql = "SELECT product_id FROM mayanh";
+//            } else {
+//                sql = "SELECT product_id FROM mayanh WHERE supplier_id = '" + supplier + "'";
+//            }
+            sql = "SELECT product_id FROM mayanh WHERE supplier_id LIKE '" + supplier + "' AND category_id LIKE '" + category + "'";
             PreparedStatement ps = con.prepareCall(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -44,7 +45,7 @@ public class MayanhDAO extends ProductDAO {
 
         return listProduct;
     }
-    
+
     public ArrayList<Mayanh> getManyProduct(int category_id) {
         ArrayList<Mayanh> list = new ArrayList<>();
         try {
@@ -52,7 +53,7 @@ public class MayanhDAO extends ProductDAO {
             String sql = "SELECT * FROM mayanh WHERE category_id = '" + category_id + "' ORDER BY RAND() LIMIT 6";
             PreparedStatement ps = con.prepareCall(sql);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()) {
+            while (rs.next()) {
                 Mayanh ma = new Mayanh();
                 ma.setProduct_id(rs.getString("product_id"));
                 list.add(ma);
@@ -64,7 +65,7 @@ public class MayanhDAO extends ProductDAO {
         }
         return list;
     }
-    
+
     public Mayanh getProduct(String product_id) {
         Mayanh res = new Mayanh();
         try {
@@ -100,7 +101,7 @@ public class MayanhDAO extends ProductDAO {
         }
         return res;
     }
-    
+
     public ArrayList<Mayanh> getMayanh() throws ClassNotFoundException, SQLException {
         ArrayList<Mayanh> list = new ArrayList<>();
         Connection con = DBConnector.getConnection();
@@ -133,11 +134,11 @@ public class MayanhDAO extends ProductDAO {
         con.close();
         return list;
     }
-    
+
     public boolean insertProduct(Product product) {
         try {
             Connection con = DBConnector.getConnection();
-            if(product instanceof Mayanh) {
+            if (product instanceof Mayanh) {
                 String sql = "INSERT INTO mayanh VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 PreparedStatement ps = con.prepareCall(sql);
                 ps.setString(1, product.getProduct_id());
@@ -157,7 +158,7 @@ public class MayanhDAO extends ProductDAO {
                 ps.setString(15, ((Mayanh) product).getProduct_made_in());
                 ps.setString(16, ((Mayanh) product).getProduct_warranty());
                 ps.setDouble(17, ((Mayanh) product).getProduct_weight());
-                ps.setDouble(18, product.getProduct_price());                
+                ps.setDouble(18, product.getProduct_price());
                 ps.setDouble(19, product.getProduct_discount());
                 return ps.executeUpdate() == 1;
             }
@@ -168,11 +169,11 @@ public class MayanhDAO extends ProductDAO {
         }
         return false;
     }
-    
+
     public boolean updateProduct(Product product) {
         try {
             Connection con = DBConnector.getConnection();
-            if(product instanceof Mayanh) {
+            if (product instanceof Mayanh) {
                 String sql = "UPDATE mayanh SET category_id = ?, product_price = ?, product_discount = ? "
                         + "WHERE product_id = ?";
                 PreparedStatement ps = con.prepareCall(sql);
@@ -189,11 +190,11 @@ public class MayanhDAO extends ProductDAO {
         }
         return false;
     }
-    
+
     public boolean removeProduct(Product product) {
         try {
             Connection con = DBConnector.getConnection();
-            if(product instanceof Mayanh) {
+            if (product instanceof Mayanh) {
                 String sql = "DELETE FROM mayanh WHERE product_id = ?";
                 PreparedStatement ps = con.prepareCall(sql);
                 ps.setString(1, product.getProduct_id());
@@ -206,7 +207,7 @@ public class MayanhDAO extends ProductDAO {
         }
         return false;
     }
-    
+
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         MayanhDAO ldao = new MayanhDAO();
         System.out.println(ldao.getProduct("ma0001").getCategory_id());

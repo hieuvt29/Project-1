@@ -23,17 +23,18 @@ import model.Product;
  */
 public class DienthoaiDAO extends ProductDAO {
 
-    public ArrayList<Product> getProducts(String supplier) {
+    public ArrayList<Product> getProducts(String supplier, String category) {
         ArrayList<Product> listProduct = new ArrayList<>();
         Connection con;
         try {
             con = DBConnector.getConnection();
             String sql = null;
-            if (supplier.equals("*")) {
-                sql = "SELECT product_id FROM dienthoai";
-            } else {
-                sql = "SELECT product_id FROM dienthoai WHERE supplier_id = '" + supplier + "'";
-            }
+//            if (supplier.equals("*")) {
+//                sql = "SELECT product_id FROM dienthoai";
+//            } else {
+//                sql = "SELECT product_id FROM dienthoai WHERE supplier_id = '" + supplier + "'";
+//            }
+            sql = "SELECT product_id FROM dienthoai WHERE supplier_id LIKE '" + supplier + "' AND category_id LIKE '" + category + "'";
             PreparedStatement ps = con.prepareCall(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -136,11 +137,11 @@ public class DienthoaiDAO extends ProductDAO {
         con.close();
         return dt;
     }
-    
+
     public boolean insertProduct(Product product) {
         try {
             Connection con = DBConnector.getConnection();
-            if(product instanceof Dienthoai) {
+            if (product instanceof Dienthoai) {
                 String sql = "INSERT INTO dienthoai VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 PreparedStatement ps = con.prepareCall(sql);
                 ps.setString(1, product.getProduct_id());
@@ -171,11 +172,11 @@ public class DienthoaiDAO extends ProductDAO {
         }
         return false;
     }
-    
+
     public boolean updateProduct(Product product) {
         try {
             Connection con = DBConnector.getConnection();
-            if(product instanceof Dienthoai) {
+            if (product instanceof Dienthoai) {
                 String sql = "UPDATE dienthoai SET category_id = ?, product_price = ?, product_discount = ? "
                         + "WHERE product_id = ?";
                 PreparedStatement ps = con.prepareCall(sql);
@@ -192,11 +193,11 @@ public class DienthoaiDAO extends ProductDAO {
         }
         return false;
     }
-    
+
     public boolean removeProduct(Product product) {
         try {
             Connection con = DBConnector.getConnection();
-            if(product instanceof Dienthoai) {
+            if (product instanceof Dienthoai) {
                 String sql = "DELETE FROM dienthoai WHERE product_id = ?";
                 PreparedStatement ps = con.prepareCall(sql);
                 ps.setString(1, product.getProduct_id());
@@ -209,7 +210,7 @@ public class DienthoaiDAO extends ProductDAO {
         }
         return false;
     }
-    
+
     public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
         DienthoaiDAO dtDAO = new DienthoaiDAO();
         Dienthoai dt = new Dienthoai();

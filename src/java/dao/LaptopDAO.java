@@ -26,20 +26,21 @@ import model.Product;
  */
 public class LaptopDAO extends ProductDAO {
 
-    public ArrayList<Product> getProducts(String supplier) {
+    public ArrayList<Product> getProducts(String supplier, String category) {
         ArrayList<Product> listProduct = new ArrayList<>();
         Connection con;
         try {
             con = DBConnector.getConnection();
             String sql = null;
-            if(supplier.equals("*")){
-                sql = "SELECT product_id FROM laptop";
-            }else{
-                sql = "SELECT product_id FROM laptop WHERE supplier_id = '"+supplier+"'";
-            }
+//            if(supplier.equals("*")){
+//                sql = "SELECT product_id FROM laptop";
+//            }else{
+//                
+//            }
+            sql = "SELECT product_id FROM laptop WHERE supplier_id LIKE '" + supplier + "' AND category_id LIKE '"+category+"'";
             PreparedStatement ps = con.prepareCall(sql);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 String product_id = rs.getString(1);
                 Laptop lt = getProduct(product_id);
                 listProduct.add(lt);
@@ -57,7 +58,7 @@ public class LaptopDAO extends ProductDAO {
         Laptop res = new Laptop();
         try {
             Connection con = DBConnector.getConnection();
-            
+
             String sql = "SELECT * FROM laptop WHERE product_id = '" + product_id + "'";
             PreparedStatement ps = con.prepareCall(sql);
             ResultSet rs = ps.executeQuery();
@@ -90,7 +91,7 @@ public class LaptopDAO extends ProductDAO {
         return res;
     }
 
-    public void setLaptop() throws SQLException, IOException, ClassNotFoundException {
+    public void setLaptop_test() throws SQLException, IOException, ClassNotFoundException {
         try (Connection con = DBConnector.getConnection()) {
             String name = null,
                     price = null,
@@ -192,8 +193,8 @@ public class LaptopDAO extends ProductDAO {
 //            System.out.println(rs + "row effected!");
         }
     }
-    
-    public ArrayList<Laptop> getLaptop() throws ClassNotFoundException, SQLException {
+
+    public ArrayList<Laptop> getProduct() throws ClassNotFoundException, SQLException {
         ArrayList<Laptop> list = new ArrayList<>();
         Connection con = DBConnector.getConnection();
         String sql = "SELECT * FROM laptop";
@@ -225,7 +226,7 @@ public class LaptopDAO extends ProductDAO {
         con.close();
         return list;
     }
-    
+
     public ArrayList<Laptop> getManyProduct(int category_id) {
         ArrayList<Laptop> list = new ArrayList<>();
         try {
@@ -233,7 +234,7 @@ public class LaptopDAO extends ProductDAO {
             String sql = "SELECT * FROM laptop WHERE category_id = '" + category_id + "' ORDER BY RAND() LIMIT 6";
             PreparedStatement ps = con.prepareCall(sql);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()) {
+            while (rs.next()) {
                 Laptop lt = new Laptop();
                 lt.setProduct_id(rs.getString("product_id"));
                 lt.setSupply_id(rs.getInt("supplier_id"));
@@ -246,11 +247,11 @@ public class LaptopDAO extends ProductDAO {
         }
         return list;
     }
-    
+
     public boolean insertProduct(Product product) {
         try {
             Connection con = DBConnector.getConnection();
-            if(product instanceof Laptop) {
+            if (product instanceof Laptop) {
                 String sql = "INSERT INTO laptop VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 PreparedStatement ps = con.prepareCall(sql);
                 ps.setString(1, product.getProduct_id());
@@ -270,7 +271,7 @@ public class LaptopDAO extends ProductDAO {
                 ps.setString(15, ((Laptop) product).getProduct_gates());
                 ps.setString(16, ((Laptop) product).getProduct_connection());
                 ps.setString(17, ((Laptop) product).getProduct_battery());
-                 ps.setDouble(18, ((Laptop) product).getProduct_weight());
+                ps.setDouble(18, ((Laptop) product).getProduct_weight());
                 ps.setDouble(19, product.getProduct_discount());
                 return ps.executeUpdate() == 1;
             }
@@ -281,11 +282,11 @@ public class LaptopDAO extends ProductDAO {
         }
         return false;
     }
-    
+
     public boolean updateProduct(Product product) {
         try {
             Connection con = DBConnector.getConnection();
-            if(product instanceof Laptop) {
+            if (product instanceof Laptop) {
                 String sql = "UPDATE laptop SET category_id = ?, product_price = ?, product_discount = ? "
                         + "WHERE product_id = ?";
                 PreparedStatement ps = con.prepareCall(sql);
@@ -302,11 +303,11 @@ public class LaptopDAO extends ProductDAO {
         }
         return false;
     }
-    
+
     public boolean removeProduct(Product product) {
         try {
             Connection con = DBConnector.getConnection();
-            if(product instanceof Laptop) {
+            if (product instanceof Laptop) {
                 String sql = "DELETE FROM laptop WHERE product_id = ?";
                 PreparedStatement ps = con.prepareCall(sql);
                 ps.setString(1, product.getProduct_id());
@@ -319,14 +320,13 @@ public class LaptopDAO extends ProductDAO {
         }
         return false;
     }
-    
+
     public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
         System.out.println("It's run!");
-
-//        ArrayList<Product> list = ldao.getProducts("*");
-//        System.out.println(list.size());
-        
-
+        LaptopDAO ldao = new LaptopDAO();
+        ArrayList<Product> list = ldao.getProducts("%", "%");
+        System.out.println(list.size());
     }
+
 
 }

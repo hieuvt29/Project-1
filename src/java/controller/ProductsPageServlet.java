@@ -50,7 +50,7 @@ public class ProductsPageServlet extends HttpServlet {
             //redirect response
         }
 
-        ArrayList<Product> productList = productDAO.getProducts(supplier);
+        ArrayList<Product> productList = productDAO.getProducts(supplier, "%");
         request.setAttribute("productList", productList);
         RequestDispatcher rd = request.getRequestDispatcher(url);
         rd.forward(request, response);
@@ -76,7 +76,7 @@ public class ProductsPageServlet extends HttpServlet {
             //redirect response
         }
 
-        ArrayList<Product> productList = productDAO.getProducts(supplier);
+        ArrayList<Product> productList = productDAO.getProducts(supplier, "%");
         
         for (Product pd : productList) {
             System.out.println(pd.getProduct_id() +": "+ pd.getProduct_name());

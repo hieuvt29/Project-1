@@ -52,14 +52,9 @@
 
                 <li><a href="${root}/WebBanHang/admin/categoryManager.jsp"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"/></svg> Categories</a></li>
                 <li><a href="${root}/WebBanHang/admin/billManager.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Bills </a></li>
-
-                <li><a href="${root}/WebBanHang/admin/mobileManager.jsp"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg> Mobile</a></li>
-                <li><a href="${root}/WebBanHang/admin/supplyMobileManager.jsp"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg> Supply Mobile</a></li>
-                <li><a href="${root}/WebBanHang/admin/laptopManager.jsp"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg> Laptop</a></li>
-                <li><a href="${root}/WebBanHang/admin/supplyLaptopManager.jsp"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg> Supply Laptop</a></li>
-                <li><a href="${root}/WebBanHang/admin/cameraManager.jsp"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg> Camera</a></li>
-                <li><a href="${root}/WebBanHang/admin/supplyCameraManager.jsp"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg> Supply Camera</a></li>
-
+                <li><a href="${root}/WebBanHang/admin/supplyMobileAndProduct.jsp"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg> Supply Mobile & Product</a></li>
+                <li><a href="${root}/WebBanHang/admin/supplyLaptopAndProduct.jsp"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg> Supply Laptop & Product</a></li>
+                <li><a href="${root}/WebBanHang/admin/supplyCameraAndProduct.jsp"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg> Supply Camera & Product</a></li>               
 
                 <li class="parent">
                     <a href="#">

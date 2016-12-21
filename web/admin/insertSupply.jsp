@@ -27,6 +27,8 @@
         <%
             String error = null;
             error = (String) request.getAttribute("error");
+            String table = null;
+            table = request.getParameter("table");
         %>
         <jsp:include page="bars.jsp"></jsp:include>
 
@@ -47,24 +49,26 @@
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <form role="form" action="/WebBanHang/ManagerSupplyServlet" method="post">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Supply Id</label>
-                                            <input class="form-control" placeholder="Id" name="supplyId">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Supply Name</label>
-                                            <input class="form-control" placeholder="Name" name="supplyName">
-                                        <%=error%>
-                                    </div>
-                                </div>
+                                <form role="form" action="${root}/WebBanHang/ManagerSupplyServlet" method="post">
                                 <div class="col-md-6">
+                                    <%
+                                        if (error != null) {
+                                            request.removeAttribute("error");
+                                    %>
+                                    <font color="red"><%=error%></font>
+                                    <%}%>
                                     <div class="form-group">
-                                        <input type="hidden" name="command" value="insert">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <label>Supply Id</label>
+                                        <input class="form-control" placeholder="Id" name="supplyId">
                                     </div>
+                                    <div class="form-group">
+                                        <label>Supply Name</label>
+                                        <input class="form-control" placeholder="Name" name="supplyName">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
+                                <input type="hidden" name="command" value="insert">
+                                <input type="hidden" name="table" value="<%=table%>">
                             </form>
                         </div>
                     </div><!-- /.col-->
