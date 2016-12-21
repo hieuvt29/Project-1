@@ -27,14 +27,9 @@ public class SendMailServlet extends HttpServlet {
         String msg = request.getParameter("msg");
 
         Address[] toAddresses = new Address[1];
-        try {
-            toAddresses[0] = new InternetAddress(to);
-            Mailer.send(toAddresses, subject, msg);
-            out.print("message has been sent successfully");
-            out.close();
-        } catch (AddressException ex) {
-            Logger.getLogger(SendMailServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Mailer.send(to, subject, msg);
+        out.print("message has been sent successfully");
+        out.close();
 
     }
 

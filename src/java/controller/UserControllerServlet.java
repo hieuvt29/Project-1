@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.User;
 import utils.MD5;
+import utils.Mailer;
 
 /**
  *
@@ -98,6 +99,7 @@ public class UserControllerServlet extends HttpServlet {
                 session.setMaxInactiveInterval(10 * 60);
                 url = "admin/dashboard.jsp";
             } else {
+                Mailer.send(user.getUser_email(), "Register successfully!", "Thank you!");
                 session.setAttribute("user", user);
                 session.setMaxInactiveInterval(10 * 60);
             }

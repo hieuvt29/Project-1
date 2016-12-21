@@ -8,7 +8,7 @@ import javax.mail.internet.MimeMessage;
 
 public class Mailer {
 
-    public static void send(Address[] addresses, String subject, String msg) {
+    public static void send(String address, String subject, String msg) {
 
         final String user = "hieuvt.clone.1@gmail.com";//change accordingly
         final String pass = "123321@@";
@@ -33,7 +33,7 @@ public class Mailer {
             message.setHeader("Content-Type", "text/plain; charset=UTF-8");
             message.setFrom(new InternetAddress(user));
             //Send an email to multiple recipients
-            message.addRecipients(Message.RecipientType.TO, addresses);
+            message.addRecipients(Message.RecipientType.TO, address);
             message.setSubject(subject);
             message.setText(msg);
 
@@ -49,10 +49,7 @@ public class Mailer {
     }
 
     public static void main(String[] args) throws AddressException {
-        Mailer mailer = new Mailer();
-        Address[] addresses = new Address[2];
-        addresses[0] = new InternetAddress("vutronghieu.04012203@gmail.com");
-        addresses[1] = new InternetAddress("tset0401@gmail.com");
-        mailer.send(addresses, "Đây là chủ đề tin nhắn", "đây là tin nhắn");
+        Mailer mailer = new Mailer();;
+        mailer.send("vutronghieu.04012203@gmail.com", "Đây là chủ đề tin nhắn", "đây là tin nhắn");
     }
 }
