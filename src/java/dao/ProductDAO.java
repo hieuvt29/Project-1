@@ -20,7 +20,7 @@ public abstract class ProductDAO {
      * @param product
      * @return list of product
      */
-    public abstract ArrayList<Product> getProducts(String supplier, String category);
+    public abstract ArrayList<Product> getProducts(String supplier, String category, int limit);
     public abstract boolean insertProduct(Product product);
     public abstract boolean updateProduct(Product product);
     public abstract boolean removeProduct(Product product);

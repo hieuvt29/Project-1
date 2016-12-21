@@ -18,7 +18,7 @@ import model.Product;
 
 public class MayanhDAO extends ProductDAO {
 
-    public ArrayList<Product> getProducts(String supplier, String category) {
+    public ArrayList<Product> getProducts(String supplier, String category, int limit) {
         ArrayList<Product> listProduct = new ArrayList<>();
         Connection con;
         try {
@@ -29,7 +29,7 @@ public class MayanhDAO extends ProductDAO {
 //            } else {
 //                sql = "SELECT product_id FROM mayanh WHERE supplier_id = '" + supplier + "'";
 //            }
-            sql = "SELECT product_id FROM mayanh WHERE supplier_id LIKE '" + supplier + "' AND category_id LIKE '" + category + "'";
+            sql = "SELECT product_id FROM laptop WHERE supplier_id LIKE '" + supplier + "' AND category_id LIKE '"+category+"' LIMIT "+limit+"";
             PreparedStatement ps = con.prepareCall(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

@@ -26,7 +26,7 @@ import model.Product;
  */
 public class LaptopDAO extends ProductDAO {
 
-    public ArrayList<Product> getProducts(String supplier, String category) {
+    public ArrayList<Product> getProducts(String supplier, String category, int limit) {
         ArrayList<Product> listProduct = new ArrayList<>();
         Connection con;
         try {
@@ -37,7 +37,7 @@ public class LaptopDAO extends ProductDAO {
 //            }else{
 //                
 //            }
-            sql = "SELECT product_id FROM laptop WHERE supplier_id LIKE '" + supplier + "' AND category_id LIKE '"+category+"'";
+            sql = "SELECT product_id FROM laptop WHERE supplier_id LIKE '" + supplier + "' AND category_id LIKE '"+category+"' LIMIT "+limit+"";
             PreparedStatement ps = con.prepareCall(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -324,7 +324,7 @@ public class LaptopDAO extends ProductDAO {
     public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
         System.out.println("It's run!");
         LaptopDAO ldao = new LaptopDAO();
-        ArrayList<Product> list = ldao.getProducts("%", "%");
+        ArrayList<Product> list = ldao.getProducts("%", "%", 5);
         System.out.println(list.size());
     }
 
