@@ -63,7 +63,7 @@ public class ProductsPageServlet extends HttpServlet {
 
     public static void main(String[] args) {
         String product = "Dienthoai",
-                supplier = "*";
+                supplier = "%";
         ProductDAO productDAO = null;
 
         if (product.equals("Dienthoai")) {
@@ -76,7 +76,7 @@ public class ProductsPageServlet extends HttpServlet {
             //redirect response
         }
 
-        ArrayList<Product> productList = productDAO.getProducts(supplier, "%", 1000);
+        ArrayList<Product> productList = productDAO.getProducts(supplier, "%", 100);
         
         for (Product pd : productList) {
             System.out.println(pd.getProduct_id() +": "+ pd.getProduct_name());

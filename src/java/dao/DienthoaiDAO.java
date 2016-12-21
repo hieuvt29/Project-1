@@ -34,7 +34,7 @@ public class DienthoaiDAO extends ProductDAO {
 //            } else {
 //                sql = "SELECT product_id FROM dienthoai WHERE supplier_id = '" + supplier + "'";
 //            }
-            sql = "SELECT product_id FROM laptop WHERE supplier_id LIKE '" + supplier + "' AND category_id LIKE '"+category+"' LIMIT "+limit+"";
+            sql = "SELECT product_id FROM dienthoai WHERE supplier_id LIKE '" + supplier + "' AND category_id LIKE '"+category+"' LIMIT "+limit+"";
             PreparedStatement ps = con.prepareCall(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

@@ -66,7 +66,7 @@
                 <div class="menu">
                     <ul class="megamenu skyblue">
                         <li class="active grid"><a href="index.jsp">Home</a></li>
-                        <li><a class="color4" href="ProductsPageServlet?product=Dienthoai&supplier=*" >Điện thoại</a>
+                        <li><a class="color4" href="ProductsPageServlet?product=Dienthoai&supplier=%" >Điện thoại</a>
                             <div class="megapanel">
                                 <%
                                     for (Supplier s : supplierDAO.getSupplierList("supplier_dienthoai")) {
@@ -86,7 +86,7 @@
                             </div>
                         </li>
 
-                        <li><a class="color5" href="ProductsPageServlet?product=Laptop&supplier=*" >Laptop</a>
+                        <li><a class="color5" href="ProductsPageServlet?product=Laptop&supplier=%" >Laptop</a>
                             <div class="megapanel">
                                 <%
                                     for (Supplier s : supplierDAO.getSupplierList("supplier_laptop")) {
@@ -105,7 +105,7 @@
                                 %>
                             </div>
                         </li>
-                        <li><a class="color6" href="ProductsPageServlet?product=Mayanh&supplier=*" >Máy ảnh</a>
+                        <li><a class="color6" href="ProductsPageServlet?product=Mayanh&supplier=%" >Máy ảnh</a>
                             <div class="megapanel">
                                 <%
                                     for (Supplier s : supplierDAO.getSupplierList("supplier_mayanh")) {
