@@ -17,7 +17,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Products</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
         <link href="css/form.css" rel="stylesheet" type="text/css" media="all" />
         <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
@@ -83,7 +82,12 @@
                             </div>
                             
                         <%  
+                            
                             ArrayList<Product> productList = (ArrayList < Product >) request.getAttribute("productList");
+                            request.removeAttribute("productList");
+                            if(productList == null){
+                                response.sendRedirect("index.jsp");
+                            }
 
                             int numProducts = productList.size();
                           

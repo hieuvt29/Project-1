@@ -187,7 +187,7 @@
                                 <li>
                                     <a href="optionallink.html">
                                         <img class="etalage_thumb_image" src="<%="images/" + lt.getProduct_id() + " (" + i + ")" + ".jpg"%>" class="img-responsive" />
-                                        <img class="etalage_source_image" src="<%="images/" + lt.getProduct_id() + " (" + i + ")" + "Copy" + ".jpg"%>" class="img-responsive" title="" />
+                                        <img class="etalage_source_image" src="<%="images/" + lt.getProduct_id() + " (" + i + ")" + ".jpg"%>" class="img-responsive" title="" />
                                     </a>
                                 </li>  
                                 <%
@@ -336,62 +336,134 @@
                         </div>   
                         <% }
                         %>
+                        <script type="text/javascript">
+                            $(window).load(function () {
+                                $("#flexiselDemo1").flexisel();
+                                $("#flexiselDemo2").flexisel({
+                                    enableResponsiveBreakpoints: true,
+                                    responsiveBreakpoints: {
+                                        portrait: {
+                                            changePoint: 480,
+                                            visibleItems: 1
+                                        },
+                                        landscape: {
+                                            changePoint: 640,
+                                            visibleItems: 2
+                                        },
+                                        tablet: {
+                                            changePoint: 768,
+                                            visibleItems: 3
+                                        }
+                                    }
+                                });
 
+                                $("#flexiselDemo3").flexisel({
+                                    visibleItems: 5,
+                                    animationSpeed: 1000,
+                                    autoPlay: false,
+                                    autoPlaySpeed: 3000,
+                                    pauseOnHover: true,
+                                    enableResponsiveBreakpoints: true,
+                                    responsiveBreakpoints: {
+                                        portrait: {
+                                            changePoint: 480,
+                                            visibleItems: 1
+                                        },
+                                        landscape: {
+                                            changePoint: 640,
+                                            visibleItems: 2
+                                        },
+                                        tablet: {
+                                            changePoint: 768,
+                                            visibleItems: 3
+                                        }
+                                    }
+                                });
+
+                            });
+                        </script>
+                        <script type="text/javascript" src="js/jquery.flexisel.js"></script>
                     </div>
-                    <script type="text/javascript">
-                        $(window).load(function () {
-                            $("#flexiselDemo1").flexisel();
-                            $("#flexiselDemo2").flexisel({
-                                enableResponsiveBreakpoints: true,
-                                responsiveBreakpoints: {
-                                    portrait: {
-                                        changePoint: 480,
-                                        visibleItems: 1
-                                    },
-                                    landscape: {
-                                        changePoint: 640,
-                                        visibleItems: 2
-                                    },
-                                    tablet: {
-                                        changePoint: 768,
-                                        visibleItems: 3
-                                    }
-                                }
-                            });
-
-                            $("#flexiselDemo3").flexisel({
-                                visibleItems: 5,
-                                animationSpeed: 1000,
-                                autoPlay: false,
-                                autoPlaySpeed: 3000,
-                                pauseOnHover: true,
-                                enableResponsiveBreakpoints: true,
-                                responsiveBreakpoints: {
-                                    portrait: {
-                                        changePoint: 480,
-                                        visibleItems: 1
-                                    },
-                                    landscape: {
-                                        changePoint: 640,
-                                        visibleItems: 2
-                                    },
-                                    tablet: {
-                                        changePoint: 768,
-                                        visibleItems: 3
-                                    }
-                                }
-                            });
-
-                        });
-                    </script>
-                    <script type="text/javascript" src="js/jquery.flexisel.js"></script>
-                    <div class="clear"></div>
+                    <div class="rsingle span_1_of_single">
+                        <h5 class="m_1">Categories</h5>
+                        <select class="dropdown" tabindex="8" data-settings='{"wrapperClass":"metro"}'>
+                            <option value="1">Mens</option>
+                            <option value="2">Sub Category1</option>
+                            <option value="3">Sub Category2</option>
+                            <option value="4">Sub Category3</option>
+                        </select>
+                        <select class="dropdown" tabindex="8" data-settings='{"wrapperClass":"metro"}'>
+                            <option value="1">Womens</option>
+                            <option value="2">Sub Category1</option>
+                            <option value="3">Sub Category2</option>
+                            <option value="4">Sub Category3</option>
+                        </select>
+                        <ul class="kids">
+                            <li><a href="#">Kids</a></li>
+                            <li class="last"><a href="#">Glasses Shop</a></li>
+                        </ul>
+                        <section  class="sky-form">
+                            <h4>Price</h4>
+                            <div class="row row1 scroll-pane">
+                                <div class="col col-4">
+                                    <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Rs 500 - Rs 700</label>
+                                </div>
+                                <div class="col col-4">
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 700 - Rs 1000</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 1000 - Rs 1500</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 1500 - Rs 2000</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 2000 - Rs 2500</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>Rs 2500 - Rs 3000</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 3500 - Rs 4000</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 4000 - Rs 4500</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 4500 - Rs 5000</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 5000 - Rs 5500</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 5500 - Rs 6000</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 6000 - Rs 6500</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 6500 - Rs 7000</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 7000 - Rs 7500</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 7500 - Rs 8000</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Rs 8000 - Rs 8500</label>	
+                                </div>
+                            </div>
+                        </section>
+                        <section  class="sky-form">
+                            <h4>Brand Name</h4>
+                            <div class="row row1 scroll-pane">
+                                <div class="col col-4">
+                                    <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>John Jacobs</label>
+                                </div>
+                                <div class="col col-4">
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Tag Heuer</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Lee Cooper</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Mikli</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>S Oliver</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>Hackett</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Killer</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>IDEE</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Vogue</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Gunnar</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Accu Reader</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>CAT</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Excellent</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Feelgood</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Odysey</label>
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Animal</label>	
+                                </div>
+                            </div>
+                        </section>
+                        <script src="js/jquery.easydropdown.js"></script>
+                    </div>
                     <div>
                         <div class="fb-comments" data-href="http://localhost:8084/ProjectCopy1/single.jsp?product_id=<%=product_id%>" data-width="850" data-numposts="5"></div>
                     </div>
+                    <div class="clear"></div>
                 </div>
+
                 <div class="clear"></div>
             </div>
+
+            <div class="clear"></div>
         </div>
         <jsp:include page="footer.jsp"></jsp:include>
 

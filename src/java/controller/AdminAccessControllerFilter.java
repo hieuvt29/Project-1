@@ -33,7 +33,7 @@ import model.User;
  *
  * @author user
  */
-@WebFilter(filterName = "AdminAccessControllerFilter", urlPatterns = {"/admin/*"})
+@WebFilter(filterName = "AdminAccessControllerFilter", urlPatterns = {"/admin/*", "/images/*"})
 public class AdminAccessControllerFilter implements Filter {
 
     private static final boolean debug = false;

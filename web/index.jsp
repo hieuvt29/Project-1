@@ -14,6 +14,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
         <link href="css/form.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
         <script type="text/javascript" src="js/jquery1.min.js"></script>
         <!-- start menu -->
@@ -39,6 +40,6 @@
         <jsp:include page="main.jsp"></jsp:include>
 
         <jsp:include page="footer.jsp"></jsp:include>
-
+        
     </body>
 </html>

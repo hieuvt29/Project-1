@@ -12,9 +12,17 @@
         <servlet-name>UserControllerServlet</servlet-name>
         <servlet-class>controller.UserControllerServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SendMailServlet</servlet-name>
+        <servlet-class>utils.SendMailServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UserControllerServlet</servlet-name>
         <url-pattern>/UserControllerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SendMailServlet</servlet-name>
+        <url-pattern>/SendMailServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -29,15 +29,18 @@ public class ProductsPageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher jsp = request.getRequestDispatcher("/products.jsp");
+        
         String product = null,
-                supplier = null;
+                supplier = null,
+                url = "/products.jsp";
         ProductDAO productDAO = null;
 
         product = request.getParameter("product");
         supplier = request.getParameter("supplier");
-
-        if (product.equals("Dienthoai")) {
+        
+        if(product == null|| supplier == null){
+            response.sendRedirect(request.getHeader("referer"));
+        }else if (product.equals("Dienthoai")) {
             productDAO = new DienthoaiDAO();
         } else if (product.equals("Laptop")) {
             productDAO = new LaptopDAO();
@@ -49,33 +52,13 @@ public class ProductsPageServlet extends HttpServlet {
 
         ArrayList<Product> productList = productDAO.getProducts(supplier);
         request.setAttribute("productList", productList);
-        jsp.forward(request, response);
+        RequestDispatcher rd = request.getRequestDispatcher(url);
+        rd.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher jsp = request.getRequestDispatcher("/products.jsp");
-        String product = null,
-                supplier = null;
-        ProductDAO productDAO = null;
-
-        product = request.getParameter("product");
-        supplier = request.getParameter("supplier");
-
-        if (product.equals("Dienthoai")) {
-            productDAO = new DienthoaiDAO();
-        } else if (product.equals("Laptop")) {
-            productDAO = new LaptopDAO();
-        } else if (product.equals("Mayanh")) {
-            productDAO = new MayanhDAO();
-        } else {
-            //redirect response
-        }
-
-        ArrayList<Product> productList = productDAO.getProducts(supplier);
-        request.setAttribute("productList", productList);
-        jsp.forward(request, response);
     }
 
     public static void main(String[] args) {

@@ -12,6 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
         <title>Header</title>
     <div id="fb-root"></div>
     <script>(function (d, s, id) {
@@ -23,6 +24,7 @@
             js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
+
 </head>
 <body>
     <%
@@ -43,8 +45,8 @@
                     <li><a href="checkout.jsp">CHECKOUT</a></li> |
                     <li><a href="profile.jsp"><%=user.getUser_name()%> - (<%=user.getUser_email()%>)</a></li> |
                     <li><a href="UserControllerServlet?command=logout" >LOG OUT</a></li>
-                    <% } else {
-                    %>
+                        <% } else {
+                        %>
                     <li><a href="login.jsp">LOG IN</a></li> |
                     <li><a href="register.jsp">SIGN UP</a></li>
                         <% }
@@ -126,36 +128,62 @@
                 </div>
             </div>
             <div class="header-bottom-right">
-                <div class="search">	  
-                    <input type="text" name="s" class="textbox" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                this.value = 'Search';
-                            }">
-                    <input type="submit" value="Subscribe" id="submit" name="submit">
-                    <div id="response"> </div>
-                </div>
-                <div class="tag-list">
-                    <ul class="icon1 sub-icon1 profile_img">
-                        <li><a class="active-icon c1" href="#"> </a>
-                            <ul class="sub-icon1 list">
-                                <li><h3>sed diam nonummy</h3><a href=""></a></li>
-                                <li><p>Lorem ipsum dolor sit amet, consectetuer  <a href="">adipiscing elit, sed diam</a></p></li>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="search" >
+                            <form action="CustomSearchServlet" method="Get">
+                                <input class="form-control" type="text" name="product_name" class="textbox" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                            this.value = 'Search';
+                                        }">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-control" id="price" name="price" style="width: 150px">
+                            <option value="0">Select Price (vnđ) </option>
+                            <option value="1">< 8.000.000</option>
+                            <option value="2">8.000.000 - 10.000.000</option>
+                            <option value="3">10.000.000 - 12.000.000</option>
+                            <option value="4">> 12.000.000</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="tag-list">
+                            <ul class="icon1 sub-icon1 profile_img">
+                                <li><a class="active-icon c1" href="#"> </a>
+                                    <ul class="sub-icon1 list">
+                                        <li><h3>sed diam nonummy</h3><a href=""></a></li>
+                                        <li><p>Lorem ipsum dolor sit amet, consectetuer  <a href="">adipiscing elit, sed diam</a></p></li>
+                                    </ul>
+                                </li>
                             </ul>
-                        </li>
-                    </ul>
-                    <ul class="icon1 sub-icon1 profile_img">
-                        <li><a class="active-icon c2" href="#"> </a>
-                            <ul class="sub-icon1 list">
-                                <li><h3>No Products</h3><a href=""></a></li>
-                                <li><p>Lorem ipsum dolor sit amet, consectetuer  <a href="">adipiscing elit, sed diam</a></p></li>
+                            <ul class="icon1 sub-icon1 profile_img">
+                                <li><a class="active-icon c2" href="#"> </a>
+                                    <ul class="sub-icon1 list">
+                                        <li><h3>No Products</h3><a href=""></a></li>
+                                        <li><p>Lorem ipsum dolor sit amet, consectetuer  <a href="">adipiscing elit, sed diam</a></p></li>
+                                    </ul>
+                                </li>
                             </ul>
-                        </li>
-                    </ul>
-                    <ul class="last"><li><a href="#">Cart(0)</a></li></ul>
+                            <ul class="last"><li><a href="#">Cart(0)</a></li></ul>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="clear"></div>
         </div>
     </div>
+    <script> //for header fixed
+        $(window).scroll(function () {
+            var sticky = $('.header-bottom'),
+                    scroll = $(window).scrollTop();
+
+            if (scroll >= 100)
+                sticky.addClass('fixed');
+            else
+                sticky.removeClass('fixed');
+        });
+    </script>
 
 </body>
 </html>
