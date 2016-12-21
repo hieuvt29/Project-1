@@ -43,6 +43,7 @@ public class LaptopDAO extends ProductDAO {
             while (rs.next()) {
                 String product_id = rs.getString(1);
                 Laptop lt = getProduct(product_id);
+                
                 listProduct.add(lt);
             }
         } catch (ClassNotFoundException ex) {
@@ -227,26 +228,27 @@ public class LaptopDAO extends ProductDAO {
 //        return list;
 //    }
 
-    public ArrayList<Laptop> getManyProduct(int category_id) {
-        ArrayList<Laptop> list = new ArrayList<>();
-        try {
-            Connection con = DBConnector.getConnection();
-            String sql = "SELECT * FROM laptop WHERE category_id = '" + category_id + "' ORDER BY RAND() LIMIT 6";
-            PreparedStatement ps = con.prepareCall(sql);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                Laptop lt = new Laptop();
-                lt.setProduct_id(rs.getString("product_id"));
-                lt.setSupply_id(rs.getInt("supplier_id"));
-                list.add(lt);
-            }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return list;
-    }
+//    public ArrayList<Laptop> getManyProduct(int category_id) {
+//        ArrayList<Laptop> list = new ArrayList<>();
+//        try {
+//            Connection con = DBConnector.getConnection();
+//            String sql = "SELECT * FROM laptop WHERE category_id = '" + category_id + "' ORDER BY RAND() LIMIT 6";
+//            PreparedStatement ps = con.prepareCall(sql);
+//            ResultSet rs = ps.executeQuery();
+//            while (rs.next()) {
+//                Laptop lt = new Laptop();
+//                lt.setProduct_id(rs.getString("product_id"));
+//                lt.setProduct_name(rs.getString("product_name"));
+//                lt.setSupply_id(rs.getInt("supplier_id"));
+//                list.add(lt);
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return list;
+//    }
 
     public boolean insertProduct(Product product) {
         try {
@@ -324,10 +326,11 @@ public class LaptopDAO extends ProductDAO {
     public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
         System.out.println("It's run!");
         LaptopDAO ldao = new LaptopDAO();
-        ArrayList<Product> list = ldao.getProducts("%", "%", 100);
+        ArrayList<Product> list = ldao.getProducts("%", "%", 6);
         for(Product pd : list){
             System.out.println(pd.getProduct_name());
         }
+
     }
 
 

@@ -52,60 +52,60 @@ public class DienthoaiDAO extends ProductDAO {
         return listProduct;
     }
 
-    public ArrayList<Dienthoai> getManyProduct(int category_id) {
-        ArrayList<Dienthoai> list = new ArrayList<>();
-        try {
-            Connection con = DBConnector.getConnection();
-            String sql = "SELECT * FROM dienthoai WHERE category_id = '" + category_id + "' ORDER BY RAND() LIMIT 6";
-            PreparedStatement ps = con.prepareCall(sql);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                Dienthoai dt = new Dienthoai();
-                dt.setProduct_id(rs.getString("product_id"));
-                dt.setProduct_name(rs.getString("product_name"));
-                dt.setSupply_id(rs.getInt("supplier_id"));
-                list.add(dt);
-            }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return list;
-    }
+//    public ArrayList<Dienthoai> getManyProduct(int category_id) {
+//        ArrayList<Dienthoai> list = new ArrayList<>();
+//        try {
+//            Connection con = DBConnector.getConnection();
+//            String sql = "SELECT * FROM dienthoai WHERE category_id = '" + category_id + "' ORDER BY RAND() LIMIT 6";
+//            PreparedStatement ps = con.prepareCall(sql);
+//            ResultSet rs = ps.executeQuery();
+//            while (rs.next()) {
+//                Dienthoai dt = new Dienthoai();
+//                dt.setProduct_id(rs.getString("product_id"));
+//                dt.setProduct_name(rs.getString("product_name"));
+//                dt.setSupply_id(rs.getInt("supplier_id"));
+//                list.add(dt);
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return list;
+//    }
 
-    public ArrayList<Dienthoai> getDienthoai() throws ClassNotFoundException, SQLException {
-        ArrayList<Dienthoai> list = new ArrayList<>();
-        Connection con = DBConnector.getConnection();
-        String sql = "SELECT * FROM dienthoai";
-        PreparedStatement ps = con.prepareCall(sql);
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            Dienthoai res = new Dienthoai();
-            res.setProduct_id(rs.getString("product_id"));
-            res.setCategory_id(rs.getInt("category_id"));
-            res.setSupply_id(rs.getInt("supplier_id"));
-            res.setProduct_name(rs.getString("product_name"));
-            res.setProduct_price(rs.getDouble("product_price"));
-            res.setProduct_resolution(rs.getString("product_resolution"));
-            res.setProduct_os(rs.getString("product_os"));
-            res.setProduct_camera_after(rs.getInt("product_camera_after"));
-            res.setProduct_camera_front(rs.getInt("product_camera_front"));
-            res.setProduct_cpu(rs.getString("product_cpu"));
-            res.setProduct_ram(rs.getInt("product_ram"));
-            res.setProduct_memory(rs.getInt("product_memory"));
-            res.setProduct_mem_card(rs.getString("product_mem_card"));
-            res.setProduct_sim_card(rs.getString("product_sim_card"));
-            res.setProduct_connection(rs.getString("product_connection"));
-            res.setProduct_battery(rs.getInt("product_battery"));
-            res.setProduct_design(rs.getString("product_design"));
-            res.setProduct_extra_info(rs.getString("product_extra_info"));
-            res.setProduct_discount(rs.getDouble("product_discount"));
-            list.add(res);
-        }
-        con.close();
-        return list;
-    }
+//    public ArrayList<Dienthoai> getDienthoai() throws ClassNotFoundException, SQLException {
+//        ArrayList<Dienthoai> list = new ArrayList<>();
+//        Connection con = DBConnector.getConnection();
+//        String sql = "SELECT * FROM dienthoai";
+//        PreparedStatement ps = con.prepareCall(sql);
+//        ResultSet rs = ps.executeQuery();
+//        while (rs.next()) {
+//            Dienthoai res = new Dienthoai();
+//            res.setProduct_id(rs.getString("product_id"));
+//            res.setCategory_id(rs.getInt("category_id"));
+//            res.setSupply_id(rs.getInt("supplier_id"));
+//            res.setProduct_name(rs.getString("product_name"));
+//            res.setProduct_price(rs.getDouble("product_price"));
+//            res.setProduct_resolution(rs.getString("product_resolution"));
+//            res.setProduct_os(rs.getString("product_os"));
+//            res.setProduct_camera_after(rs.getInt("product_camera_after"));
+//            res.setProduct_camera_front(rs.getInt("product_camera_front"));
+//            res.setProduct_cpu(rs.getString("product_cpu"));
+//            res.setProduct_ram(rs.getInt("product_ram"));
+//            res.setProduct_memory(rs.getInt("product_memory"));
+//            res.setProduct_mem_card(rs.getString("product_mem_card"));
+//            res.setProduct_sim_card(rs.getString("product_sim_card"));
+//            res.setProduct_connection(rs.getString("product_connection"));
+//            res.setProduct_battery(rs.getInt("product_battery"));
+//            res.setProduct_design(rs.getString("product_design"));
+//            res.setProduct_extra_info(rs.getString("product_extra_info"));
+//            res.setProduct_discount(rs.getDouble("product_discount"));
+//            list.add(res);
+//        }
+//        con.close();
+//        return list;
+//    }
 
     public Dienthoai getDienthoai(String product_id) throws ClassNotFoundException, SQLException {
         Connection con = DBConnector.getConnection();
@@ -213,8 +213,8 @@ public class DienthoaiDAO extends ProductDAO {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
         DienthoaiDAO dtDAO = new DienthoaiDAO();
-        Dienthoai dt = new Dienthoai();
-        dt.setProduct_id("dt0029");
+//        Dienthoai dt = new Dienthoai();
+//        dt.setProduct_id("dt0029");
 //        dt.setProduct_price(20);
 //        dt.setProduct_discount(15);
 //        for (Dienthoai dt : dtDAO.getManyProduct(2)) {
@@ -236,6 +236,10 @@ public class DienthoaiDAO extends ProductDAO {
 //            System.out.println(dt.getSupply_id());
 //        }
 //      dtDAO.updateProduct(new Dienthoai("dt0029", 2, 12, 6));
-        dtDAO.removeProduct(dt);
+//        dtDAO.removeProduct(dt);
+        ArrayList<Product> list = dtDAO.getProducts("%", "%", 50);
+        for(Product dt : list) {
+            System.out.println(dt.getProduct_name());
+        }
     }
 }

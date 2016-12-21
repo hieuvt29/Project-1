@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.Dienthoai;
 import model.Laptop;
 import model.Mayanh;
+import model.Product;
 
 /**
  *
@@ -43,13 +44,13 @@ public class SingleServlet extends HttpServlet {
                 Dienthoai dienthoai = new Dienthoai();
                 dienthoai = dienthoaiDAO.getDienthoai(product_id);
                 
-                ArrayList<Dienthoai> listManyProductDienthoai = new ArrayList<>();
+                ArrayList<Product> listManyProductDienthoai = new ArrayList<>();
                 if(dienthoai.getCategory_id() == 1) {
-                    listManyProductDienthoai = dienthoaiDAO.getManyProduct(1);
+                    listManyProductDienthoai = dienthoaiDAO.getProducts("%", "%", 5);
                 } else if(dienthoai.getCategory_id() == 2) {
-                    listManyProductDienthoai = dienthoaiDAO.getManyProduct(2);
+                    listManyProductDienthoai = dienthoaiDAO.getProducts("%", "%", 5);
                 } else if(dienthoai.getCategory_id() == 3) {
-                    listManyProductDienthoai = dienthoaiDAO.getManyProduct(3);
+                    listManyProductDienthoai = dienthoaiDAO.getProducts("%", "%", 5);
                 }
                 request.setAttribute("product", dienthoai);
                 request.setAttribute("listManyProduct", listManyProductDienthoai);
@@ -58,14 +59,14 @@ public class SingleServlet extends HttpServlet {
                 Laptop laptop = new Laptop();
                 laptop = laptopDAO.getProduct(product_id);
                 
-                ArrayList<Laptop> listManyProductLaptop = new ArrayList<>();
+                ArrayList<Product> listManyProductLaptop = new ArrayList<>();
                 
                 if(laptop.getCategory_id() == 1) {
-                    listManyProductLaptop = laptopDAO.getManyProduct(1);
+                    listManyProductLaptop = laptopDAO.getProducts("%", "%", 5);
                 } else if(laptop.getCategory_id() == 2) {
-                    listManyProductLaptop = laptopDAO.getManyProduct(2);
+                    listManyProductLaptop = laptopDAO.getProducts("%", "%", 5);
                 } else if(laptop.getCategory_id() == 3) {
-                    listManyProductLaptop = laptopDAO.getManyProduct(3);
+                    listManyProductLaptop = laptopDAO.getProducts("%", "%", 5);
                 }
                 request.setAttribute("product", laptop);
                 request.setAttribute("listManyProduct", listManyProductLaptop);
@@ -74,14 +75,14 @@ public class SingleServlet extends HttpServlet {
                 Mayanh mayanh = new Mayanh();
                 mayanh = mayanhDAO.getProduct(product_id);
                 
-                ArrayList<Mayanh> listManyProductMayanh = new ArrayList<>();
+                ArrayList<Product> listManyProductMayanh = new ArrayList<>();
                 
                 if(mayanh.getCategory_id() == 1) {
-                    listManyProductMayanh = mayanhDAO.getManyProduct(1);
+                    listManyProductMayanh = mayanhDAO.getProducts("%", "%", 5);
                 } else if(mayanh.getCategory_id() == 2) {
-                    listManyProductMayanh = mayanhDAO.getManyProduct(2);
+                    listManyProductMayanh = mayanhDAO.getProducts("%", "%", 5);
                 } else if(mayanh.getCategory_id() == 3) {
-                    listManyProductMayanh = mayanhDAO.getManyProduct(3);
+                    listManyProductMayanh = mayanhDAO.getProducts("%", "%", 5);
                 }
                 request.setAttribute("product", mayanh);
                 request.setAttribute("listManyProduct", listManyProductMayanh);

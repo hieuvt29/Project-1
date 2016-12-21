@@ -4,7 +4,7 @@
     Author     : LOREMSUM
 --%>
 
-<%@page import="model.Laptop"%>
+<%@page import="model.Product"%>
 <%@page import="dao.LaptopDAO"%>
 <%@page import="model.Supplier"%>
 <%@page import="java.util.ArrayList"%>
@@ -34,7 +34,7 @@
             ArrayList<Supplier> listSupplier = supplierDAO.getSupplierList("supplier_laptop");
             
             LaptopDAO laptopDAO = new LaptopDAO();
-            ArrayList<Laptop> listLaptop = laptopDAO.getLaptop();
+            ArrayList<Product> listLaptop = laptopDAO.getProducts("%", "%", 50);
         %>
 
         <jsp:include page="bars.jsp"></jsp:include>
@@ -103,7 +103,7 @@
                                         <th>Item Sale (%)</th>
                                     </tr>
                                     <%
-                                        for(Laptop laptop : listLaptop) {
+                                        for(Product laptop : listLaptop) {
                                     %>
                                     <tr>
                                         <td><%=laptop.getProduct_id()%></td>                                        

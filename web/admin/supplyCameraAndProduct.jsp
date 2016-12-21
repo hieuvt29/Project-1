@@ -4,7 +4,7 @@
     Author     : LOREMSUM
 --%>
 
-<%@page import="model.Mayanh"%>
+<%@page import="model.Product"%>
 <%@page import="dao.MayanhDAO"%>
 <%@page import="model.Supplier"%>
 <%@page import="java.util.ArrayList"%>
@@ -35,7 +35,7 @@
             
             
             MayanhDAO mayanhDAO = new MayanhDAO();
-            ArrayList<Mayanh> listCamera = mayanhDAO.getMayanh();
+            ArrayList<Product> listCamera = mayanhDAO.getProducts("%", "%", 50);
         %>
 
         <jsp:include page="bars.jsp"></jsp:include>
@@ -104,7 +104,7 @@
                                         <th>Item Sale (%)</th>
                                     </tr>
                                     <%
-                                        for(Mayanh mayanh : listCamera) {
+                                        for(Product mayanh : listCamera) {
                                     %>
                                     <tr>
                                         <td><%=mayanh.getProduct_id()%></td>                                        

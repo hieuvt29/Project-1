@@ -46,25 +46,25 @@ public class MayanhDAO extends ProductDAO {
         return listProduct;
     }
 
-    public ArrayList<Mayanh> getManyProduct(int category_id) {
-        ArrayList<Mayanh> list = new ArrayList<>();
-        try {
-            Connection con = DBConnector.getConnection();
-            String sql = "SELECT * FROM mayanh WHERE category_id = '" + category_id + "' ORDER BY RAND() LIMIT 6";
-            PreparedStatement ps = con.prepareCall(sql);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                Mayanh ma = new Mayanh();
-                ma.setProduct_id(rs.getString("product_id"));
-                list.add(ma);
-            }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return list;
-    }
+//    public ArrayList<Mayanh> getManyProduct(int category_id) {
+//        ArrayList<Mayanh> list = new ArrayList<>();
+//        try {
+//            Connection con = DBConnector.getConnection();
+//            String sql = "SELECT * FROM mayanh WHERE category_id = '" + category_id + "' ORDER BY RAND() LIMIT 6";
+//            PreparedStatement ps = con.prepareCall(sql);
+//            ResultSet rs = ps.executeQuery();
+//            while (rs.next()) {
+//                Mayanh ma = new Mayanh();
+//                ma.setProduct_id(rs.getString("product_id"));
+//                list.add(ma);
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return list;
+//    }
 
     public Mayanh getProduct(String product_id) {
         Mayanh res = new Mayanh();

@@ -99,7 +99,8 @@
                     <div class="wrap">
                         <ul class="breadcrumb breadcrumb__t"><a class="home" href="index.jsp">Home</a>/<a href="single.jsp">Single</a></ul>
                         <div class="cont span_2_of_3">
-                        <%                            if (dt != null) {
+                        <%                            
+                            if (dt != null) {
                         %>
                         <div class="grid images_3_of_2">
                             <ul id="etalage">
