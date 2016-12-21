@@ -16,7 +16,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Dienthoai;
 import model.Product;
-import model.Supplier;
 
 /**
  *
@@ -74,10 +73,10 @@ public class DienthoaiDAO extends ProductDAO {
         return list;
     }
 
-    public ArrayList<Dienthoai> getProduct(int supplier_id) throws ClassNotFoundException, SQLException {
+    public ArrayList<Dienthoai> getDienthoai() throws ClassNotFoundException, SQLException {
         ArrayList<Dienthoai> list = new ArrayList<>();
         Connection con = DBConnector.getConnection();
-        String sql = "SELECT * FROM dienthoai WHERE supplier_id = '" + supplier_id + "'";
+        String sql = "SELECT * FROM dienthoai";
         PreparedStatement ps = con.prepareCall(sql);
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
@@ -137,41 +136,87 @@ public class DienthoaiDAO extends ProductDAO {
         con.close();
         return dt;
     }
-
-    // remove Supply
-//    public boolean removeSupply(Supplier supplier) {
-//        try {
-//            Connection con = DBConnector.getConnection();
-//            String sql = "DELETE FROM supplier_dienthoai WHERE supplier_id = ?";
-//            PreparedStatement ps = con.prepareCall(sql);
-//            ps.setInt(1, supplier.getSupplier_id());
-//            ps.executeUpdate();
-//            return true;
-//        } catch (ClassNotFoundException ex) {
-//            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (SQLException ex) {
-//            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return false;
-//    }
-//    public boolean insertProduct(Dienthoai dienthoai) {
-//        try {
-//            Connection con = DBConnector.getConnection();
-//            String sql = "INSERT INTO dienthoai VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-//            PreparedStatement ps = con.prepareCall(sql);
-//            ps.setString(1, dienthoai.getProduct_name());
-//            ps.setInt(2, dienthoai.getCategory_id());
-//            ps.setInt(3, dienthoai.getSupply_id());
-//        } catch (ClassNotFoundException ex) {
-//            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (SQLException ex) {
-//            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
+    
+    public boolean insertProduct(Product product) {
+        try {
+            Connection con = DBConnector.getConnection();
+            if(product instanceof Dienthoai) {
+                String sql = "INSERT INTO dienthoai VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                PreparedStatement ps = con.prepareCall(sql);
+                ps.setString(1, product.getProduct_id());
+                ps.setInt(2, product.getCategory_id());
+                ps.setInt(3, ((Dienthoai) product).getSupply_id());
+                ps.setString(4, product.getProduct_name());
+                ps.setDouble(5, product.getProduct_price());
+                ps.setString(6, ((Dienthoai) product).getProduct_resolution());
+                ps.setString(7, ((Dienthoai) product).getProduct_os());
+                ps.setInt(8, ((Dienthoai) product).getProduct_camera_after());
+                ps.setInt(9, ((Dienthoai) product).getProduct_camera_front());
+                ps.setString(10, ((Dienthoai) product).getProduct_cpu());
+                ps.setInt(11, ((Dienthoai) product).getProduct_ram());
+                ps.setInt(12, ((Dienthoai) product).getProduct_memory());
+                ps.setString(13, ((Dienthoai) product).getProduct_mem_card());
+                ps.setString(14, ((Dienthoai) product).getProduct_sim_card());
+                ps.setString(15, ((Dienthoai) product).getProduct_connection());
+                ps.setInt(16, ((Dienthoai) product).getProduct_battery());
+                ps.setString(17, ((Dienthoai) product).getProduct_design());
+                ps.setString(18, ((Dienthoai) product).getProduct_extra_info());
+                ps.setDouble(19, product.getProduct_discount());
+                return ps.executeUpdate() == 1;
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    public boolean updateProduct(Product product) {
+        try {
+            Connection con = DBConnector.getConnection();
+            if(product instanceof Dienthoai) {
+                String sql = "UPDATE dienthoai SET category_id = ?, product_price = ?, product_discount = ? "
+                        + "WHERE product_id = ?";
+                PreparedStatement ps = con.prepareCall(sql);
+                ps.setInt(1, product.getCategory_id());
+                ps.setDouble(2, product.getProduct_price());
+                ps.setDouble(3, product.getProduct_discount());
+                ps.setString(4, product.getProduct_id());
+                return ps.executeUpdate() == 1;
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    public boolean removeProduct(Product product) {
+        try {
+            Connection con = DBConnector.getConnection();
+            if(product instanceof Dienthoai) {
+                String sql = "DELETE FROM dienthoai WHERE product_id = ?";
+                PreparedStatement ps = con.prepareCall(sql);
+                ps.setString(1, product.getProduct_id());
+                return ps.executeUpdate() == 1;
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
     public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
         DienthoaiDAO dtDAO = new DienthoaiDAO();
-        Supplier s = new Supplier();
-        s.setSupplier_id(1);
+        Dienthoai dt = new Dienthoai();
+        dt.setProduct_id("dt0029");
+//        dt.setProduct_price(20);
+//        dt.setProduct_discount(15);
+//        for (Dienthoai dt : dtDAO.getManyProduct(2)) {
 //            System.out.println(dt.getProduct_id());
 //            System.out.println(dt.getCategory_id());
 //            System.out.println(dt.getProduct_name());
@@ -180,10 +225,16 @@ public class DienthoaiDAO extends ProductDAO {
 //            System.out.println("---------------------------");
 //        }
 
-//        System.out.println(dtDAO.getProduct("dt0012").getProduct_name());
-//        System.out.println(dtDAO.getProduct("dt0003").getProduct_os());
-//        System.out.println(dtDAO.getProduct("dt0003").getCategory_id());
-//        System.out.println(dtDAO.getProduct("dt0003").getProduct_sim_card());
-//        System.out.println(dtDAO.getProduct("dt0003").getProduct_connection());
+//        System.out.println(dtDAO.getDienthoai("dt0012").getProduct_name());
+//        System.out.println(dtDAO.getDienthoai("dt0003").getProduct_os());
+//        System.out.println(dtDAO.getDienthoai("dt0003").getCategory_id());
+//        System.out.println(dtDAO.getDienthoai("dt0003").getProduct_sim_card());
+//        System.out.println(dtDAO.getDienthoai("dt0003").getProduct_connection());
+//            System.out.println(dt.getProduct_id());
+//            System.out.println(dt.getProduct_name());
+//            System.out.println(dt.getSupply_id());
+//        }
+//      dtDAO.updateProduct(new Dienthoai("dt0029", 2, 12, 6));
+        dtDAO.removeProduct(dt);
     }
 }

@@ -30,7 +30,27 @@ public class Laptop extends Product {
     private double product_weight; // Kg //
     //private double product_price;
     //private double product_discount; // phần trăm giảm giá //
-    
+
+    public Laptop() {
+    }
+
+    public Laptop(int supply_id, String product_CPU, String product_RAM, String product_hard_disk, String product_screen, boolean product_touch, String product_graphic, String product_optical_disk, double product_webcam, String product_material, String product_gates, String product_connection, String product_battery, double product_weight, int category_id, String product_id, String product_name, double product_price, double product_discount) {
+        super(category_id, product_id, product_name, product_price, product_discount);
+        this.supply_id = supply_id;
+        this.product_CPU = product_CPU;
+        this.product_RAM = product_RAM;
+        this.product_hard_disk = product_hard_disk;
+        this.product_screen = product_screen;
+        this.product_touch = product_touch;
+        this.product_graphic = product_graphic;
+        this.product_optical_disk = product_optical_disk;
+        this.product_webcam = product_webcam;
+        this.product_material = product_material;
+        this.product_gates = product_gates;
+        this.product_connection = product_connection;
+        this.product_battery = product_battery;
+        this.product_weight = product_weight;
+    }
 
     public int getSupply_id() {
         return supply_id;

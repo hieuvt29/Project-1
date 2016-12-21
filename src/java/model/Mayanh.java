@@ -12,7 +12,6 @@ package model;
 public class Mayanh extends Product {
 
   //  private String  product_id ;
-    private int category_id ;
     private int supplier_id ;
 
     //private String  product_name ;
@@ -32,20 +31,33 @@ public class Mayanh extends Product {
    // private double  product_price ;
  //   private  double product_discount ; // phần trăm giảm giá //
 
+    public Mayanh() {
+    }
+
+    public Mayanh(int supplier_id, String product_categorize, String product_sensor, String product_image_processor, String product_lens, String product_film, String product_shutter_speed, String product_connection, String product_screen, String product_battery, String product_mem_card, String product_made_in, String product_warranty, double product_weight, int category_id, String product_id, String product_name, double product_price, double product_discount) {
+        super(category_id, product_id, product_name, product_price, product_discount);       
+        this.supplier_id = supplier_id;
+        this.product_categorize = product_categorize;
+        this.product_sensor = product_sensor;
+        this.product_image_processor = product_image_processor;
+        this.product_lens = product_lens;
+        this.product_film = product_film;
+        this.product_shutter_speed = product_shutter_speed;
+        this.product_connection = product_connection;
+        this.product_screen = product_screen;
+        this.product_battery = product_battery;
+        this.product_mem_card = product_mem_card;
+        this.product_made_in = product_made_in;
+        this.product_warranty = product_warranty;
+        this.product_weight = product_weight;
+    }
+    
     public String getProduct_id() {
         return product_id;
     }
 
     public void setProduct_id(String product_id) {
         this.product_id = product_id;
-    }
-
-    public int getCategory_id() {
-        return category_id;
-    }
-
-    public void setCategory_id(int category_id) {
-        this.category_id = category_id;
     }
 
     public int getSupplier_id() {

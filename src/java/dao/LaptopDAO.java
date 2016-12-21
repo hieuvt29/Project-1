@@ -193,6 +193,39 @@ public class LaptopDAO extends ProductDAO {
         }
     }
     
+    public ArrayList<Laptop> getLaptop() throws ClassNotFoundException, SQLException {
+        ArrayList<Laptop> list = new ArrayList<>();
+        Connection con = DBConnector.getConnection();
+        String sql = "SELECT * FROM laptop";
+        PreparedStatement ps = con.prepareCall(sql);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            Laptop res = new Laptop();
+            res.setProduct_id(rs.getString("product_id"));
+            res.setCategory_id(rs.getInt("category_id"));
+            res.setSupply_id(rs.getInt("supplier_id"));
+            res.setProduct_name(rs.getString("product_name"));
+            res.setProduct_price(rs.getDouble("product_price"));
+            res.setProduct_CPU(rs.getString("product_CPU"));
+            res.setProduct_RAM(rs.getString("product_RAM"));
+            res.setProduct_hard_disk(rs.getString("product_hard_disk"));
+            res.setProduct_screen(rs.getString("product_screen"));
+            res.setProduct_touch(rs.getBoolean("product_touch"));
+            res.setProduct_graphic(rs.getString("product_graphic"));
+            res.setProduct_optical_disk(rs.getString("product_optical_disk"));
+            res.setProduct_webcam(rs.getInt("product_webcam"));
+            res.setProduct_material(rs.getString("product_material"));
+            res.setProduct_gates(rs.getString("product_gates"));
+            res.setProduct_connection(rs.getString("product_connection"));
+            res.setProduct_battery(rs.getString("product_battery"));
+            res.setProduct_weight(rs.getDouble("product_weight"));
+            res.setProduct_discount(rs.getDouble("product_discount"));
+            list.add(res);
+        }
+        con.close();
+        return list;
+    }
+    
     public ArrayList<Laptop> getManyProduct(int category_id) {
         ArrayList<Laptop> list = new ArrayList<>();
         try {
@@ -214,15 +247,85 @@ public class LaptopDAO extends ProductDAO {
         return list;
     }
     
+    public boolean insertProduct(Product product) {
+        try {
+            Connection con = DBConnector.getConnection();
+            if(product instanceof Laptop) {
+                String sql = "INSERT INTO laptop VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                PreparedStatement ps = con.prepareCall(sql);
+                ps.setString(1, product.getProduct_id());
+                ps.setInt(2, product.getCategory_id());
+                ps.setInt(3, ((Laptop) product).getSupply_id());
+                ps.setString(4, product.getProduct_name());
+                ps.setDouble(5, product.getProduct_price());
+                ps.setString(6, ((Laptop) product).getProduct_CPU());
+                ps.setString(7, ((Laptop) product).getProduct_RAM());
+                ps.setString(8, ((Laptop) product).getProduct_hard_disk());
+                ps.setString(9, ((Laptop) product).getProduct_screen());
+                ps.setBoolean(10, ((Laptop) product).getProduct_touch());
+                ps.setString(11, ((Laptop) product).getProduct_graphic());
+                ps.setString(12, ((Laptop) product).getProduct_optical_disk());
+                ps.setDouble(13, ((Laptop) product).getProduct_webcam());
+                ps.setString(14, ((Laptop) product).getProduct_material());
+                ps.setString(15, ((Laptop) product).getProduct_gates());
+                ps.setString(16, ((Laptop) product).getProduct_connection());
+                ps.setString(17, ((Laptop) product).getProduct_battery());
+                 ps.setDouble(18, ((Laptop) product).getProduct_weight());
+                ps.setDouble(19, product.getProduct_discount());
+                return ps.executeUpdate() == 1;
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    public boolean updateProduct(Product product) {
+        try {
+            Connection con = DBConnector.getConnection();
+            if(product instanceof Laptop) {
+                String sql = "UPDATE laptop SET category_id = ?, product_price = ?, product_discount = ? "
+                        + "WHERE product_id = ?";
+                PreparedStatement ps = con.prepareCall(sql);
+                ps.setInt(1, product.getCategory_id());
+                ps.setDouble(2, product.getProduct_price());
+                ps.setDouble(3, product.getProduct_discount());
+                ps.setString(4, product.getProduct_id());
+                return ps.executeUpdate() == 1;
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    public boolean removeProduct(Product product) {
+        try {
+            Connection con = DBConnector.getConnection();
+            if(product instanceof Laptop) {
+                String sql = "DELETE FROM laptop WHERE product_id = ?";
+                PreparedStatement ps = con.prepareCall(sql);
+                ps.setString(1, product.getProduct_id());
+                return ps.executeUpdate() == 1;
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
     public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
-        LaptopDAO ldao = new LaptopDAO();
-
-        System.out.println(ldao.getProduct("mt0002").getProduct_CPU());
-        System.out.println(ldao.getProduct("mt0002").getProduct_RAM());
-        System.out.println(ldao.getProduct("mt0002").getProduct_screen());
+        System.out.println("It's run!");
 
 //        ArrayList<Product> list = ldao.getProducts("*");
 //        System.out.println(list.size());
+        
 
     }
 

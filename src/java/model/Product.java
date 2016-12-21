@@ -16,6 +16,24 @@ public abstract class Product {
     protected double product_price;
     protected double product_discount;
 
+    public Product() {
+    }
+
+    public Product(String product_id, int category_id, double product_price, double product_discount) {
+        this.product_id = product_id;
+        this.category_id = category_id;       
+        this.product_price = product_price;
+        this.product_discount = product_discount;
+    }   
+
+    public Product(int category_id, String product_id, String product_name, double product_price, double product_discount) {
+        this.category_id = category_id;
+        this.product_id = product_id;
+        this.product_name = product_name;
+        this.product_price = product_price;
+        this.product_discount = product_discount;
+    }
+
     public double getProduct_discount() {
         return product_discount;
     }
