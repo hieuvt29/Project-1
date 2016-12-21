@@ -141,10 +141,10 @@
                     <div class="col-md-3">
                         <select class="form-control" id="price" name="price" style="width: 150px">
                             <option value="0">Select Price (vnđ) </option>
-                            <option value="1">< 8.000.000</option>
-                            <option value="2">8.000.000 - 10.000.000</option>
-                            <option value="3">10.000.000 - 12.000.000</option>
-                            <option value="4">> 12.000.000</option>
+                            <option value="1">dưới 8 triệu</option>
+                            <option value="2">từ 8 triệu - 10 triệu</option>
+                            <option value="3">từ 10 triệu - 12 triệu</option>
+                            <option value="4">trên 12 triệu</option>
                         </select>
                     </div>
                     <div class="col-md-5">

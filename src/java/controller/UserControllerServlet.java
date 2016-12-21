@@ -24,7 +24,7 @@ import utils.MD5;
  *
  * @author user
  */
-@WebServlet(name = "UserControllerServlet", urlPatterns = {"/UserControllerServlet", "admin/*"})
+@WebServlet(name = "UserControllerServlet", urlPatterns = {"/UserControllerServlet"})
 public class UserControllerServlet extends HttpServlet {
 
     UserDAO userDAO = new UserDAO();
