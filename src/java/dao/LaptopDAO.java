@@ -6,10 +6,7 @@
 package dao;
 
 import Connector.DBConnector;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -73,7 +70,7 @@ public class LaptopDAO extends ProductDAO {
             res.setProduct_RAM(rs.getString("product_RAM"));
             res.setProduct_hard_disk(rs.getString("product_hard_disk"));
             res.setProduct_screen(rs.getString("product_screen"));
-            res.setProduct_touch(rs.getBoolean("product_touch"));
+            res.setProduct_touch(rs.getString("product_touch"));
             res.setProduct_graphic(rs.getString("product_graphic"));
             res.setProduct_optical_disk(rs.getString("product_optical_disk"));
             res.setProduct_webcam(rs.getInt("product_webcam"));
@@ -265,7 +262,7 @@ public class LaptopDAO extends ProductDAO {
                 ps.setString(7, ((Laptop) product).getProduct_RAM());
                 ps.setString(8, ((Laptop) product).getProduct_hard_disk());
                 ps.setString(9, ((Laptop) product).getProduct_screen());
-                ps.setBoolean(10, ((Laptop) product).getProduct_touch());
+                ps.setString(10, ((Laptop) product).getProduct_touch());
                 ps.setString(11, ((Laptop) product).getProduct_graphic());
                 ps.setString(12, ((Laptop) product).getProduct_optical_disk());
                 ps.setDouble(13, ((Laptop) product).getProduct_webcam());
@@ -278,9 +275,9 @@ public class LaptopDAO extends ProductDAO {
                 return ps.executeUpdate() == 1;
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LaptopDAO.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LaptopDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
@@ -299,9 +296,9 @@ public class LaptopDAO extends ProductDAO {
                 return ps.executeUpdate() == 1;
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LaptopDAO.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LaptopDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
@@ -316,9 +313,9 @@ public class LaptopDAO extends ProductDAO {
                 return ps.executeUpdate() == 1;
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LaptopDAO.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LaptopDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
@@ -326,11 +323,11 @@ public class LaptopDAO extends ProductDAO {
     public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
         System.out.println("It's run!");
         LaptopDAO ldao = new LaptopDAO();
-        ArrayList<Product> list = ldao.getProducts("%", "%", 6);
-        for(Product pd : list){
-            System.out.println(pd.getProduct_name());
-        }
-
+//        ArrayList<Product> list = ldao.getProducts("%", "%", 6);
+//        for(Product pd : list){
+//            System.out.println(pd.getProduct_name());
+//        }
+        ldao.insertProduct(new Laptop(3, "product_CPU", "product_RAM", "product_hard_disk", "product_screen", "khong", "product_graphic", "product_optical_disk", 0, "product_material", "product_gates", "product_connection", "product_battery", 0, "product_id", 1, "product_name", 0, 0));
     }
 
 

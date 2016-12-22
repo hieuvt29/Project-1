@@ -184,9 +184,9 @@ public class MayanhDAO extends ProductDAO {
                 return ps.executeUpdate() == 1;
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MayanhDAO.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MayanhDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
@@ -201,9 +201,9 @@ public class MayanhDAO extends ProductDAO {
                 return ps.executeUpdate() == 1;
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MayanhDAO.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MayanhDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }

@@ -9,13 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Insert Supply</title>
-        <link href="${root}/WebBanHang/admin/css/bootstrap.min.css" rel="stylesheet">
-        <link href="${root}/WebBanHang/admin/css/datepicker3.css" rel="stylesheet">
-        <link href="${root}/WebBanHang/admin/css/styles.css" rel="stylesheet">
+        <title>Update Product</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/datepicker3.css" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
 
         <!--Icons-->
-        <script src="${root}/WebBanHang/admin/js/lumino.glyphs.js"></script>
+        <script src="js/lumino.glyphs.js"></script>
 
         <!--[if lt IE 9]>
         <script src="js/html5shiv.js"></script>
@@ -25,10 +25,10 @@
     <body>
 
         <%
-            String error = null;
+            String error = null, product = null, product_id = null;
             error = (String) request.getAttribute("error");
-            String table = null;
-            table = request.getParameter("table");
+            product = request.getParameter("product");
+            product_id = request.getParameter("product_id");
         %>
         <jsp:include page="bars.jsp"></jsp:include>
 
@@ -42,14 +42,14 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Add Supply</h1>
+                        <h1 class="page-header">Update Product</h1>
                     </div>
                 </div><!--/.row-->
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <form role="form" action="${root}/WebBanHang/ManagerSupplierServlet" method="post">
+                                <form role="form" action="${root}/WebBanHang/ManagerProductServlet" method="get">
                                 <div class="col-md-6">
                                     <%
                                         if (error != null) {
@@ -58,13 +58,24 @@
                                     <font color="red"><%=error%></font>
                                     <%}%>
                                     <div class="form-group">
-                                        <label>Supply Name</label>
-                                        <input class="form-control" placeholder="Name" name="supplyName">
+                                        <label>Category Id</label>
+                                        <input class="form-control" name="category_id">
                                     </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Item Price</label>
+                                        <input class="form-control" name="product_price">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Item Sale</label>
+                                        <input class="form-control" name="product_discount">
+                                    </div>                                                                       
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
-                                <input type="hidden" name="command" value="insert">
-                                <input type="hidden" name="table" value="<%=table%>">
+                                <input type="hidden" name="command" value="update">
+                                <input type="hidden" name="product" value="<%=product%>">
+                                <input type="hidden" name="product_id" value="<%=product_id%>">
                             </form>
                         </div>
                     </div><!-- /.col-->
@@ -73,14 +84,14 @@
             </div><!--/.main-->
 
 
-            <script src="${root}/WebBanHang/admin/js/jquery-1.11.1.min.js"></script>
-            <script src="${root}/WebBanHang/admin/js/bootstrap.min.js"></script>
-            <script src="${root}/WebBanHang/admin/js/chart.min.js"></script>
-            <script src="${root}/WebBanHang/admin/js/chart-data.js"></script>
-            <script src="${root}/WebBanHang/admin/js/easypiechart.js"></script>
-            <script src="${root}/WebBanHang/admin/js/easypiechart-data.js"></script>
-            <script src="${root}/WebBanHang/admin/js/bootstrap-datepicker.js"></script>
-            <script src="${root}/WebBanHang/admin/js/bootstrap-table.js"></script>
+            <script src="js/jquery-1.11.1.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/chart.min.js"></script>
+            <script src="js/chart-data.js"></script>
+            <script src="js/easypiechart.js"></script>
+            <script src="js/easypiechart-data.js"></script>
+            <script src="js/bootstrap-datepicker.js"></script>
+            <script src="js/bootstrap-table.js"></script>
             <script>
                 !function ($) {
                     $(document).on("click", "ul.nav li.parent > a > span.icon", function () {

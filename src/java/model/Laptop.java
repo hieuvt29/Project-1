@@ -19,7 +19,7 @@ public class Laptop extends Product {
     private String product_RAM;
     private String product_hard_disk;
     private String product_screen;
-    private boolean product_touch;
+    private String product_touch;
     private String product_graphic;
     private String product_optical_disk;
     private double product_webcam; // MP //
@@ -34,8 +34,16 @@ public class Laptop extends Product {
     public Laptop() {
     }
 
-    public Laptop(int supply_id, String product_CPU, String product_RAM, String product_hard_disk, String product_screen, boolean product_touch, String product_graphic, String product_optical_disk, double product_webcam, String product_material, String product_gates, String product_connection, String product_battery, double product_weight, int category_id, String product_id, String product_name, double product_price, double product_discount) {
-        super(category_id, product_id, product_name, product_price, product_discount);
+    public Laptop(String product_id) {
+        super(product_id);
+    }
+    
+    public Laptop(String product_id, int category_id, double product_price, double product_discount) {
+        super(product_id, category_id, product_price, product_discount);
+    }
+    
+    public Laptop(int supply_id, String product_CPU, String product_RAM, String product_hard_disk, String product_screen, String product_touch, String product_graphic, String product_optical_disk, double product_webcam, String product_material, String product_gates, String product_connection, String product_battery, double product_weight, String product_id, int category_id, String product_name, double product_price, double product_discount) {
+        super(product_id, category_id, product_name, product_price, product_discount);
         this.supply_id = supply_id;
         this.product_CPU = product_CPU;
         this.product_RAM = product_RAM;
@@ -92,11 +100,11 @@ public class Laptop extends Product {
         this.product_screen = product_screen;
     }
 
-    public boolean getProduct_touch() {
+    public String getProduct_touch() {
         return product_touch;
     }
 
-    public void setProduct_touch(boolean product_touch) {
+    public void setProduct_touch(String product_touch) {
         this.product_touch = product_touch;
     }
 

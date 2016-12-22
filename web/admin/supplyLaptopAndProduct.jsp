@@ -97,19 +97,26 @@
                             <table border="1" bordercolor="gray" width="880">
                                 <thead>
                                     <tr>
-                                        <th>Item ID</th>                                       
-                                        <th>Item Name</th>
-                                        <th>Item Price</th>                                       
-                                        <th>Item Sale (%)</th>
+                                        <th><center>Item ID</center></th>                                       
+                                        <th><center>Item Name</center></th>
+                                        <th><center>Item Price</center></th>                                       
+                                        <th><center>Item Sale (%)</center></th>
+                                        <th><center>Option</center></th>
                                     </tr>
                                     <%
                                         for(Product laptop : listLaptop) {
                                     %>
                                     <tr>
-                                        <td><%=laptop.getProduct_id()%></td>                                        
-                                        <td><%=laptop.getProduct_name()%></td>
-                                        <td><%=laptop.getProduct_price()%><span>0.000₫</span></td>                                       
-                                        <td><%=laptop.getProduct_discount()%></td>
+                                        <td align="center"><%=laptop.getProduct_id()%></td>                                        
+                                        <td align="center"><%=laptop.getProduct_name()%></td>
+                                        <td align="center"><%=laptop.getProduct_price()%><span>0.000₫</span></td>                                       
+                                        <td align="center"><%=laptop.getProduct_discount()%></td>
+                                        <td width="150">
+                                            <center>
+                                                <a href="updateProduct.jsp?product=laptop&product_id=<%=laptop.getProduct_id()%>">Update</a>&nbsp; | &nbsp;
+                                                <a href="ManagerProductServlet?product=laptop&product_id=<%=laptop.getProduct_id()%>">Remove</a>
+                                            </center>
+                                        </td>
                                     </tr>
                                     <%}%>
                                 </thead>

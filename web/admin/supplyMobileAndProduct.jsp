@@ -4,6 +4,7 @@
     Author     : LOREMSUM
 --%>
 
+<%@page import="model.Category"%>
 <%@page import="model.Product"%>
 <%@page import="dao.DienthoaiDAO"%>
 <%@page import="model.Supplier"%>
@@ -113,8 +114,8 @@
                                         <td align="center"><%=dienthoai.getProduct_discount()%></td>
                                         <td width="150">
                                             <center>
-                                                <a href="#">Update</a>&nbsp; | &nbsp;
-                                                <a href="#">Remove</a>
+                                                <a href="updateProduct.jsp?product=mobile&product_id=<%=dienthoai.getProduct_id()%>">Update</a>&nbsp; | &nbsp;
+                                                <a href="${root}/WebBanHang/ManagerProductServlet?command=remove&product=mobile&product_id=<%=dienthoai.getProduct_id()%>">Remove</a>
                                             </center>
                                         </td>
                                 </tr>

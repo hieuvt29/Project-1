@@ -24,7 +24,8 @@
     </head>
     <body>
         <%
-            String product = request.getParameter("product");
+            String product = null;
+            product = request.getParameter("product");
             String error = null;
             error = (String) request.getAttribute("error");
         %>
@@ -43,25 +44,25 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">Add Product</h1>
                     </div>
-                </div><!--/.row-->
+                </div><!--/.row-->            
                 <div class="row">
                     <div class="col-lg-12">                   
                         <div class="panel panel-default">
-                        <% if (product.equals("mobile")) { %>
-                        <div class="panel-body">
-                            <form role="form" action="/WebBanHang/ManagerProductServlet" method="post">
-                                <%
-                                    if (error != null) {
-                                        request.removeAttribute("error");
-                                %>
-                                <font color="red"><%=error%></font>
-                                <%}%>
-                                <div class="col-md-6">                                
+                            <div class="panel-body">                            
+                                <form role="form" action="${root}/WebBanHang/ManagerProductServlet" method="post">
+                                <% if (product.equals("mobile")) { %>
+                                <div class="col-md-6">
+                                    <%
+                                        if (error != null) {
+                                            request.removeAttribute("error");
+                                    %>
+                                    <font color="red"><%=error%></font>
+                                    <%}%>
                                     <div class="form-group">
                                         <label>Product Id</label>
                                         <input class="form-control" name="product_id">
                                     </div>
-
+                                    
                                     <div class="form-group">
                                         <label>Category Id</label>
                                         <input class="form-control" name="category_id">
@@ -154,22 +155,24 @@
                                             <label>Discount</label>
                                             <input class="form-control" name="discount">
                                         </div>
-                                    </div>                              
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit Button</button>
                                 </div>                           
-                                <button type="submit" class="btn btn-primary">Submit Button</button>
                                 <input type="hidden" name="command" value="insert">
-                            </form>
-                        </div>
-
-                        <% } else if (product.equals("laptop")) { %>
-                        <div class="panel-body">
-                            <form role="form" action="/WebBanHang/ManagerProductServlet" method="post">
+                                <input type="hidden" name="product" value="mobile">
+                                <% } else if (product.equals("laptop")) { %>                                    
                                 <div class="col-md-6">
+                                    <%
+                                        if (error != null) {
+                                            request.removeAttribute("error");
+                                    %>
+                                    <font color="red"><%=error%></font>
+                                    <%}%>
                                     <div class="form-group">
                                         <label>Product Id</label>
                                         <input class="form-control" name="product_id">
                                     </div>
-
+                                    
                                     <div class="form-group">
                                         <label>Category Id</label>
                                         <input class="form-control" name="category_id">
@@ -262,23 +265,19 @@
                                             <label>Discount</label>
                                             <input class="form-control" name="discount">
                                         </div>
-                                    </div>                              
-                                </div>                           
-
-                                <button type="submit" class="btn btn-primary">Submit Button</button
-                                <input type="hidden" name="command" value="insert">
-                            </form>
-                        </div>
-
-                        <% } else if (product.equals("camera")) { %>
-                        <div class="panel-body">
-                            <form role="form" action="/WebBanHang/ManagerProductServlet" method="post">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Product Id</label>
-                                        <input class="form-control" name="product_id">
                                     </div>
-
+                                    <button type="submit" class="btn btn-primary">Submit Button</button>
+                                </div>                                                          
+                                <input type="hidden" name="command" value="insert">
+                                <input type="hidden" name="product" value="laptop">
+                                <% } else if (product.equals("camera")) { %>                                   
+                                <div class="col-md-6">
+                                    <%
+                                        if (error != null) {
+                                            request.removeAttribute("error");
+                                    %>
+                                    <font color="red"><%=error%></font>
+                                    <%}%>
                                     <div class="form-group">
                                         <label>Category Id</label>
                                         <input class="form-control" name="category_id">
@@ -371,15 +370,15 @@
                                             <label>Discount</label>
                                             <input class="form-control" name="discount">
                                         </div>
-                                    </div>                              
-                                </div>                                                     
-                                <button type="submit" class="btn btn-primary">Submit Button</button>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit Button</button>
+                                </div>                                                                                     
                                 <input type="hidden" name="command" value="insert">
-                            </form>
+                                <input type="hidden" name="product" value="camera">
+                                <% }%>
+                            </form>                            
                         </div>
-                        <% }%>
                     </div>
-
                 </div><!-- /.col-->
             </div><!-- /.row -->
 
