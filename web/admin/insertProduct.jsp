@@ -10,12 +10,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Insert Product</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/datepicker3.css" rel="stylesheet">
-        <link href="css/styles.css" rel="stylesheet">
+        <link href="${root}/WebBanHang/admin/css/bootstrap.min.css" rel="stylesheet">
+        <link href="${root}/WebBanHang/admin/css/datepicker3.css" rel="stylesheet">
+        <link href="${root}/WebBanHang/admin/css/styles.css" rel="stylesheet">
 
         <!--Icons-->
-        <script src="js/lumino.glyphs.js"></script>
+        <script src="${root}/WebBanHang/admin/js/lumino.glyphs.js"></script>
 
         <!--[if lt IE 9]>
         <script src="js/html5shiv.js"></script>
@@ -62,7 +62,7 @@
                                         <label>Product Id</label>
                                         <input class="form-control" name="product_id">
                                     </div>
-                                    
+
                                     <div class="form-group">
                                         <label>Category Id</label>
                                         <input class="form-control" name="category_id">
@@ -172,7 +172,7 @@
                                         <label>Product Id</label>
                                         <input class="form-control" name="product_id">
                                     </div>
-                                    
+
                                     <div class="form-group">
                                         <label>Category Id</label>
                                         <input class="form-control" name="category_id">
@@ -278,6 +278,11 @@
                                     %>
                                     <font color="red"><%=error%></font>
                                     <%}%>
+                                    <div class="form-group">
+                                        <label>Product Id</label>
+                                        <input class="form-control" name="product_id">
+                                    </div>
+                                    
                                     <div class="form-group">
                                         <label>Category Id</label>
                                         <input class="form-control" name="category_id">
@@ -385,14 +390,14 @@
         </div><!--/.main-->
 
 
-        <script src="js/jquery-1.11.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/chart.min.js"></script>
-        <script src="js/chart-data.js"></script>
-        <script src="js/easypiechart.js"></script>
-        <script src="js/easypiechart-data.js"></script>
-        <script src="js/bootstrap-datepicker.js"></script>
-        <script src="js/bootstrap-table.js"></script>
+        <script src="${root}/WebBanHang/admin/js/jquery-1.11.1.min.js"></script>
+        <script src="${root}/WebBanHang/admin/js/bootstrap.min.js"></script>
+        <script src="${root}/WebBanHang/admin/js/chart.min.js"></script>
+        <script src="${root}/WebBanHang/admin/js/chart-data.js"></script>
+        <script src="${root}/WebBanHang/admin/js/easypiechart.js"></script>
+        <script src="${root}/WebBanHang/admin/js/easypiechart-data.js"></script>
+        <script src="${root}/WebBanHang/admin/js/bootstrap-datepicker.js"></script>
+        <script src="${root}/WebBanHang/admin/js/bootstrap-table.js"></script>
         <script>
             !function ($) {
                 $(document).on("click", "ul.nav li.parent > a > span.icon", function () {

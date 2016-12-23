@@ -41,48 +41,47 @@ public class ManagerProductServlet extends HttpServlet {
         product_discount = request.getParameter("product_discount");
         String error = null, url = null;
 
-        if (category_id.equals("") && product_price.equals("") && product_discount.equals("")) {
-            error = "Please enter information update!";
-            request.setAttribute("error", error);
-        }
-
-        try { 
+        try {
             if (command.equals("update")) {
+                if (category_id.equals("") && product_price.equals("") && product_discount.equals("")) {
+                    error = "Please enter information update!";
+                    request.setAttribute("error", error);
+                }
                 if (error == null) {
                     if (product.equals("mobile")) {
                         productDAO = new DienthoaiDAO();
                         productDAO.updateProduct(new Dienthoai(product_id, Integer.parseInt(category_id),
                                 Double.parseDouble(product_price), Double.parseDouble(product_discount)));
-                        url = "admin/supplyMobileAndProduct.jsp";
+                        url = "admin/mobile.jsp";
                     } else if (product.equals("laptop")) {
                         productDAO = new LaptopDAO();
                         productDAO.updateProduct(new Laptop(product_id, Integer.parseInt(category_id),
                                 Double.parseDouble(product_price), Double.parseDouble(product_discount)));
-                        url = "admin/supplyLaptopAndProduct.jsp";
+                        url = "admin/laptop.jsp";
                     } else if (product.equals("camera")) {
                         productDAO = new MayanhDAO();
-                        productDAO.updateProduct(new Laptop(product_id, Integer.parseInt(category_id),
+                        productDAO.updateProduct(new Mayanh(product_id, Integer.parseInt(category_id),
                                 Double.parseDouble(product_price), Double.parseDouble(product_discount)));
-                        url = "admin/supplyCameraAndProduct.jsp";
+                        url = "admin/camera.jsp";
                     }
                 } else {
                     url = "admin/updateProduct.jsp";
                 }
-            } else if(command.equals("remove")) {
-                    if(product.equals("mobile")) {
-                        productDAO = new DienthoaiDAO();
-                        productDAO.removeProduct(new Dienthoai(product_id));
-                        url = "admin/supplyMobileAndProduct.jsp";
-                    } else if (product.equals("laptop")) {
-                        productDAO = new LaptopDAO();
-                        productDAO.removeProduct(new Laptop(product_id));
-                        url = "admin/supplyLaptopAndProduct.jsp";
-                    } else if (product.equals("camera")) {
-                        productDAO = new MayanhDAO();
-                        productDAO.removeProduct(new Mayanh(product_id));
-                        url = "admin/supplyCameraAndProduct.jsp";
-                    }
+            } else if (command.equals("remove")) {
+                if (product.equals("mobile")) {
+                    productDAO = new DienthoaiDAO();
+                    productDAO.removeProduct(product_id);
+                    url = "admin/mobile.jsp";
+                } else if (product.equals("laptop")) {
+                    productDAO = new LaptopDAO();
+                    productDAO.removeProduct(product_id);
+                    url = "admin/laptop.jsp";
+                } else if (product.equals("camera")) {
+                    productDAO = new MayanhDAO();
+                    productDAO.removeProduct(product_id);
+                    url = "admin/camera.jsp";
                 }
+            }
         } catch (Exception e) {
             e.getMessage();
         }
@@ -136,7 +135,7 @@ public class ManagerProductServlet extends HttpServlet {
                                 Integer.parseInt(memory), memoryCard, simCard, connection, Integer.parseInt(battery),
                                 design, extraInfo, product_id, Integer.parseInt(category_id), name,
                                 Double.parseDouble(price), Double.parseDouble(discount)));
-                        url = "admin/supplyMobileAndProduct.jsp";
+                        url = "admin/mobile.jsp";
                     } else {
                         url = "admin/insertProduct.jsp";
                     }
@@ -176,7 +175,7 @@ public class ManagerProductServlet extends HttpServlet {
                                 touch, graphic, opticalDisk, Double.parseDouble(webcam), material, gates,
                                 connection, battery, Double.parseDouble(weight), product_id, Integer.parseInt(category_id),
                                 name, Double.parseDouble(price), Double.parseDouble(discount)));
-                        url = "admin/supplyLaptopAndProduct.jsp";
+                        url = "admin/laptop.jsp";
                     } else {
                         url = "admin/insertProduct.jsp";
                     }
@@ -216,7 +215,7 @@ public class ManagerProductServlet extends HttpServlet {
                                 imageProcessor, lens, film, shutterSpeed, connection, screen, battery, memoryCard,
                                 madeIn, warranty, Double.parseDouble(weight), product_id, Integer.parseInt(category_id),
                                 name, Double.parseDouble(price), Double.parseDouble(discount)));
-                        url = "admin/supplyCameraAndProduct.jsp";
+                        url = "admin/camera.jsp";
                     } else {
                         url = "admin/insertProduct.jsp";
                     }
@@ -230,9 +229,12 @@ public class ManagerProductServlet extends HttpServlet {
     }
 
     public static void main(String[] args) {
-        ProductDAO productDAO = new DienthoaiDAO();
+        ProductDAO productDAO = new MayanhDAO();
 //        productDAO.insertProduct(new Dienthoai(2, "product_resolution", "product_os", 0, 0, "product_cpu", 0, 0, "product_mem_card", "product_sim_card", "product_connection", 0, "product_design", "product_extra_info", "product_id", 2, "product_name", 0, 0));
-//        productDAO.insertProduct(new Laptop(3, "product_CPU", "product_RAM", "product_hard_disk", "product_screen", "product_touch", "product_graphic", "product_optical_disk", 0, "product_material", "product_gates", "product_connection", "product_battery", 0, "product_id", 1, "product_name", 0, 0));
-        productDAO.removeProduct(new Mayanh("ma0029"));
+//        productDAO.insertProduct(new Laptop(3, "product_CPU", "product_RAM", "product_hard_disk", "product_screen", "k", "product_graphic", "product_optical_disk", 0, "product_material", "product_gates", "product_connection", "product_battery", 0, "product_id", 1, "product_name", 0, 0));
+//        System.out.println(productDAO.removeProduct(new Mayanh("ma0028")));
+        productDAO.updateProduct(new Mayanh("ma0026", 3, 41.5, 5));
+//        productDAO.insertProduct(new Mayanh(2, "product_categorize", "product_sensor", "product_image_processor", "product_lens", "product_film", "product_shutter_speed", "product_connection", "product_screen", "product_battery", "product_mem_card", "product_made_in", "product_warranty", 0, "XX", 1, "product_name", 0, 0));
+//        productDAO.removeProduct("XX");
     }
 }

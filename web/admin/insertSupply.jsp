@@ -58,8 +58,8 @@
                                     <font color="red"><%=error%></font>
                                     <%}%>
                                     <div class="form-group">
-                                        <label>Supply Name</label>
-                                        <input class="form-control" placeholder="Name" name="supplyName">
+                                        <label>Supplier Name</label>
+                                        <input class="form-control" placeholder="Name" name="supplier_name">
                                     </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
