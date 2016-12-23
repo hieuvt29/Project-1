@@ -34,8 +34,12 @@ public class Mayanh extends Product {
     public Mayanh() {
     }
 
-    public Mayanh(int supplier_id, String product_categorize, String product_sensor, String product_image_processor, String product_lens, String product_film, String product_shutter_speed, String product_connection, String product_screen, String product_battery, String product_mem_card, String product_made_in, String product_warranty, double product_weight, int category_id, String product_id, String product_name, double product_price, double product_discount) {
-        super(category_id, product_id, product_name, product_price, product_discount);       
+    public Mayanh(String product_id, int category_id, double product_price, double product_discount) {
+        super(product_id, category_id, product_price, product_discount);
+    }
+    
+    public Mayanh(int supplier_id, String product_categorize, String product_sensor, String product_image_processor, String product_lens, String product_film, String product_shutter_speed, String product_connection, String product_screen, String product_battery, String product_mem_card, String product_made_in, String product_warranty, double product_weight, String product_id, int category_id, String product_name, double product_price, double product_discount) {
+        super(product_id, category_id, product_name, product_price, product_discount);       
         this.supplier_id = supplier_id;
         this.product_categorize = product_categorize;
         this.product_sensor = product_sensor;

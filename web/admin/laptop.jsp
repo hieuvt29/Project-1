@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="model.Product"%>
-<%@page import="dao.DienthoaiDAO"%>
+<%@page import="dao.LaptopDAO"%>
 <%@page import="model.Supplier"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="dao.SupplierDAO"%>
@@ -14,13 +14,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Supply Mobile Manager</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/datepicker3.css" rel="stylesheet">
-        <link href="css/styles.css" rel="stylesheet">
+        <title>Supply Laptop Manager</title>
+        <link href="${root}/WebBanHang/admin/css/bootstrap.min.css" rel="stylesheet">
+        <link href="${root}/WebBanHang/admin/css/datepicker3.css" rel="stylesheet">
+        <link href="${root}/WebBanHang/admin/css/styles.css" rel="stylesheet">
 
         <!--Icons-->
-        <script src="js/lumino.glyphs.js"></script>
+        <script src="${root}/WebBanHang/admin/js/lumino.glyphs.js"></script>
 
         <!--[if lt IE 9]>
         <script src="js/html5shiv.js"></script>
@@ -31,10 +31,10 @@
 
         <%
             SupplierDAO supplierDAO = new SupplierDAO();
-            ArrayList<Supplier> listSupplier = supplierDAO.getSupplierList("supplier_dienthoai");
-
-            DienthoaiDAO dienthoaiDAO = new DienthoaiDAO();
-            ArrayList<Product> listMobile = dienthoaiDAO.getProducts("%", "%", 50);
+            ArrayList<Supplier> listSupplier = supplierDAO.getSupplierList("supplier_laptop");
+            
+            LaptopDAO laptopDAO = new LaptopDAO();
+            ArrayList<Product> listLaptop = laptopDAO.getProducts("%", "%", 50);
         %>
 
         <jsp:include page="bars.jsp"></jsp:include>
@@ -48,7 +48,7 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Supply Mobile</h1>
+                        <h1 class="page-header">Supply Laptop</h1>
                     </div>
                 </div><!--/.row-->
 
@@ -56,21 +56,21 @@
                     <div class="col-md-10">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <a href="insertSupply.jsp?table=supplier_dienthoai">Add Supply</a>
+                                <a href="${root}/WebBanHang/admin/insertSupply.jsp?table=supplier_laptop">Add Supply</a>
                             </div>
                             <div class="panel-body">
-                                <table border="1" bordercolor="gray" width="880">
+                                <table class="table" border="1" bordercolor="gray" width="900">
                                     <thead>
                                         <tr>
-                                            <th>Supply ID</th>
-                                            <th>Supply Name</th>
+                                            <th><center>Supply ID</center></th>
+                                            <th><center>Supply Name</center></th>
                                         </tr>
                                     <%
                                         for (Supplier s : listSupplier) {
                                     %>
                                     <tr>
-                                        <td><%=s.getSupplier_id()%></td>
-                                        <td><%=s.getSupplier_name()%></td>
+                                        <td align="center"><%=s.getSupplier_id()%></td>
+                                        <td align="center"><%=s.getSupplier_name()%></td>
                                     </tr>
                                     <%}%>
                                 </thead>
@@ -83,7 +83,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Mobile</h1>
+                    <h1 class="page-header">Laptop</h1>
                 </div>
             </div><!--/.row-->
 
@@ -91,53 +91,53 @@
                 <div class="col-md-10">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <a href="insertProduct.jsp?product=mobile">Add Item</a>
+                            <a href="${root}/WebBanHang/admin/insertProduct.jsp?product=laptop">Add Item</a>
                         </div>
                         <div class="panel-body">
-                            <table border="1" bordercolor="gray" width="880">
+                            <table class="table" border="1" bordercolor="gray" width="880">
                                 <thead>
-                                    <tr>                               
+                                    <tr>
                                         <th><center>Item ID</center></th>                                       
                                         <th><center>Item Name</center></th>
                                         <th><center>Item Price</center></th>                                       
                                         <th><center>Item Sale (%)</center></th>
-                                        <th><center>Option</center></th>                                
+                                        <th><center>Option</center></th>
                                     </tr>
                                     <%
-                                        for (Product dienthoai : listMobile) {
+                                        for(Product laptop : listLaptop) {
                                     %>
                                     <tr>
-                                        <td align="center"><%=dienthoai.getProduct_id()%></td>                                        
-                                        <td align="center"><%=dienthoai.getProduct_name()%></td>
-                                        <td align="center"><%=dienthoai.getProduct_price()%><span>0.000₫</span></td>                                       
-                                        <td align="center"><%=dienthoai.getProduct_discount()%></td>
+                                        <td align="center"><%=laptop.getProduct_id()%></td>                                        
+                                        <td align="center"><%=laptop.getProduct_name()%></td>
+                                        <td align="center"><%=laptop.getProduct_price()%><span>0.000₫</span></td>                                       
+                                        <td align="center"><%=laptop.getProduct_discount()%></td>
                                         <td width="150">
                                             <center>
-                                                <a href="#">Update</a>&nbsp; | &nbsp;
-                                                <a href="#">Remove</a>
+                                                <a href="${root}/WebBanHang/admin/updateProduct.jsp?product=laptop&product_id=<%=laptop.getProduct_id()%>">Update</a>&nbsp; | &nbsp;
+                                                <a href="${root}/WebBanHang/ManagerProductServlet?command=remove&product=laptop&product_id=<%=laptop.getProduct_id()%>">Remove</a>
                                             </center>
                                         </td>
-                                </tr>
-                                <%}%>
+                                    </tr>
+                                    <%}%>
                                 </thead>
                             </table>
                         </div>
                     </div>
                 </div>
 
-            </div><!--/.row-->
+            </div><!--/.row-->	
 
         </div><!--/.main-->
 
 
-        <script src="js/jquery-1.11.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/chart.min.js"></script>
-        <script src="js/chart-data.js"></script>
-        <script src="js/easypiechart.js"></script>
-        <script src="js/easypiechart-data.js"></script>
-        <script src="js/bootstrap-datepicker.js"></script>
-        <script src="js/bootstrap-table.js"></script>
+        <script src="${root}/WebBanHang/admin/js/jquery-1.11.1.min.js"></script>
+        <script src="${root}/WebBanHang/admin/js/bootstrap.min.js"></script>
+        <script src="${root}/WebBanHang/admin/js/chart.min.js"></script>
+        <script src="${root}/WebBanHang/admin/js/chart-data.js"></script>
+        <script src="${root}/WebBanHang/admin/js/easypiechart.js"></script>
+        <script src="${root}/WebBanHang/admin/js/easypiechart-data.js"></script>
+        <script src="${root}/WebBanHang/admin/js/bootstrap-datepicker.js"></script>
+        <script src="${root}/WebBanHang/admin/js/bootstrap-table.js"></script>
         <script>
             !function ($) {
                 $(document).on("click", "ul.nav li.parent > a > span.icon", function () {

@@ -26,9 +26,9 @@ public abstract class Product {
         this.product_discount = product_discount;
     }   
 
-    public Product(int category_id, String product_id, String product_name, double product_price, double product_discount) {
-        this.category_id = category_id;
+    public Product(String product_id, int category_id, String product_name, double product_price, double product_discount) {
         this.product_id = product_id;
+        this.category_id = category_id;
         this.product_name = product_name;
         this.product_price = product_price;
         this.product_discount = product_discount;

@@ -29,7 +29,7 @@ public class MayanhDAO extends ProductDAO {
 //            } else {
 //                sql = "SELECT product_id FROM mayanh WHERE supplier_id = '" + supplier + "'";
 //            }
-            sql = "SELECT product_id FROM mayanh WHERE supplier_id LIKE '" + supplier + "' AND category_id LIKE '"+category+"' LIMIT "+limit+"";
+            sql = "SELECT product_id FROM mayanh WHERE supplier_id LIKE '" + supplier + "' AND category_id LIKE '" + category + "' LIMIT " + limit + "";
             PreparedStatement ps = con.prepareCall(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -65,7 +65,6 @@ public class MayanhDAO extends ProductDAO {
 //        }
 //        return list;
 //    }
-
     public Mayanh getProduct(String product_id) {
         Mayanh res = new Mayanh();
         try {
@@ -160,12 +159,12 @@ public class MayanhDAO extends ProductDAO {
                 ps.setDouble(17, ((Mayanh) product).getProduct_weight());
                 ps.setDouble(18, product.getProduct_price());
                 ps.setDouble(19, product.getProduct_discount());
-                return ps.executeUpdate() == 1;
+                ps.executeUpdate();
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MayanhDAO.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MayanhDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
@@ -181,38 +180,37 @@ public class MayanhDAO extends ProductDAO {
                 ps.setDouble(2, product.getProduct_price());
                 ps.setDouble(3, product.getProduct_discount());
                 ps.setString(4, product.getProduct_id());
-                return ps.executeUpdate() == 1;
+                ps.executeUpdate();
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MayanhDAO.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MayanhDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
 
-    public boolean removeProduct(Product product) {
+    public boolean removeProduct(String product_id) {
         try {
             Connection con = DBConnector.getConnection();
-            if (product instanceof Mayanh) {
-                String sql = "DELETE FROM mayanh WHERE product_id = ?";
-                PreparedStatement ps = con.prepareCall(sql);
-                ps.setString(1, product.getProduct_id());
-                return ps.executeUpdate() == 1;
-            }
+            String sql = "DELETE FROM mayanh WHERE product_id = ?";
+            PreparedStatement ps = con.prepareCall(sql);
+            ps.setString(1, product_id);
+            ps.executeUpdate();
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MayanhDAO.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MayanhDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         MayanhDAO ldao = new MayanhDAO();
-        System.out.println(ldao.getProduct("ma0001").getCategory_id());
-        System.out.println(ldao.getProduct("ma0001").getProduct_name());
-        System.out.println(ldao.getProduct("ma0001").getProduct_weight() + "g");
+//        System.out.println(ldao.getProduct("ma0001").getCategory_id());
+//        System.out.println(ldao.getProduct("ma0001").getProduct_name());
+//        System.out.println(ldao.getProduct("ma0001").getProduct_weight() + "g");
+        ldao.removeProduct("product1");
+//        ldao.insertProduct(new Mayanh(2, "product_categorize", "product_sensor", "product_image_processor", "product_lens", "product_film", "product_shutter_speed", "product_connection", "product_screen", "product_battery", "product_mem_card", "product_made_in", "product_warranty", 0, "product1", 1, "product_name", 0, 0));
     }
-
 }
