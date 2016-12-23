@@ -57,7 +57,7 @@
                     <div class="col-md-10">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <a href="ManagerSupplyServlet?table=supplier_mayanh">Add Supply</a>
+                                <a href="insertSupply.jsp?table=supplier_mayanh">Add Supply</a>
                             </div>
                             <div class="panel-body">
                                 <table border="1" bordercolor="gray" width="880">
@@ -98,19 +98,26 @@
                             <table border="1" bordercolor="gray" width="880">
                                 <thead>
                                     <tr>
-                                        <th>Item ID</th>                                       
-                                        <th>Item Name</th>
-                                        <th>Item Price</th>                                       
-                                        <th>Item Sale (%)</th>
+                                        <th><center>Item ID</center></th>                                       
+                                        <th><center>Item Name</center></th>
+                                        <th><center>Item Price</center></th>                                       
+                                        <th><center>Item Sale (%)</center></th>
+                                        <th><center>Option</center></th>
                                     </tr>
                                     <%
                                         for(Product mayanh : listCamera) {
                                     %>
                                     <tr>
-                                        <td><%=mayanh.getProduct_id()%></td>                                        
-                                        <td><%=mayanh.getProduct_name()%></td>
-                                        <td><%=mayanh.getProduct_price()%><span>0.000₫</span></td>                                       
-                                        <td><%=mayanh.getProduct_discount()%></td>
+                                        <td align="center"><%=mayanh.getProduct_id()%></td>                                        
+                                        <td align="center"><%=mayanh.getProduct_name()%></td>
+                                        <td align="center"><%=mayanh.getProduct_price()%><span>0.000₫</span></td>                                       
+                                        <td align="center"><%=mayanh.getProduct_discount()%></td>
+                                        <td width="150">
+                                            <center>
+                                                <a href="updateProduct.jsp?product=camera&product_id=<%=mayanh.getProduct_id()%>">Update</a>&nbsp; | &nbsp;
+                                                <a href="ManagerProductServlet?product=camera&product_id=<%=mayanh.getProduct_id()%>">Remove</a>
+                                            </center>
+                                        </td>
                                     </tr>
                                     <%}%>
                                 </thead>

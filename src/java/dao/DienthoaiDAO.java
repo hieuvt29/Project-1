@@ -237,9 +237,11 @@ public class DienthoaiDAO extends ProductDAO {
 //        }
 //      dtDAO.updateProduct(new Dienthoai("dt0029", 2, 12, 6));
 //        dtDAO.removeProduct(dt);
-        ArrayList<Product> list = dtDAO.getProducts("%", "%", 50);
-        for(Product dt : list) {
-            System.out.println(dt.getProduct_name());
-        }
+//        ArrayList<Product> list = dtDAO.getProducts("%", "%", 50);
+//        for(Product dt : list) {
+//            System.out.println(dt.getProduct_name());
+//        }
+//        dtDAO.insertProduct(new Dienthoai(2, "product_resolution", "product_os", 0, 0, "product_cpu", 0, 0, "product_mem_card", "product_sim_card", "product_connection", 0, "product_design", "product_extra_info", "product_id", 2, "product_name", 0, 0));
+        dtDAO.removeProduct(new Dienthoai("product_id"));
     }
 }
