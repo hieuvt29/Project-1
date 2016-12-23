@@ -5,9 +5,11 @@
  */
 package controller;
 
+import dao.BillDAO;
 import dao.UserDAO;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -17,6 +19,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Bill;
 import model.User;
 import utils.MD5;
 import utils.Mailer;
@@ -129,6 +132,19 @@ public class UserControllerServlet extends HttpServlet {
         } else if (command != null && command.equals("profile")) {
             //Profile Handler
             url = "profile.jsp";
+            BillDAO billDAO = new BillDAO();
+            try {
+                ArrayList<Bill> userBills = billDAO.getUserBills(user.getUser_id());
+                if(userBills ==  null){
+                    url = "login.jsp";
+                }
+                request.setAttribute("userBills", userBills);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(UserControllerServlet.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(UserControllerServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
 
         }
 

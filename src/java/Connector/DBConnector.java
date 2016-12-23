@@ -23,7 +23,7 @@ public class DBConnector {
         //load driver
         Class.forName("com.mysql.jdbc.Driver");
         //init a connection to database that we need
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/web", username, password);
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/webbanhang", username, password);
         return con;
     }
 }

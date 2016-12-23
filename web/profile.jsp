@@ -4,6 +4,8 @@
     Author     : user
 --%>
 
+<%@page import="model.Bill"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -77,8 +79,44 @@
                             <div class="clear"></div>
                         </div>
                         <h2 class="head">BILLS</h2>
-                        <div class="top-box">
+                        <%
+                            ArrayList<Bill> userBills = (ArrayList<Bill>) request.getAttribute("userBills");
 
+                        %>
+                        <div class="top-box">
+                            <table class="table" border="1" bordercolor="gray" width="880">
+                                <thead>
+                                    <tr>
+                                        <th><center>Stt</center></th>                                       
+                                        <th><center>Bill Id</center></th>
+                                        <th><center>Bill Total</center></th>                                       
+                                        <th><center>Bill Payment</center></th>
+                                        <th><center>Bill Address</center></th>
+                                        <th><center>Bill Order Date</center></th>
+                                        <th><center>Bill Receive Date</center></th>
+                                </tr>
+                                <%               
+                                    Bill bill = null;
+                                    for (int i = 0 ;i < userBills.size(); i++) {
+                                        bill = userBills.get(i);
+                                %>
+                                <tr>
+                                    <td align="center"><%=i+1%></td>                                        
+                                    <td align="center"><%=bill.getBill_id()%></td>
+                                    <td align="center"><%=bill.getBill_total()%><span>0.000₫</span></td>                                       
+                                    <td align="center"><%=bill.getBill_payment()%></td>
+                                    <td align="center"><%=bill.getBill_address()%></td>
+                                    <td align="center"><%=bill.getBill_order_date()%></td>
+                                    <td align="center"><%=bill.getBill_receive_date()%></td>
+                                    <td width="150">
+                                <center>
+                                    <a href="">Cancel</a>
+                                </center>
+                                </td>
+                                </tr>
+                                <%}%>
+                                </thead>
+                            </table>
                             <div class="clear"></div>
                         </div>
 
@@ -132,9 +170,9 @@
                         if (pass.length == 0 || pass == null) {
                             pass_ok = true;
                             $("#check-userpass-result").html("");
-                        } else if(pass.length >= 8){
+                        } else if (pass.length >= 8) {
                             $("#check-userpass-result").html("<img src=\"img/available.png\" />");
-                        }else {
+                        } else {
                             pass_ok = false;
                             $("#check-userpass-result").html("<img src=\"img/not-available.png\"/>");
                         }

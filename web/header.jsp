@@ -43,7 +43,7 @@
                     %>
                     <li><a href="checkout.jsp">WISHLIST</a></li> |
                     <li><a href="checkout.jsp">CHECKOUT</a></li> |
-                    <li><a href="profile.jsp"><%=user.getUser_name()%> - (<%=user.getUser_email()%>)</a></li> |
+                    <li><a href="UserControllerServlet?command=profile"><%=user.getUser_name()%> - (<%=user.getUser_email()%>)</a></li> |
                     <li><a href="UserControllerServlet?command=logout" >LOG OUT</a></li>
                         <% } else {
                         %>
