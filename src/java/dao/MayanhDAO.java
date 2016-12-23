@@ -101,38 +101,38 @@ public class MayanhDAO extends ProductDAO {
         return res;
     }
 
-    public ArrayList<Mayanh> getMayanh() throws ClassNotFoundException, SQLException {
-        ArrayList<Mayanh> list = new ArrayList<>();
-        Connection con = DBConnector.getConnection();
-        String sql = "SELECT * FROM mayanh";
-        PreparedStatement ps = con.prepareCall(sql);
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            Mayanh res = new Mayanh();
-            res.setProduct_id(rs.getString("product_id"));
-            res.setCategory_id(rs.getInt("category_id"));
-            res.setSupplier_id(rs.getInt("supplier_id"));
-            res.setProduct_name(rs.getString("product_name"));
-            res.setProduct_price(rs.getDouble("product_price"));
-            res.setProduct_image_processor(rs.getString("product_image_processor"));
-            res.setProduct_lens(rs.getString("product_lens"));
-            res.setProduct_film(rs.getString("product_film"));
-            res.setProduct_screen(rs.getString("product_screen"));
-            res.setProduct_shutter_speed(rs.getString("product_shutter_speed"));
-            res.setProduct_mem_card(rs.getString("product_mem_card"));
-            res.setProduct_made_in(rs.getString("product_made_in"));
-            res.setProduct_warranty(rs.getString("product_warranty"));
-            res.setProduct_sensor(rs.getString("product_sensor"));
-            res.setProduct_categorize(rs.getString("product_categorize"));
-            res.setProduct_connection(rs.getString("product_connection"));
-            res.setProduct_battery(rs.getString("product_battery"));
-            res.setProduct_weight(rs.getDouble("product_weight"));
-            res.setProduct_discount(rs.getDouble("product_discount"));
-            list.add(res);
-        }
-        con.close();
-        return list;
-    }
+//    public ArrayList<Mayanh> getMayanh() throws ClassNotFoundException, SQLException {
+//        ArrayList<Mayanh> list = new ArrayList<>();
+//        Connection con = DBConnector.getConnection();
+//        String sql = "SELECT * FROM mayanh";
+//        PreparedStatement ps = con.prepareCall(sql);
+//        ResultSet rs = ps.executeQuery();
+//        while (rs.next()) {
+//            Mayanh res = new Mayanh();
+//            res.setProduct_id(rs.getString("product_id"));
+//            res.setCategory_id(rs.getInt("category_id"));
+//            res.setSupplier_id(rs.getInt("supplier_id"));
+//            res.setProduct_name(rs.getString("product_name"));
+//            res.setProduct_price(rs.getDouble("product_price"));
+//            res.setProduct_image_processor(rs.getString("product_image_processor"));
+//            res.setProduct_lens(rs.getString("product_lens"));
+//            res.setProduct_film(rs.getString("product_film"));
+//            res.setProduct_screen(rs.getString("product_screen"));
+//            res.setProduct_shutter_speed(rs.getString("product_shutter_speed"));
+//            res.setProduct_mem_card(rs.getString("product_mem_card"));
+//            res.setProduct_made_in(rs.getString("product_made_in"));
+//            res.setProduct_warranty(rs.getString("product_warranty"));
+//            res.setProduct_sensor(rs.getString("product_sensor"));
+//            res.setProduct_categorize(rs.getString("product_categorize"));
+//            res.setProduct_connection(rs.getString("product_connection"));
+//            res.setProduct_battery(rs.getString("product_battery"));
+//            res.setProduct_weight(rs.getDouble("product_weight"));
+//            res.setProduct_discount(rs.getDouble("product_discount"));
+//            list.add(res);
+//        }
+//        con.close();
+//        return list;
+//    }
 
     public boolean insertProduct(Product product) {
         try {

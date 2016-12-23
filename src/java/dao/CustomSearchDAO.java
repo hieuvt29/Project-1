@@ -53,7 +53,7 @@ public class CustomSearchDAO {
                 String product_id = rs.getString(1);
                 String product = product_id.substring(0, 2);
                 if (product.equals("dt")) {
-                    Dienthoai dt = dienthoaiDAO.getDienthoai(product_id);
+                    Dienthoai dt = dienthoaiDAO.getProduct(product_id);
                     resList.add(dt);
                 } else if (product.equals("mt")) {
                     Laptop lt = laptopDAO.getProduct(product_id);

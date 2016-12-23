@@ -42,7 +42,7 @@ public class SingleServlet extends HttpServlet {
             if (s1.equals("dt")) {
                 DienthoaiDAO dienthoaiDAO = new DienthoaiDAO();
                 Dienthoai dienthoai = new Dienthoai();
-                dienthoai = dienthoaiDAO.getDienthoai(product_id);
+                dienthoai = dienthoaiDAO.getProduct(product_id);
                 
                 ArrayList<Product> listManyProductDienthoai = new ArrayList<>();
                 if(dienthoai.getCategory_id() == 1) {
