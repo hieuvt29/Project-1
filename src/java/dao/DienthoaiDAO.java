@@ -34,7 +34,7 @@ public class DienthoaiDAO extends ProductDAO {
 //            } else {
 //                sql = "SELECT product_id FROM dienthoai WHERE supplier_id = '" + supplier + "'";
 //            }
-            sql = "SELECT product_id FROM dienthoai WHERE supplier_id LIKE '" + supplier + "' AND category_id LIKE '"+category+"' LIMIT "+limit+"";
+            sql = "SELECT product_id FROM dienthoai WHERE supplier_id LIKE '" + supplier + "' AND category_id LIKE '" + category + "' LIMIT " + limit + "";
             PreparedStatement ps = con.prepareCall(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -73,7 +73,6 @@ public class DienthoaiDAO extends ProductDAO {
 //        }
 //        return list;
 //    }
-
 //    public ArrayList<Dienthoai> getDienthoai() throws ClassNotFoundException, SQLException {
 //        ArrayList<Dienthoai> list = new ArrayList<>();
 //        Connection con = DBConnector.getConnection();
@@ -106,7 +105,6 @@ public class DienthoaiDAO extends ProductDAO {
 //        con.close();
 //        return list;
 //    }
-
     public Dienthoai getDienthoai(String product_id) throws ClassNotFoundException, SQLException {
         Connection con = DBConnector.getConnection();
         String sql = "SELECT * FROM dienthoai WHERE product_id = '" + product_id + "'";
@@ -184,7 +182,7 @@ public class DienthoaiDAO extends ProductDAO {
                 ps.setDouble(2, product.getProduct_price());
                 ps.setDouble(3, product.getProduct_discount());
                 ps.setString(4, product.getProduct_id());
-                return ps.executeUpdate() == 1;
+                ps.executeUpdate();
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -194,15 +192,13 @@ public class DienthoaiDAO extends ProductDAO {
         return false;
     }
 
-    public boolean removeProduct(Product product) {
+    public boolean removeProduct(String product_id) {
         try {
             Connection con = DBConnector.getConnection();
-            if (product instanceof Dienthoai) {
-                String sql = "DELETE FROM dienthoai WHERE product_id = ?";
-                PreparedStatement ps = con.prepareCall(sql);
-                ps.setString(1, product.getProduct_id());
-                return ps.executeUpdate() == 1;
-            }
+            String sql = "DELETE FROM dienthoai WHERE product_id = ?";
+            PreparedStatement ps = con.prepareCall(sql);
+            ps.setString(1, product_id);
+            ps.executeUpdate();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -242,6 +238,6 @@ public class DienthoaiDAO extends ProductDAO {
 //            System.out.println(dt.getProduct_name());
 //        }
 //        dtDAO.insertProduct(new Dienthoai(2, "product_resolution", "product_os", 0, 0, "product_cpu", 0, 0, "product_mem_card", "product_sim_card", "product_connection", 0, "product_design", "product_extra_info", "product_id", 2, "product_name", 0, 0));
-        dtDAO.removeProduct(new Dienthoai("product_id"));
+//        dtDAO.removeProduct(new Dienthoai("product_id"));
     }
 }

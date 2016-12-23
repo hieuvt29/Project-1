@@ -34,10 +34,10 @@ public class ManagerSupplierServlet extends HttpServlet {
             throws ServletException, IOException {
         String command = request.getParameter("command");
         String table = request.getParameter("table");
-        String supplyName = request.getParameter("supplyName");
+        String supplier_name = request.getParameter("supplier_name");
         
         String url = null , error = null ;
-        if(supplyName.equals("") || table == null) {
+        if(supplier_name.equals("") || table == null) {
             error = "Please enter supply id or supply name!";
             request.setAttribute("error", error);
         }
@@ -46,14 +46,14 @@ public class ManagerSupplierServlet extends HttpServlet {
             if(error == null) {
                 if(command.equals("insert")) {
                     if(table.equals("supplier_dienthoai")) {
-                        supplierDAO.insertSupply(new Supplier(supplyName), table);
-                        url = "admin/supplyMobileAndProduct.jsp";
+                        supplierDAO.insertSupply(new Supplier(supplier_name), table);
+                        url = "admin/mobile.jsp";
                     } else if(table.equals("supplier_laptop")) {
-                        supplierDAO.insertSupply(new Supplier(supplyName), table);
-                        url = "admin/supplyLaptopAndProduct.jsp";
+                        supplierDAO.insertSupply(new Supplier(supplier_name), table);
+                        url = "admin/laptop.jsp";
                     } else if(table.equals("supplier_mayanh")) {
-                        supplierDAO.insertSupply(new Supplier(supplyName), table);
-                        url = "admin/supplyCameraAndProduct.jsp";
+                        supplierDAO.insertSupply(new Supplier(supplier_name), table);
+                        url = "admin/camera.jsp";
                     }
                 }
             } else {
