@@ -14,7 +14,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Supply Laptop Manager</title>
+        <title>Supplier Laptop Manager</title>
         <link href="${root}/WebBanHang/admin/css/bootstrap.min.css" rel="stylesheet">
         <link href="${root}/WebBanHang/admin/css/datepicker3.css" rel="stylesheet">
         <link href="${root}/WebBanHang/admin/css/styles.css" rel="stylesheet">
@@ -41,14 +41,14 @@
             <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
                 <div class="row">
                     <ol class="breadcrumb">
-                        <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-                        <li class="active">Icons</li>
+                        <li><a href="${root}/WebBanHang/admin/dashboard.jsp""><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+                        <li class="active"><a href="${root}/WebBanHang/admin/laptop.jsp"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>Laptop</a></li>
                     </ol>
                 </div><!--/.row-->
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Supplier Laptop</h1>
+                        <h1 class="page-header">Nhà cung cấp Laptop</h1>
                     </div>
                 </div><!--/.row-->
 
@@ -56,14 +56,14 @@
                     <div class="col-md-10">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <a href="${root}/WebBanHang/admin/insertSupply.jsp?table=supplier_laptop">Add Supplier</a>
+                                <a href="${root}/WebBanHang/admin/insertSupplier.jsp?table=supplier_laptop">Thêm nhà cung cấp</a>
                             </div>
                             <div class="panel-body">
                                 <table class="table" border="1" bordercolor="gray" width="900">
                                     <thead>
                                         <tr>
-                                            <th><center>Supply ID</center></th>
-                                            <th><center>Supply Name</center></th>
+                                            <th><center>Mã NCC</center></th>
+                                            <th><center>Tên NCC</center></th>
                                         </tr>
                                     <%
                                         for (Supplier s : listSupplier) {
@@ -91,17 +91,17 @@
                 <div class="col-md-10">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <a href="${root}/WebBanHang/admin/insertProduct.jsp?product=laptop">Add Item</a>
+                            <a href="${root}/WebBanHang/admin/insertProduct.jsp?product=laptop">Thêm sản phẩm</a>
                         </div>
                         <div class="panel-body">
                             <table class="table" border="1" bordercolor="gray" width="880">
                                 <thead>
                                     <tr>
-                                        <th><center>Item ID</center></th>                                       
-                                        <th><center>Item Name</center></th>
-                                        <th><center>Item Price</center></th>                                       
-                                        <th><center>Item Sale (%)</center></th>
-                                        <th><center>Option</center></th>
+                                        <th><center>Mã sản phẩm</center></th>                                       
+                                        <th><center>Tên sản phẩm</center></th>
+                                        <th><center>Giá sản phẩm</center></th>                                       
+                                        <th><center>Giảm giá (%)</center></th>
+                                        <th><center>Thao tác</center></th>
                                     </tr>
                                     <%
                                         for(Product laptop : listLaptop) {
@@ -113,8 +113,8 @@
                                         <td align="center"><%=laptop.getProduct_discount()%></td>
                                         <td width="150">
                                             <center>
-                                                <a href="${root}/WebBanHang/admin/updateProduct.jsp?product=laptop&product_id=<%=laptop.getProduct_id()%>">Update</a>&nbsp; | &nbsp;
-                                                <a href="${root}/WebBanHang/ManagerProductServlet?command=remove&product=laptop&product_id=<%=laptop.getProduct_id()%>">Remove</a>
+                                                <a href="${root}/WebBanHang/admin/updateProduct.jsp?product=laptop&product_id=<%=laptop.getProduct_id()%>">Cập nhật</a>&nbsp; | &nbsp;
+                                                <a href="${root}/WebBanHang/ManagerProductServlet?command=remove&product=laptop&product_id=<%=laptop.getProduct_id()%>">Xóa</a>
                                             </center>
                                         </td>
                                     </tr>

@@ -45,7 +45,7 @@
                     <div class="wrap">
                         <div class="cont span_3_of_3">
                             <div class="mens-toolbar">
-                                <h4>Product List</h4>
+                                <h4>Danh sách sản phẩm</h4>
                                 <div class="clear"></div>
                             </div>
                             

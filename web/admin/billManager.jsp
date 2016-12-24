@@ -3,8 +3,7 @@
     Created on : Oct 24, 2016, 9:45:00 AM
     Author     : LOREMSUM
 --%>
-
-<%@page import="java.sql.Date"%>
+<%@page import="java.util.Date"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Bill"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -30,14 +29,14 @@
             <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
                 <div class="row">
                     <ol class="breadcrumb">
-                        <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-                        <li class="active">Icons</li>
+                        <li><a href="${root}/WebBanHang/admin/dashboard.jsp""><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+                        <li class="active"><a href="${root}/WebBanHang/ManagerBillServlet"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Hóa đơn </a></li>                
                     </ol>
                 </div><!--/.row-->
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Bills</h1>
+                        <h1 class="page-header">Hóa đơn</h1>
                     </div>
                 </div><!--/.row-->
 
@@ -54,13 +53,13 @@
                                     <thead>
                                         <tr>
                                             <th><center>Stt</center></th>                                       
-                                    <th><center>Bill Id</center></th>
-                                    <th><center>Bill Total</center></th>                                       
-                                    <th><center>Bill Payment</center></th>
-                                    <th><center>Bill Address</center></th>
-                                    <th><center>Bill Order Date</center></th>
-                                    <th><center>Bill Receive Date</center></th>
-                                    <th><center>Option</center></th>
+                                    <th><center>Mã đơn hàng</center></th>
+                                    <th><center>Giá trị</center></th>                                       
+                                    <th><center>Phương thức thanh toán</center></th>
+                                    <th><center>Địa chỉ</center></th>
+                                    <th><center>Ngày đặt hàng</center></th>
+                                    <th><center>Ngày thanh toán</center></th>
+                                    <th><center>Thao tác</center></th>
                                     </tr>
                                     <%                                        Bill bill = null;
                                         for (int i = 0; i < userBills.size(); i++) {
@@ -82,9 +81,9 @@
                                         <a href="${root}/WebBanHang/ManagerBillServlet?command=process&bill_id=<%=bill.getBill_id()%>">Process</a>&nbsp; | &nbsp;
                                         <a href="${root}/WebBanHang/ManagerBillServlet?command=cancel&bill_id=<%=bill.getBill_id()%>">Cancel</a>
                                         <%}else if(bill.getBill_receipt_date().compareTo(new Date(0)) <= 0){%>
-                                        <span style="color: red">Canceled</span>
+                                        <span style="color: red">Đã hủy</span>
                                         <%}else{%>
-                                        <span style="color: green">Succeeded!</span>
+                                        <span style="color: green">Thành công</span>
                                         <%}%>
                                     </center>
                                     </td>

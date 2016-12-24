@@ -41,14 +41,14 @@
                 <ul>
                     <% if (user != null) {
                     %>
-                    <li><a href="checkout.jsp">WISHLIST</a></li> |
-                    <li><a href="checkout.jsp">CHECKOUT</a></li> |
+                    <li><a href="checkout.jsp">GIỎ HÀNG</a></li> |
+                    <li><a href="checkout.jsp">THANH TOÁN</a></li> |
                     <li><a href="UserControllerServlet?command=profile"><%=user.getUser_name()%> - (<%=user.getUser_email()%>)</a></li> |
-                    <li><a href="UserControllerServlet?command=logout" >LOG OUT</a></li>
+                    <li><a href="UserControllerServlet?command=logout" >ĐĂNG XUẤT</a></li>
                         <% } else {
                         %>
-                    <li><a href="login.jsp">LOG IN</a></li> |
-                    <li><a href="register.jsp">SIGN UP</a></li>
+                    <li><a href="login.jsp">ĐĂNG NHẬP</a></li> |
+                    <li><a href="register.jsp">ĐĂNG KÝ</a></li>
                         <% }
                         %>
 
@@ -65,7 +65,7 @@
                 </div>
                 <div class="menu">
                     <ul class="megamenu skyblue">
-                        <li class="active grid"><a href="index.jsp">Home</a></li>
+                        <li class="active grid"><a href="index.jsp">Trang chủ</a></li>
                         <li><a class="color4" href="ProductsPageServlet?product=Dienthoai&supplier=%25" >Điện thoại</a>
                             <div class="megapanel">
                                 <%
@@ -135,11 +135,11 @@
                                         document.forms['select-form'].submit();
                                         return false;
                                     })();">
-                                <input class="form-control" type="text" name="product_name" class="textbox" value="Search" onfocus="if(this.value == 'Search') this.value='';" onblur="if (this.value == '') {
-                                            this.value = 'Search';
+                                <input class="form-control" type="text" name="product_name" class="textbox" value="Tìm kiếm" onfocus="if(this.value == 'Tìm kiếm') this.value='';" onblur="if (this.value == '') {
+                                            this.value = 'Tìm kiếm';
                                         }">
                                 <select class="form-control" id="price" name="price" tyle="width: 150px">
-                                    <option value="0">Select Price (vnđ) </option>
+                                    <option value="0">Giá (vnđ) </option>
                                     <option value="1">dưới 8 triệu</option>
                                     <option value="2">từ 8 triệu - 10 triệu</option>
                                     <option value="3">từ 10 triệu - 12 triệu</option>

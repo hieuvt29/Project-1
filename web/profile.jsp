@@ -46,27 +46,27 @@
             <div class="wrap">
                 <div class="section group">
                     <div class="cont span_2_of_3">
-                        <h2 class="head">INFORMATION</h2>
+                        <h2 class="head">THÔNG TIN</h2>
                         <div class="top-box">
                             <div class="col_3_of_3 span_3_of_3">
                                 <form role="form" action="UserControllerServlet" method="post" onsubmit="return submitController();">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>User name :</label>
+                                            <label>TÊN :</label>
                                             <input class="form-control" type="text" name="user_name" disabled="true" id="user_name" value="<%=user.getUser_name()%>">
                                             <span id="check-username-result"></span>
                                         </div>
                                         <div class="form-group">
-                                            <label>Email :</label>
+                                            <label>EMAIL :</label>
                                             <input class="form-control" type="text" name="user_email" id="user_email" value="<%=user.getUser_email()%>">
                                             <span id="check-useremail-result"></span>
                                         </div>
                                         <div class="form-group">
-                                            <label>Phone number :</label>
+                                            <label>SỐ ĐIỆN THOẠI :</label>
                                             <input class="form-control" type="text" name="user_phonenumber" id="user_phonenumber" value="<%=user.getUser_phonenumber()%>">
                                         </div>
                                         <div class="form-group">
-                                            <label>Password :</label>
+                                            <label>MẬT KHẨU :</label>
                                             <input class="form-control" type="password" name="user_pass" id="user_pass">
                                             <span id="check-userpass-result"></span>
                                         </div>
@@ -88,28 +88,27 @@
                                 <thead>
                                     <tr>
                                         <th><center>Stt</center></th>                                       
-                                        <th><center>Bill Id</center></th>
-                                        <th><center>Bill Total</center></th>                                       
-                                        <th><center>Bill Payment</center></th>
-                                        <th><center>Bill Address</center></th>
-                                        <th><center>Bill Order Date</center></th>
-                                        <th><center>Bill Receive Date</center></th>
+                                <th><center>Mã đơn hàng</center></th>
+                                <th><center>Giá trị</center></th>                                       
+                                <th><center>Phương thức thanh toán</center></th>
+                                <th><center>Địa chỉ</center></th>
+                                <th><center>Ngày đặt hàng</center></th>
+                                <th><center>Ngày thanh toán</center></th>
                                 </tr>
-                                <%               
-                                    Bill bill = null;
-                                    for (int i = 0 ;i < userBills.size(); i++) {
+                                <%                                    Bill bill = null;
+                                    for (int i = 0; i < userBills.size(); i++) {
                                         bill = userBills.get(i);
                                 %>
                                 <tr>
-                                    <td align="center"><%=i+1%></td>                                        
+                                    <td align="center"><%=i + 1%></td>                                        
                                     <td align="center"><%=bill.getBill_id()%></td>
                                     <td align="center"><%=bill.getBill_total()%><span>0.000₫</span></td>                                       
                                     <td align="center"><%=bill.getBill_payment()%></td>
                                     <td align="center"><%=bill.getBill_address()%></td>
                                     <td align="center"><%=bill.getBill_order_date()%></td>
                                     <td align="center"><%=bill.getBill_receipt_date()%></td>
-                                    
-                                </td>
+
+                                    </td>
                                 </tr>
                                 <%}%>
                                 </thead>

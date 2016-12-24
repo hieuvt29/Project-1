@@ -86,8 +86,8 @@ public class BillDAO {
             ps.setDouble(3, bill.getBill_total());
             ps.setString(4, bill.getBill_payment());
             ps.setString(5, bill.getBill_address());
-            ps.setDate(6, (Date) bill.getBill_order_date());
-            ps.setDate(7, (Date) bill.getBill_receipt_date());
+            ps.setDate(6, bill.getBill_order_date());
+            ps.setDate(7, bill.getBill_receipt_date());
 
             return ps.executeUpdate() == 1;
 
@@ -107,7 +107,7 @@ public class BillDAO {
             String sql = "UPDATE bills SET bill_receipt_date = ? "
                     + "WHERE bill_id = ?";
             PreparedStatement ps = con.prepareCall(sql);
-            ps.setDate(1, (Date) bill.getBill_receipt_date());
+            ps.setDate(1, bill.getBill_receipt_date());
             ps.setInt(2, bill.getBill_id());
             
             return ps.executeUpdate() == 1;
@@ -122,16 +122,17 @@ public class BillDAO {
         }
         return false;
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
         BillDAO billDAO = new BillDAO();
         Bill bill = new Bill();
-        bill.setBill_id(6);
-        bill.setBill_address("NO/A");
-        bill.setUser_id(43);
-        bill.setBill_payment("OFFLINE");
-        bill.setBill_total(10.9);
-        bill.setBill_order_date(new Date(System.currentTimeMillis()));
-        billDAO.insertBill(bill);
+//        bill.setBill_id(7);
+//        bill.setBill_address("N/A");
+//        bill.setUser_id(43);
+//        bill.setBill_payment("OFFLINE");
+//        bill.setBill_total(10.9);
+//        bill.setBill_order_date(new Date(System.currentTimeMillis()));
+//        billDAO.insertBill(bill);
         
+        System.out.println(billDAO.getBills().size());
     }
 }
