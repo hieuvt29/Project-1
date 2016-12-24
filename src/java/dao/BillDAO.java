@@ -7,6 +7,7 @@ package dao;
 
 import Connector.DBConnector;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,9 +36,9 @@ public class BillDAO {
             res.setBill_address(rs.getString("bill_address"));
             res.setBill_payment(rs.getString("bill_payment"));
             res.setBill_order_date(rs.getDate("bill_order_date"));
-            res.setBill_receive_date(rs.getDate("bill_receive_date"));
+            res.setBill_receipt_date(rs.getDate("bill_receipt_date"));
             res.setUser_id(rs.getInt("user_id"));
-            
+
             con.close();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(LaptopDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -54,10 +55,83 @@ public class BillDAO {
         String sql = "SELECT bill_id FROM bills WHERE user_id = '" + user_id + "'";
         PreparedStatement ps = con.prepareCall(sql);
         ResultSet rs = ps.executeQuery();
-        while(rs.next()){
+        while (rs.next()) {
             Bill bill = getBill(rs.getInt("bill_id"));
             res.add(bill);
         }
         return res;
+    }
+
+    public ArrayList<Bill> getBills() throws ClassNotFoundException, SQLException {
+        ArrayList<Bill> res = new ArrayList<>();
+        Connection con = DBConnector.getConnection();
+        String sql = "SELECT bill_id FROM bills";
+        PreparedStatement ps = con.prepareCall(sql);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            Bill bill = getBill(rs.getInt("bill_id"));
+            res.add(bill);
+        }
+        return res;
+    }
+
+    public boolean insertBill(Bill bill) {
+        try {
+            Connection con = DBConnector.getConnection();
+
+            String sql = "INSERT INTO bills VALUES(?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = con.prepareCall(sql);
+            ps.setInt(1, bill.getBill_id());
+            ps.setInt(2, bill.getUser_id());
+            ps.setDouble(3, bill.getBill_total());
+            ps.setString(4, bill.getBill_payment());
+            ps.setString(5, bill.getBill_address());
+            ps.setDate(6, (Date) bill.getBill_order_date());
+            ps.setDate(7, (Date) bill.getBill_receipt_date());
+
+            return ps.executeUpdate() == 1;
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DienthoaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return false;
+    }
+
+    public boolean updateBill(Bill bill) {
+        try {
+            Connection con = DBConnector.getConnection();
+
+            String sql = "UPDATE bills SET bill_receipt_date = ? "
+                    + "WHERE bill_id = ?";
+            PreparedStatement ps = con.prepareCall(sql);
+            ps.setDate(1, (Date) bill.getBill_receipt_date());
+            ps.setInt(2, bill.getBill_id());
+            
+            return ps.executeUpdate() == 1;
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DienthoaiDAO.class
+                    .getName()).log(Level.SEVERE, null, ex);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DienthoaiDAO.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    public static void main(String[] args) {
+        BillDAO billDAO = new BillDAO();
+        Bill bill = new Bill();
+        bill.setBill_id(6);
+        bill.setBill_address("NO/A");
+        bill.setUser_id(43);
+        bill.setBill_payment("OFFLINE");
+        bill.setBill_total(10.9);
+        bill.setBill_order_date(new Date(System.currentTimeMillis()));
+        billDAO.insertBill(bill);
+        
     }
 }

@@ -48,7 +48,7 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Supply Laptop</h1>
+                        <h1 class="page-header">Supplier Laptop</h1>
                     </div>
                 </div><!--/.row-->
 
@@ -56,7 +56,7 @@
                     <div class="col-md-10">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <a href="${root}/WebBanHang/admin/insertSupply.jsp?table=supplier_laptop">Add Supply</a>
+                                <a href="${root}/WebBanHang/admin/insertSupply.jsp?table=supplier_laptop">Add Supplier</a>
                             </div>
                             <div class="panel-body">
                                 <table class="table" border="1" bordercolor="gray" width="900">

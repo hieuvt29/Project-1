@@ -16,6 +16,10 @@
         <servlet-name>ManagerProductServlet</servlet-name>
         <servlet-class>controller.ManagerProductServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManagerBillServlet</servlet-name>
+        <servlet-class>controller.ManagerBillServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UserControllerServlet</servlet-name>
         <url-pattern>/UserControllerServlet</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>ManagerProductServlet</servlet-name>
         <url-pattern>/ManagerProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagerBillServlet</servlet-name>
+        <url-pattern>/ManagerBillServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -53,7 +53,7 @@
                 <li><a href="${root}/WebBanHang/admin/mobile.jsp"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>Mobile</a></li>
                 <li><a href="${root}/WebBanHang/admin/laptop.jsp"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>Laptop</a></li>
                 <li><a href="${root}/WebBanHang/admin/camera.jsp"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>Camera</a></li>               
-                <li><a href="${root}/WebBanHang/admin/billManager.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Bills </a></li>                
+                <li><a href="${root}/WebBanHang/ManagerBillServlet"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Bills </a></li>                
                 <li class="parent">
                     <a href="#">
                         <span data-toggle="collapse" href="#sub-item-1"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg></span> Dropdown 

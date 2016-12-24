@@ -19,19 +19,19 @@ public class Bill {
     private String bill_payment;
     private String bill_address;
     private Date bill_order_date;
-    private Date bill_receive_date;
+    private Date bill_receipt_date;
 
     public Bill() {
     }
 
-    public Bill(int bill_id, int user_id, double bill_total, String bill_payment, String bill_address, Date bill_order_date, Date bill_receive_date) {
+    public Bill(int bill_id, int user_id, double bill_total, String bill_payment, String bill_address, Date bill_order_date, Date bill_receipt_date) {
         this.bill_id = bill_id;
         this.user_id = user_id;
         this.bill_total = bill_total;
         this.bill_payment = bill_payment;
         this.bill_address = bill_address;
         this.bill_order_date = bill_order_date;
-        this.bill_receive_date = bill_receive_date;
+        this.bill_receipt_date = bill_receipt_date;
     }
 
     public int getBill_id() {
@@ -82,12 +82,12 @@ public class Bill {
         this.bill_order_date = bill_order_date;
     }
 
-    public Date getBill_receive_date() {
-        return bill_receive_date;
+    public Date getBill_receipt_date() {
+        return bill_receipt_date;
     }
 
-    public void setBill_receive_date(Date bill_receive_date) {
-        this.bill_receive_date = bill_receive_date;
+    public void setBill_receipt_date(Date bill_receipt_date) {
+        this.bill_receipt_date = bill_receipt_date;
     }
     
     
