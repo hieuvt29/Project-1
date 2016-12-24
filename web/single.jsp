@@ -99,8 +99,7 @@
                     <div class="wrap">
                         <ul class="breadcrumb breadcrumb__t"><a class="home" href="index.jsp">Home</a>/<a href="single.jsp">Single</a></ul>
                         <div class="cont span_2_of_3">
-                        <%                            
-                            if (dt != null) {
+                        <%                            if (dt != null) {
                         %>
                         <div class="grid images_3_of_2">
                             <ul id="etalage">
@@ -162,15 +161,15 @@
                                     for (int i = 0; i < listManyProduct.size(); i++) {
                                         if (listManyProduct.get(i).getCategory_id() == 1) {
                                 %>
-                                <li><img src="<%="images/" + listManyProduct.get(i).getProduct_id() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=listManyProduct.get(i).getProduct_id()%>"><%=listManyProduct.get(i).getProduct_name()%></a></li>
+                                <li><img src="<%="images/" + listManyProduct.get(i).getProduct_id() + " (1)" + ".jpg"%>" /><a href="SingleServlet?product_id=<%=listManyProduct.get(i).getProduct_id()%>"><%=listManyProduct.get(i).getProduct_name()%></a></li>
                                     <%
                                     } else if (listManyProduct.get(i).getCategory_id() == 2) {
                                     %>
-                                <li><img src="<%="images/" + listManyProduct.get(i).getProduct_id() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=listManyProduct.get(i).getProduct_id()%>"><%=listManyProduct.get(i).getProduct_name()%></a></li>
+                                <li><img src="<%="images/" + listManyProduct.get(i).getProduct_id() + " (1)" + ".jpg"%>" /><a href="SingleServlet?product_id=<%=listManyProduct.get(i).getProduct_id()%>"><%=listManyProduct.get(i).getProduct_name()%></a></li>
                                     <%
                                     } else if (listManyProduct.get(i).getCategory_id() == 3) {
                                     %>
-                                <li><img src="<%="images/" + listManyProduct.get(i).getProduct_id() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=listManyProduct.get(i).getProduct_id()%>"><%=listManyProduct.get(i).getProduct_name()%></a></li>
+                                <li><img src="<%="images/" + listManyProduct.get(i).getProduct_id() + " (1)" + ".jpg"%>" /><a href="SingleServlet?product_id=<%=listManyProduct.get(i).getProduct_id()%>"><%=listManyProduct.get(i).getProduct_name()%></a></li>
                                     <%
                                             }
                                         }
@@ -241,15 +240,15 @@
                                     for (int i = 0; i < laptopList.size(); i++) {
                                         if (laptopList.get(i).getCategory_id() == 1) {
                                 %>
-                                <li><img src="<%="images/" + laptopList.get(i).getProduct_id() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=laptopList.get(i).getProduct_id()%>"><%=laptopList.get(i).getProduct_name()%></a></li>
+                                <li><img src="<%="images/" + laptopList.get(i).getProduct_id() + " (1)" + ".jpg"%>" /><a href="SingleServlet?product_id=<%=laptopList.get(i).getProduct_id()%>"><%=laptopList.get(i).getProduct_name().substring(0,15)+"..."%></a></li>
                                     <%
                                     } else if (laptopList.get(i).getCategory_id() == 2) {
                                     %>
-                                <li><img src="<%="images/" + laptopList.get(i).getProduct_id() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=laptopList.get(i).getProduct_id()%>"><%=laptopList.get(i).getProduct_name()%></a></li>
+                                <li><img src="<%="images/" + laptopList.get(i).getProduct_id() + " (1)" + ".jpg"%>" /><a href="SingleServlet?product_id=<%=laptopList.get(i).getProduct_id()%>"><%=laptopList.get(i).getProduct_name().substring(0,15)+"..."%></a></li>
                                     <%
                                     } else if (laptopList.get(i).getCategory_id() == 3) {
                                     %>
-                                <li><img src="<%="images/" + laptopList.get(i).getProduct_id() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=laptopList.get(i).getProduct_id()%>"><%=laptopList.get(i).getProduct_name()%></a></li>
+                                <li><img src="<%="images/" + laptopList.get(i).getProduct_id() + " (1)" + ".jpg"%>" /><a href="SingleServlet?product_id=<%=laptopList.get(i).getProduct_id()%>"><%=laptopList.get(i).getProduct_name().substring(0,15)+"..."%></a></li>
                                     <%
                                             }
                                         }
@@ -320,15 +319,15 @@
                                     for (int i = 0; i < mayanhList.size(); i++) {
                                         if (mayanhList.get(i).getCategory_id() == 1) {
                                 %>
-                                <li><img src="<%="images/" + mayanhList.get(i).getProduct_id() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=mayanhList.get(i).getProduct_id()%>"><%=mayanhList.get(i).getProduct_name()%></a></li>
+                                <li><img src="<%="images/" + mayanhList.get(i).getProduct_id() + " (1)" + ".jpg"%>" /><a href="SingleServlet?product_id=<%=mayanhList.get(i).getProduct_id()%>"><%=mayanhList.get(i).getProduct_name()%></a></li>
                                     <%
                                     } else if (mayanhList.get(i).getCategory_id() == 2) {
                                     %>
-                                <li><img src="<%="images/" + mayanhList.get(i).getProduct_id() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=mayanhList.get(i).getProduct_id()%>"><%=mayanhList.get(i).getProduct_name()%></a></li>
+                                <li><img src="<%="images/" + mayanhList.get(i).getProduct_id() + " (1)" + ".jpg"%>" /><a href="SingleServlet?product_id=<%=mayanhList.get(i).getProduct_id()%>"><%=mayanhList.get(i).getProduct_name()%></a></li>
                                     <%
                                     } else if (mayanhList.get(i).getCategory_id() == 3) {
                                     %>
-                                <li><img src="<%="images/" + mayanhList.get(i).getProduct_id() + " (1)" + ".jpg"%>" /><a href="single.jsp?product_id=<%=mayanhList.get(i).getProduct_id()%>"><%=mayanhList.get(i).getProduct_name()%></a></li>
+                                <li><img src="<%="images/" + mayanhList.get(i).getProduct_id() + " (1)" + ".jpg"%>" /><a href="SingleServlet?product_id=<%=mayanhList.get(i).getProduct_id()%>"><%=mayanhList.get(i).getProduct_name()%></a></li>
                                     <%
                                             }
                                         }
@@ -384,19 +383,19 @@
                             });
                         </script>
                         <script type="text/javascript" src="js/jquery.flexisel.js"></script>
-                   
-                    <div>
-                        <div class="fb-comments" data-href="http://localhost:8084/ProjectCopy1/single.jsp?product_id=<%=product_id%>" data-width="850" data-numposts="5"></div>
+
+                        <div>
+                            <div class="fb-comments" data-href="http://localhost:8084/ProjectCopy1/single.jsp?product_id=<%=product_id%>" data-width="850" data-numposts="5"></div>
+                        </div>
+                        <div class="clear"></div>
                     </div>
+
                     <div class="clear"></div>
                 </div>
 
                 <div class="clear"></div>
             </div>
-
-            <div class="clear"></div>
-        </div>
-        <jsp:include page="footer.jsp"></jsp:include>
+            <jsp:include page="footer.jsp"></jsp:include>
 
     </body>
 </html>
