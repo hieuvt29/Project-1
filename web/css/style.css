@@ -370,8 +370,7 @@ ul.last li a:hover{
 }
 .cont{
     display: block;
-    float:left;
-    margin: 1% 0 1% 0;
+    margin: 0  auto;
 }
 .rsidebar{
     display: block;

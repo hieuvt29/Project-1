@@ -107,11 +107,8 @@
                                     <td align="center"><%=bill.getBill_payment()%></td>
                                     <td align="center"><%=bill.getBill_address()%></td>
                                     <td align="center"><%=bill.getBill_order_date()%></td>
-                                    <td align="center"><%=bill.getBill_receive_date()%></td>
-                                    <td width="150">
-                                <center>
-                                    <a href="">Cancel</a>
-                                </center>
+                                    <td align="center"><%=bill.getBill_receipt_date()%></td>
+                                    
                                 </td>
                                 </tr>
                                 <%}%>
