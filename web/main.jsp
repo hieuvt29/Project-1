@@ -12,7 +12,7 @@
         <title>Main</title>
     </head>
     <body>
-
+        
         <div class="main">
             <div class="wrap">
                 <div class="section group">
@@ -20,10 +20,10 @@
                         <h2 class="head">Iphone</h2>
                         <div class="top-box">
                             <div class="col_1_of_3 span_1_of_3"> 
-                                <a href="single.jsp">
+                                <a href="SingleServlet?product_id=dt0001">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
-                                            <img src="images/iPhone 7 Plus 256GB (1).jpg" alt=""/>
+                                            <img src="images/dt0001 (1).jpg" alt=""/>
                                         </div>
                                         <div class="sale-box"><span class="on_sale title_shop">New</span></div>	
                                         <div class="price">
@@ -40,16 +40,16 @@
                                 </a>
                             </div>
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="single.jsp">
+                                <a href="SingleServlet?product_id=dt0004">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
-                                            <img src="images/iPhone 6S Plus 16GB.jpg" alt=""/>
+                                            <img src="images/dt0004 (1).jpg" alt=""/>
                                         </div>                                       	
                                         <div class="price">
                                             <div class="cart-left">
-                                                <p class="title">iPhone 6S Plus 16GB</p>
+                                                <p class="title">iPhone 6S 32GB</p>
                                                 <div class="price1">
-                                                    <span class="actual">18.990.000₫</span>
+                                                    <span class="actual">13.990.000₫</span>
                                                 </div>
                                             </div>
                                             <div class="cart-right"> </div>
@@ -59,17 +59,17 @@
                                 </a>
                             </div>
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="single.jsp">
+                                <a href="SingleServlet?product_id=dt0008">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
-                                            <img src="images/iPhone 5S 64GB (1).jpg" alt=""/>
+                                            <img src="images/dt0008 (1).jpg" alt=""/>
                                         </div>
                                         <div class="sale-box1"><span class="on_sale title_shop">Sale</span></div>
                                         <div class="price">
                                             <div class="cart-left">
                                                 <p class="title">iPhone 5S 64GB</p>
                                                 <div class="price1">
-                                                    <span class="reducedfrom">8.500.000₫</span>
+                                                    <span class="reducedfrom">8.590.000₫</span>
                                                     <span class="actual">7.990.000₫</span>
                                                 </div>
                                             </div>
@@ -84,10 +84,10 @@
                         <h2 class="head">Samsung</h2>
                         <div class="top-box">
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="single.jsp">
+                                <a href="SingleServlet?product_id=dt0011">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
-                                            <img src="images/Samsung Galaxy A9 Pro (1).jpg" alt=""/>
+                                            <img src="images/dt0011 (1).jpg" alt=""/>
                                         </div>
                                         <div class="price">
                                             <div class="cart-left">
@@ -103,10 +103,10 @@
                                 </a>
                             </div>
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="single.jsp">
+                                <a href="SingleServlet?product_id=dt0010">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
-                                            <img src="images/Samsung Galaxy S7 Edge (1).jpg" alt=""/>
+                                            <img src="images/dt0010 (1).jpg" alt=""/>
                                         </div>
                                         <div class="sale-box"><span class="on_sale title_shop">New</span></div>	
                                         <div class="price">
@@ -123,16 +123,16 @@
                                 </a>
                             </div>
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="single.jsp">
+                                <a href="SingleServlet?product_id=dt0012">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
-                                            <img src="images/Samsung Galaxy A7 (2016) (1).jpg" alt=""/>
+                                            <img src="images/dt0012 (1).jpg" alt=""/>
                                         </div>
                                         <div class="price">
                                             <div class="cart-left">
                                                 <p class="title">Samsung Galaxy A7 (2016)</p>
                                                 <div class="price1">
-                                                    <span class="actual">9.990.000₫</span>
+                                                    <span class="actual">10.990.000₫</span>
                                                 </div>
                                             </div>
                                             <div class="cart-right"> </div>
@@ -146,17 +146,17 @@
                         <h2 class="head">Xiaomi</h2>
                         <div class="top-box1">
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="single.jsp">
+                                <a href="SingleServlet?product_id=dt0017">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
-                                            <img src="images/Xiaomi Mi 5 (1).jpg" alt=""/>
+                                            <img src="images/dt0017 (1).jpg" alt=""/>
                                         </div>
                                         <div class="sale-box"><span class="on_sale title_shop">New</span></div>	
                                         <div class="price">
                                             <div class="cart-left">
-                                                <p class="title">Xiaomi Mi 5</p>
+                                                <p class="title">Xiaomi Mi 5S Plus</p>
                                                 <div class="price1">
-                                                    <span class="actual">11.990.000₫</span>
+                                                    <span class="actual">16.480.000₫</span>
                                                 </div>
                                             </div>
                                             <div class="cart-right"> </div>
@@ -166,17 +166,17 @@
                                 </a>
                             </div>
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="single.jsp">
+                                <a href="SingleServlet?product_id=dt0022">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
-                                            <img src="images/Xiaomi Redmi 3S.jpg" alt=""/>
+                                            <img src="images/dt0022 (1).jpg" alt=""/>
                                         </div>
                                         <div class="sale-box1"><span class="on_sale title_shop">Sale</span></div>	
                                         <div class="price">
                                             <div class="cart-left">
-                                                <p class="title">Xiaomi Redmi 3S</p>
+                                                <p class="title">Xiaomi Redmi Note 3 Pro</p>
                                                 <div class="price1">
-                                                    <span class="reducedfrom">8.500.000₫</span>
+                                                    <span class="reducedfrom">7.990.000₫</span>
                                                     <span class="actual">7.500.000₫</span>
                                                 </div>
                                             </div>
@@ -187,16 +187,16 @@
                                 </a>
                             </div>
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="single.jsp">
+                                <a href="SingleServlet?product_id=dt0019">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
-                                            <img src="images/Xiaomi Mi 4.jpg" alt=""/>
+                                            <img src="images/dt0019 (1).jpg" alt=""/>
                                         </div>	
                                         <div class="price">
                                             <div class="cart-left">
-                                                <p class="title">Xiaomi Mi 4</p>
+                                                <p class="title">Xiaomi Mi 5</p>
                                                 <div class="price1">
-                                                    <span class="actual">9.880.000₫</span>
+                                                    <span class="actual">10.990.000₫</span>
                                                 </div>
                                             </div>
                                             <div class="cart-right"> </div>
@@ -210,17 +210,17 @@
                         <h2 class="head">Sony</h2>
                         <div class="top-box1">
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="single.jsp">
+                                <a href="SingleServlet?product_id=dt0026">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
-                                            <img src="images/Sony Xperia X (1).jpg" alt=""/>
+                                            <img src="images/dt0026 (1).jpg" alt=""/>
                                         </div>
                                         <div class="sale-box"><span class="on_sale title_shop">New</span></div>	
                                         <div class="price">
                                             <div class="cart-left">
                                                 <p class="title">Sony Xperia X</p>
                                                 <div class="price1">
-                                                    <span class="actual">11.990.000₫</span>
+                                                    <span class="actual">9.990.000₫</span>
                                                 </div>
                                             </div>
                                             <div class="cart-right"> </div>
@@ -230,16 +230,16 @@
                                 </a>
                             </div>
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="single.jsp">
+                                <a href="SingleServlet?product_id=dt0027">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
-                                            <img src="images/Sony Xperia Z5 Dual (1).jpg" alt=""/>
+                                            <img src="images/dt0027 (1).jpg" alt=""/>
                                         </div>
                                         <div class="price">
                                             <div class="cart-left">
-                                                <p class="title">Sony Xperia Z5 Dual</p>
+                                                <p class="title">Sony Xperia Xa Ultra</p>
                                                 <div class="price1">
-                                                    <span class="actual">13.990.000₫</span>
+                                                    <span class="actual">7.490.000₫</span>
                                                 </div>
                                             </div>
                                             <div class="cart-right"> </div>
@@ -249,16 +249,16 @@
                                 </a>
                             </div>
                             <div class="col_1_of_3 span_1_of_3">
-                                <a href="single.jsp">
+                                <a href="SingleServlet?product_id=dt0028">
                                     <div class="inner_content clearfix">
                                         <div class="product_image">
-                                            <img src="images/Sony Xperia M5 (Single SIM) (1).jpg" alt=""/>
+                                            <img src="images/dt0028 (1).jpg" alt=""/>
                                         </div>	
                                         <div class="price">
                                             <div class="cart-left">
                                                 <p class="title">Sony Xperia M5 (Single SIM)</p>
                                                 <div class="price1">
-                                                    <span class="actual">7.990.000₫</span>
+                                                    <span class="actual">7.490.000₫</span>
                                                 </div>
                                             </div>
                                             <div class="cart-right"> </div>
@@ -268,10 +268,40 @@
                                 </a>
                             </div>
                             <div class="clear"></div>
-                            
                         </div>	                        		 						 			    
                     </div>
-                    
+                    <div class="rsidebar span_1_of_left">
+                        <div class="top-border"> </div>
+                        <div class="border">
+                            <link href="css/default.css" rel="stylesheet" type="text/css" media="all" />
+                            <link href="css/nivo-slider.css" rel="stylesheet" type="text/css" media="all" />
+                            <script src="js/jquery.nivo.slider.js"></script>
+                            <script type="text/javascript">
+                                $(window).load(function () {
+                                    $('#slider').nivoSlider();
+                                });
+                            </script>
+                            <div class="slider-wrapper theme-default">
+                                <div id="slider" class="nivoSlider">
+                                    <img src="images/t-img1.jpg"  alt="" />
+                                    <img src="images/t-img2.jpg"  alt="" />
+                                    <img src="images/t-img3.jpg"  alt="" />
+                                </div>
+                            </div>
+                            <div class="btn"><a href="single.jsp">Check it Out</a></div>
+                        </div>
+                        <div class="top-border"> </div>
+                        <div class="sidebar-bottom">
+                            <h2 class="m_1">Newsletters<br> Signup</h2>
+                            <p class="m_text">Lorem ipsum dolor sit amet, consectetuer</p>
+                            <div class="subscribe">
+                                <form>
+                                    <input name="userName" type="text" class="textbox">
+                                    <input type="submit" value="Subscribe">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                     <div class="clear"></div>
                 </div>
             </div>
