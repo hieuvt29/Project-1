@@ -45,13 +45,11 @@
                         <li class="active"><a href="${root}/WebBanHang/admin/laptop.jsp"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>Laptop</a></li>
                     </ol>
                 </div><!--/.row-->
-
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">Nhà cung cấp Laptop</h1>
                     </div>
                 </div><!--/.row-->
-
                 <div class="row">
                     <div class="col-md-10">
                         <div class="panel panel-default">
@@ -78,15 +76,12 @@
                         </div>
                     </div>
                 </div>
-
             </div><!--/.row-->	
-
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Laptop</h1>
                 </div>
             </div><!--/.row-->
-
             <div class="row">
                 <div class="col-md-10">
                     <div class="panel panel-default">

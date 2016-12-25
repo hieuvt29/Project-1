@@ -130,25 +130,6 @@
             <div class="header-bottom-right">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="search" >
-                            <form action="CustomSearchServlet" method="Get" onsubmit="(function () {
-                                        document.forms['select-form'].submit();
-                                        return false;
-                                    })();">
-                                <input class="form-control" type="text" name="product_name" class="textbox" value="Tìm kiếm" onfocus="if(this.value == 'Tìm kiếm') this.value='';" onblur="if (this.value == '') {
-                                            this.value = 'Tìm kiếm';
-                                        }">
-                                <select class="form-control" id="price" name="price" tyle="width: 150px">
-                                    <option value="0">Giá (vnđ) </option>
-                                    <option value="1">dưới 8 triệu</option>
-                                    <option value="2">từ 8 triệu - 10 triệu</option>
-                                    <option value="3">từ 10 triệu - 12 triệu</option>
-                                    <option value="4">trên 12 triệu</option>
-                                </select>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
                         <div class="tag-list">
                             <ul class="icon1 sub-icon1 profile_img">
                                 <li><a class="active-icon c1" href="#"> </a>
@@ -169,6 +150,27 @@
                             <ul class="last"><li><a href="#">Cart(0)</a></li></ul>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="search" >
+                            <form action="CustomSearchServlet" method="Get" onsubmit="(function () {
+                                        document.forms['select-form'].submit();
+                                        return false;
+                                    })();">
+                                <input class="form-control" type="text" name="product_name" class="textbox" value="Tìm kiếm" onfocus="if (this.value == 'Tìm kiếm')
+                                            this.value = '';" onblur="if (this.value == '') {
+                                                        this.value = 'Tìm kiếm';
+                                                    }">
+                                <select class="form-control" id="price" name="price" tyle="width: 150px">
+                                    <option value="0">Giá (vnđ) </option>
+                                    <option value="1">dưới 8 triệu</option>
+                                    <option value="2">từ 8 triệu - 10 triệu</option>
+                                    <option value="3">từ 10 triệu - 12 triệu</option>
+                                    <option value="4">trên 12 triệu</option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="clear"></div>

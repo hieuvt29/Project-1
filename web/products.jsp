@@ -56,7 +56,6 @@
                             if(productList == null){
                                 response.sendRedirect("index.jsp");
                             }
-
                             int numProducts = productList.size();
                           
                             for (int i = 0; i < numProducts; i++) {
@@ -73,11 +72,7 @@
                                         <div class="product_image">
                                             <%
                                                 String img = null;
-                                                if (p instanceof Laptop) {
-                                                    img = "images/" + p.getProduct_id() + " (1)" + ".jpg";
-                                                } else {
-                                                    img = "images/" + p.getProduct_name() + " (1)" + ".jpg";
-                                                }
+                                                img = "images/" + p.getProduct_id() + " (1)" + ".jpg";
                                             %>
                                             <img src="<%=img%>" alt=""/>
                                         </div>
@@ -89,7 +84,7 @@
                                             <div class="cart-left">
                                                 <p class="title"><%=p.getProduct_name()%></p>
                                                 <div class="price1">
-                                                    <span class="actual"><%=p.getProduct_price()%><span>0.000₫</span></span>
+                                                    <span class="actual"><%=p.getProduct_price() * Math.pow(10, 6)%><span>₫</span></span>
                                                 </div>
                                             </div>
                                             <div class="cart-right"> </div>
@@ -102,7 +97,7 @@
                                             <div class="cart-left">
                                                 <p class="title"><%=p.getProduct_name()%></p>
                                                 <div class="price1">
-                                                    <span class="actual"><%=p.getProduct_price()%><span>0.000₫</span></span>
+                                                    <span class="actual"><%=p.getProduct_price() * Math.pow(10, 6)%><span>₫</span></span>
                                                 </div>
                                             </div>
                                             <div class="cart-right"> </div>
@@ -116,8 +111,8 @@
                                             <div class="cart-left">
                                                 <p class="title"><%=p.getProduct_name()%></p>
                                                 <div class="price1">
-                                                    <span class="reducedfrom"><%=p.getProduct_price()%><span>0.000₫</span></span>
-                                                    <span class="actual"><%=p.getProduct_price() - (p.getProduct_price() * p.getProduct_discount() / 100)%><span>0.000₫</span></span>
+                                                    <span class="reducedfrom"><%=p.getProduct_price() * Math.pow(10, 6)%><span>₫</span></span>
+                                                    <span class="actual"><%=p.getProduct_price() - (p.getProduct_price() * p.getProduct_discount() / 100) * Math.pow(10, 6)%><span>₫</span></span>
                                                 </div>
                                             </div>
                                             <div class="cart-right"> </div>

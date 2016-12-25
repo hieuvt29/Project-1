@@ -42,7 +42,7 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Add Product</h1>
+                        <h1 class="page-header">Thêm sản phẩm</h1>
                     </div>
                 </div><!--/.row-->            
                 <div class="row">
@@ -59,46 +59,46 @@
                                     <font color="red"><%=error%></font>
                                     <%}%>
                                     <div class="form-group">
-                                        <label>Product Id</label>
+                                        <label>Mã sản phẩm</label>
                                         <input class="form-control" name="product_id">
                                     </div>
-                                    
+
                                     <div class="form-group">
-                                        <label>Category Id</label>
+                                        <label>Mã loại sản phẩm</label>
                                         <input class="form-control" name="category_id">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Supply Id</label>
+                                        <label>Mã nhà cung cấp</label>
                                         <input class="form-control" name="supply_id">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Name</label>
+                                        <label>Tên sản phẩm</label>
                                         <input class="form-control" name="name">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Price</label>
+                                        <label>Giá</label>
                                         <input class="form-control" name="price">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Resolution</label>
+                                        <label>Màn hình</label>
                                         <input class="form-control" name="resolution">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Opera System</label>
+                                        <label>Hệ điều hành</label>
                                         <input class="form-control" name="operaSystem">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Camera After</label>
+                                        <label>Camera sau</label>
                                         <input class="form-control" name="cameraAfter">
                                     </div>
                                     <div class="form-group">
-                                        <label>Camera Front</label>
+                                        <label>Camera trước</label>
                                         <input class="form-control" name="cameraFront">
                                     </div>
                                     <div class="form-group">
@@ -115,44 +115,44 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Memory</label>
+                                            <label>Bộ nhớ trong</label>
                                             <input class="form-control" name="memory">
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Memory Card</label>
+                                            <label>Hỗ trợ thẻ nhớ</label>
                                             <input class="form-control"name="memoryCard">
                                         </div>
 
                                         <div class="form-group">
-                                            <label>SIM Card</label>
+                                            <label>Thẻ SIM</label>
                                             <input class="form-control" name="simCard">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <div class="form-group">
-                                            <label>Connection</label>
+                                            <label>Kết nối</label>
                                             <input class="form-control" name="connection">
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Battery</label>
+                                            <label>Pin</label>
                                             <input class="form-control" name="battery">
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Design</label>
+                                            <label>Thiết kế</label>
                                             <input class="form-control" name="design">
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Extra Information</label>
+                                            <label>Chức năng khác</label>
                                             <input class="form-control" name="extraInfo">
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Discount</label>
+                                            <label>Giảm giá</label>
                                             <input class="form-control" name="discount">
                                         </div>
                                     </div>
@@ -169,27 +169,27 @@
                                     <font color="red"><%=error%></font>
                                     <%}%>
                                     <div class="form-group">
-                                        <label>Product Id</label>
+                                        <label>Mã sản phẩm</label>
                                         <input class="form-control" name="product_id">
                                     </div>
-                                    
+
                                     <div class="form-group">
-                                        <label>Category Id</label>
+                                        <label>Mã loại sản phẩm</label>
                                         <input class="form-control" name="category_id">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Supply Id</label>
+                                        <label>Mã nhà cung cấp</label>
                                         <input class="form-control" name="supply_id">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Name</label>
+                                        <label>Tên sản phẩm</label>
                                         <input class="form-control" name="name">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Price</label>
+                                        <label>Giá</label>
                                         <input class="form-control" name="price">
                                     </div>
 
@@ -204,15 +204,15 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Hard Disk</label>
+                                        <label>Ổ cứng</label>
                                         <input class="form-control" name="hardDisk">
                                     </div>
                                     <div class="form-group">
-                                        <label>Screen</label>
+                                        <label>Màn hình rộng</label>
                                         <input class="form-control" name="screen">
                                     </div>
                                     <div class="form-group">
-                                        <label>Touch</label>
+                                        <label>Cảm ứng</label>
                                         <input class="form-control" name="touch">
                                     </div>
 
@@ -220,12 +220,12 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="form-group">
-                                            <label>Graphic</label>
+                                            <label>Đồ họa</label>
                                             <input class="form-control" name="graphic">
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Optical Disk</label>
+                                            <label>Đĩa quang</label>
                                             <input class="form-control" name="opticalDisk">
                                         </div>
 
@@ -235,34 +235,34 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Material</label>
+                                            <label>Chất liệu vỏ</label>
                                             <input class="form-control" name="material">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <div class="form-group">
-                                            <label>Gates</label>
+                                            <label>Cổng giao tiếp</label>
                                             <input class="form-control" name="gates">
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Connection</label>
+                                            <label>Kết nối</label>
                                             <input class="form-control" name="connection">
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Battery</label>
+                                            <label>Pin</label>
                                             <input class="form-control" name="battery">
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Weight</label>
+                                            <label>Trọng lượng</label>
                                             <input class="form-control" name="weight">
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Discount</label>
+                                            <label>Giảm giá</label>
                                             <input class="form-control" name="discount">
                                         </div>
                                     </div>
@@ -279,27 +279,27 @@
                                     <font color="red"><%=error%></font>
                                     <%}%>
                                     <div class="form-group">
-                                        <label>Product Id</label>
+                                        <label>Mã sản phẩm</label>
                                         <input class="form-control" name="product_id">
                                     </div>
                                     
                                     <div class="form-group">
-                                        <label>Category Id</label>
+                                        <label>Mã loại sản phẩm</label>
                                         <input class="form-control" name="category_id">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Supply Id</label>
+                                        <label>Mã nhà cung cấp</label>
                                         <input class="form-control" name="supply_id">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Name</label>
+                                        <label>Tên sản phẩm</label>
                                         <input class="form-control" name="name">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Categorize</label>
+                                        <label>Loại máy ảnh</label>
                                         <input class="form-control" name="categorize">
                                     </div>
 
@@ -309,12 +309,12 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Image Processor</label>
+                                        <label>Bộ xử lý hình ảnh</label>
                                         <input class="form-control" name="imageProcessor">
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Lens</label>
+                                        <label>Ống kính</label>
                                         <input class="form-control" name="lens">
                                     </div>
                                     <div class="form-group">
@@ -322,7 +322,7 @@
                                         <input class="form-control" name="film">
                                     </div>
                                     <div class="form-group">
-                                        <label>Shutter Speed</label>
+                                        <label>Tốc độ chụp</label>
                                         <input class="form-control" name="shutterSpeed">
                                     </div>
 
@@ -330,49 +330,49 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <div class="form-group">
-                                            <label>Connection</label>
+                                            <label>Kết nối</label>
                                             <input class="form-control" name="connection">
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Screen</label>
+                                            <label>Màn hình</label>
                                             <input class="form-control" name="screen">
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Battery</label>
+                                            <label>Pin</label>
                                             <input class="form-control"name="battery">
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Memory Card</label>
+                                            <label>Thẻ nhớ</label>
                                             <input class="form-control" name="memoryCard">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <div class="form-group">
-                                            <label>Made in</label>
+                                            <label>Xuất xứ</label>
                                             <input class="form-control" name="madeIn">
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Warranty</label>
+                                            <label>Bảo hành</label>
                                             <input class="form-control" name="warranty">
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Weight</label>
+                                            <label>Trọng lượng</label>
                                             <input class="form-control" name="weight">
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Price</label>
+                                            <label>Giá</label>
                                             <input class="form-control" name="price">
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Discount</label>
+                                            <label>Giảm giá</label>
                                             <input class="form-control" name="discount">
                                         </div>
                                     </div>

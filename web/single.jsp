@@ -57,7 +57,6 @@
         <script src="js/jquery.etalage.min.js"></script>
         <script>
             jQuery(document).ready(function ($) {
-
                 $('#etalage').etalage({
                     thumb_image_width: 360,
                     thumb_image_height: 360,
@@ -68,7 +67,6 @@
                         alert('Callback example:\nYou clicked on an image with the anchor: "' + image_anchor + '"\n(in Etalage instance: "' + instance_id + '")');
                     }
                 });
-
             });
         </script>
     </head>
@@ -81,7 +79,6 @@
             Mayanh ma = null;
             Product pd = (Product) request.getAttribute("product");
             ArrayList<Product> listManyProduct = (ArrayList<Product>) request.getAttribute("listManyProduct");
-
             if (pd instanceof Dienthoai) {
                 dt = (Dienthoai) pd;
             } else if (pd instanceof Laptop) {
@@ -89,7 +86,6 @@
             } else if (pd instanceof Mayanh) {
                 ma = (Mayanh) pd;
             }
-
         %>
 
         <jsp:include page="header.jsp"></jsp:include>
@@ -99,7 +95,8 @@
                     <div class="wrap">
                         <ul class="breadcrumb breadcrumb__t"><a class="home" href="index.jsp">Home</a>/<a href="single.jsp">Single</a></ul>
                         <div class="cont span_2_of_3">
-                        <%                            if (dt != null) {
+                        <%                            
+                            if (dt != null) {
                         %>
                         <div class="grid images_3_of_2">
                             <ul id="etalage">
@@ -122,13 +119,13 @@
                             <h3 class="m_3"><%=dt.getProduct_name()%></h3>
                             <%
                                 if (dt.getCategory_id() == 3) {
-                                    d = dt.getProduct_price() - (dt.getProduct_price() * dt.getProduct_discount() / 100);
+                                    d = dt.getProduct_price() - (dt.getProduct_price() * dt.getProduct_discount() / 100) * Math.pow(10, 6);
                             %>
-                            <p class="m_5"><font color="red"><%=(double) Math.round((d * 1000) / 1000)%><span>0.000₫ </span></font><span class="reducedfrom"><%=dt.getProduct_price()%><span>0.000₫</span></span> <a href="#">click for offer</a></p>
+                            <p class="m_5"><font color="red"><%=d%><span>₫ </span></font><span class="reducedfrom"><%=dt.getProduct_price() * Math.pow(10, 6)%><span>₫</span></span> <a href="#">click for offer</a></p>
                                 <%
                                 } else {
                                 %>
-                            <p class="m_5"><%=dt.getProduct_price()%><span>0.000₫</span><a href="#"> click for offer</a></p>
+                            <p class="m_5"><%=dt.getProduct_price() * Math.pow(10, 6)%><span>₫</span><a href="#"> click for offer</a></p>
                             <%
                                 }
                             %>
@@ -200,9 +197,9 @@
                             <h3 class="m_3"><%=lt.getProduct_name()%></h3>
                             <%
                                 if (lt.getCategory_id() == 3) {
-                                    d = lt.getProduct_price() - (lt.getProduct_price() * lt.getProduct_discount() / 100);
+                                    d = lt.getProduct_price() - (lt.getProduct_price() * lt.getProduct_discount() / 100) * Math.pow(10, 6);
                             %>
-                            <p class="m_5"><font color="red"><%=(double) Math.round((d * 1000) / 1000)%><span>0.000₫ </span></font><span class="reducedfrom"><%=lt.getProduct_price()%><span>0.000₫</span></span> <a href="#">click for offer</a></p>
+                            <p class="m_5"><font color="red"><%=d%><span>₫ </span></font><span class="reducedfrom"><%=lt.getProduct_price() * Math.pow(10, 6)%><span>₫</span></span> <a href="#">click for offer</a></p>
                                 <%
                                 } else {
                                 %>
@@ -279,9 +276,9 @@
                             <h3 class="m_3"><%=ma.getProduct_name()%></h3>
                             <%
                                 if (ma.getCategory_id() == 3) {
-                                    d = ma.getProduct_price() - (ma.getProduct_price() * ma.getProduct_discount() / 100);
+                                    d = ma.getProduct_price() - (ma.getProduct_price() * ma.getProduct_discount() / 100) * Math.pow(10, 6);
                             %>
-                            <p class="m_5"><font color="red"><%=(double) Math.round((d * 1000) / 1000)%><span>0.000₫ </span></font><span class="reducedfrom"><%=ma.getProduct_price()%><span>0.000₫</span></span> <a href="#">click for offer</a></p>
+                            <p class="m_5"><font color="red"><%=d%><span>₫ </span></font><span class="reducedfrom"><%=ma.getProduct_price() * Math.pow(10, 6)%><span>₫</span></span> <a href="#">click for offer</a></p>
                                 <%
                                 } else {
                                 %>
@@ -356,7 +353,6 @@
                                         }
                                     }
                                 });
-
                                 $("#flexiselDemo3").flexisel({
                                     visibleItems: 5,
                                     animationSpeed: 1000,
@@ -379,7 +375,6 @@
                                         }
                                     }
                                 });
-
                             });
                         </script>
                         <script type="text/javascript" src="js/jquery.flexisel.js"></script>

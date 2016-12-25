@@ -58,17 +58,17 @@
                                     <font color="red"><%=error%></font>
                                     <%}%>
                                     <div class="form-group">
-                                        <label>Category Id</label>
+                                        <label>Mã loại sản phẩm</label>
                                         <input class="form-control" name="category_id">
                                     </div>
                                     
                                     <div class="form-group">
-                                        <label>Item Price</label>
+                                        <label>Giá</label>
                                         <input class="form-control" name="product_price">
                                     </div>
                                     
                                     <div class="form-group">
-                                        <label>Item Sale</label>
+                                        <label>Giảm giá</label>
                                         <input class="form-control" name="product_discount">
                                     </div>                                                                       
                                     <button type="submit" class="btn btn-primary">Submit</button>

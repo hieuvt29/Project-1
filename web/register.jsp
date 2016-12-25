@@ -30,10 +30,10 @@
             <!--register-->
             <div class="register_account">
                 <div class="wrap">
-                    <h4 class="title">Create an Account</h4>
+                    <h4 class="title">Nhập thông tin người dùng</h4>
                     <form class="form-inline" action="UserControllerServlet" method="post" onsubmit="return submitController();">
                         <div class="col_3_of_3 span_3_of_3">
-                            <div><label>User name* :</label>
+                            <div><label>Tên tài khoản* :</label>
                                 <input class="form-control" type="text" id="user_name" name="user_name" placeholder="anguyenvan1996">
 
                                 <span id="check-username-result"></span>
@@ -43,17 +43,17 @@
 
                                 <span id="check-useremail-result"></span>
                             </div>
-                            <div><label>Password* :</label>
+                            <div><label>Mật khẩu* :</label>
                                 <input class="form-control" type="password" id="user_pass" name="user_pass">
 
                                 <span id="check-userpass-result"></span>
                             </div>
-                            <div><label>Phone number* :</label>
+                            <div><label>Số điện thoại* :</label>
                                 <input class="form-control" type="text" name="user_phonenumber" placeholder="0918273645"></div>
                             <input type="hidden" name="command" value="register"/>
                             <br>
                             <div>
-                                <input type="submit" value="REGISTER" />
+                                <input type="submit" value="ĐĂNG KÝ" />
                                 <p class="terms">By clicking 'Create Account' you agree to the <a href="#">Terms &amp; Conditions</a>.</p>
                             </div>
                         </div>

@@ -325,7 +325,7 @@ public class LaptopDAO extends ProductDAO {
 //        for(Product pd : list){
 //            System.out.println(pd.getProduct_name());
 //        }
-//        ldao.insertProduct(new Laptop(3, "product_CPU", "product_RAM", "product_hard_disk", "product_screen", "khong", "product_graphic", "product_optical_disk", 0, "product_material", "product_gates", "product_connection", "product_battery", 0, "product_id", 1, "product_name", 0, 0));
+        ldao.insertProduct(new Laptop(3, "product_CPU", "product_RAM", "product_hard_disk", "product_screen", "khong", "product_graphic", "product_optical_disk", 0, "product_material", "product_gates", "product_connection", "product_battery", 0, "product_id", 1, "product_name", 0,0));
         
         Laptop lt = ldao.getProduct("mt0001");
         System.out.println(lt.getProduct_touch());

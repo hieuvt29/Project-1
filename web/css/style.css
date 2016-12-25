@@ -80,7 +80,6 @@ body{
     background: #4CB1CA;
     position: fixed;
     top:-30px; 
-    left:0;
     width: 100%; 
     height: 100px;
     z-index: 10000;
@@ -2315,6 +2314,7 @@ ul.delivery-list li a:hover{
         float: none;
     }
     .search {
+        display: none;
         margin: 5px 10px 0 0;
     }
     ul.last {
@@ -2424,6 +2424,7 @@ ul.delivery-list li a:hover{
         float: none;
     }
     .search {
+        display: none;
         margin: 5px 10px 0 0;
     }
     ul.last {
@@ -2602,6 +2603,7 @@ ul.delivery-list li a:hover{
         float: none;
     }
     .search {
+        display: none;
         margin: 5px 10px 0 0;
     }
     ul.last {
@@ -2770,6 +2772,7 @@ ul.delivery-list li a:hover{
         float: none;
     }
     .search {
+        display: none;
         margin: 5px 10px 0 0;
     }
     ul.last {

@@ -49,7 +49,7 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Supply Mobile</h1>
+                        <h1 class="page-header">Nhà cung cấp điện thoại</h1>
                     </div>
                 </div><!--/.row-->
 
@@ -57,14 +57,14 @@
                     <div class="col-md-10">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <a href="${root}/WebBanHang/admin/insertSupply.jsp?table=supplier_dienthoai">Add Supply</a>
+                                <a href="${root}/WebBanHang/admin/insertSupplier.jsp?table=supplier_dienthoai">Thêm nhà cung cấp</a>
                             </div>
                             <div class="panel-body">
                                 <table class="table" border="1" bordercolor="gray" width="880">
                                     <thead>
                                         <tr>
-                                            <th><center>Supply ID</center></th>
-                                            <th><center>Supply Name</center></th>
+                                            <th><center>Mã NCC</center></th>
+                                            <th><center>Tên NCC</center></th>
                                         </tr>
                                 <%
                                     for (Supplier s : listSupplier) {
@@ -92,17 +92,17 @@
                 <div class="col-md-10">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <a href="${root}/WebBanHang/admin/insertProduct.jsp?product=mobile">Add Item</a>
+                            <a href="${root}/WebBanHang/admin/insertProduct.jsp?product=mobile">Thêm sản phẩm</a>
                         </div>
                         <div class="panel-body">
                             <table class="table" border="1" bordercolor="gray" width="880">
                                 <thead>
                                     <tr>                               
-                                        <th><center>Item ID</center></th>                                       
-                                        <th><center>Item Name</center></th>
-                                        <th><center>Item Price</center></th>                                       
-                                        <th><center>Item Sale (%)</center></th>
-                                        <th><center>Option</center></th>                                
+                                        <th><center>Mã sản phẩm</center></th>                                       
+                                        <th><center>Tên sản phẩm</center></th>
+                                        <th><center>Giá sản phẩm</center></th>                                       
+                                        <th><center>Giảm giá (%)</center></th>
+                                        <th><center>Thao tác</center></th>                                
                                     </tr>
                                 <%
                                     for (Product dienthoai : listMobile) {
@@ -114,8 +114,8 @@
                                     <td align="center"><%=dienthoai.getProduct_discount()%></td>
                                     <td width="150">
                                         <center>
-                                            <a href="${root}/WebBanHang/admin/updateProduct.jsp?product=mobile&product_id=<%=dienthoai.getProduct_id()%>">Update</a>&nbsp; | &nbsp;
-                                            <a href="${root}/WebBanHang/ManagerProductServlet?command=remove&product=mobile&product_id=<%=dienthoai.getProduct_id()%>">Remove</a>
+                                            <a href="${root}/WebBanHang/admin/updateProduct.jsp?product=mobile&product_id=<%=dienthoai.getProduct_id()%>">Cập nhật</a>&nbsp; | &nbsp;
+                                            <a href="${root}/WebBanHang/ManagerProductServlet?command=remove&product=mobile&product_id=<%=dienthoai.getProduct_id()%>">Xóa</a>
                                         </center>
                                     </td>
                                 </tr>

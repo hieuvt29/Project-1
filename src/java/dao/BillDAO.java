@@ -125,14 +125,15 @@ public class BillDAO {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         BillDAO billDAO = new BillDAO();
         Bill bill = new Bill();
-//        bill.setBill_id(7);
+        bill.setBill_id(5);
 //        bill.setBill_address("N/A");
 //        bill.setUser_id(43);
-//        bill.setBill_payment("OFFLINE");
-//        bill.setBill_total(10.9);
-//        bill.setBill_order_date(new Date(System.currentTimeMillis()));
+//        bill.setBill_payment("ONLINE");
+//        bill.setBill_total(20.0);
+//        bill.setBill_order_date(new Date(2016-1900, 0, 1));
 //        billDAO.insertBill(bill);
-        
-        System.out.println(billDAO.getBills().size());
+        bill.setBill_receipt_date(new Date(System.currentTimeMillis()));
+        billDAO.updateBill(bill);
+
     }
 }

@@ -42,7 +42,7 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Add Supply</h1>
+                        <h1 class="page-header">Thêm nhà cung cấp</h1>
                     </div>
                 </div><!--/.row-->
                 <div class="row">
@@ -58,7 +58,7 @@
                                     <font color="red"><%=error%></font>
                                     <%}%>
                                     <div class="form-group">
-                                        <label>Supplier Name</label>
+                                        <label>Tên nhà cung cấp</label>
                                         <input class="form-control" placeholder="Name" name="supplier_name">
                                     </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -88,7 +88,6 @@
                     });
                     $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
                 }(window.jQuery);
-
                 $(window).on('resize', function () {
                     if ($(window).width() > 768)
                         $('#sidebar-collapse').collapse('show')
