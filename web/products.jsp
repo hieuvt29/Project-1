@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="model.Laptop"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Product"%>
@@ -84,7 +85,7 @@
                                             <div class="cart-left">
                                                 <p class="title"><%=p.getProduct_name()%></p>
                                                 <div class="price1">
-                                                    <span class="actual"><%=p.getProduct_price() * Math.pow(10, 6)%><span>₫</span></span>
+                                                    <span class="actual"><%=new DecimalFormat("###,###,###").format(Math.round(p.getProduct_price() * Math.pow(10, 6)))%><span>₫</span></span>
                                                 </div>
                                             </div>
                                             <div class="cart-right"> </div>
@@ -97,7 +98,7 @@
                                             <div class="cart-left">
                                                 <p class="title"><%=p.getProduct_name()%></p>
                                                 <div class="price1">
-                                                    <span class="actual"><%=p.getProduct_price() * Math.pow(10, 6)%><span>₫</span></span>
+                                                    <span class="actual"><%=new DecimalFormat("###,###,###").format(Math.round(p.getProduct_price() * Math.pow(10, 6)))%><span>₫</span></span>
                                                 </div>
                                             </div>
                                             <div class="cart-right"> </div>
@@ -111,8 +112,8 @@
                                             <div class="cart-left">
                                                 <p class="title"><%=p.getProduct_name()%></p>
                                                 <div class="price1">
-                                                    <span class="reducedfrom"><%=p.getProduct_price() * Math.pow(10, 6)%><span>₫</span></span>
-                                                    <span class="actual"><%=p.getProduct_price() - (p.getProduct_price() * p.getProduct_discount() / 100) * Math.pow(10, 6)%><span>₫</span></span>
+                                                    <span class="reducedfrom"><%=new DecimalFormat("###,###,###").format(Math.round(p.getProduct_price() * Math.pow(10, 6)))%><span>₫</span></span>
+                                                    <span class="actual"><%=new DecimalFormat("###,###,###").format(Math.round((p.getProduct_price() - (p.getProduct_price() * p.getProduct_discount() / 100)) * Math.pow(10, 6)))%><span>₫</span></span>
                                                 </div>
                                             </div>
                                             <div class="cart-right"> </div>
@@ -141,7 +142,6 @@
 
             <div class="clear"></div>
         </div>
-    </div>
     <script src="js/jquery.easydropdown.js"></script>
 
     <jsp:include page="footer.jsp"></jsp:include>

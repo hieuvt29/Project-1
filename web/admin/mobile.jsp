@@ -4,6 +4,7 @@
     Author     : LOREMSUM
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="model.Category"%>
 <%@page import="model.Product"%>
 <%@page import="dao.DienthoaiDAO"%>
@@ -110,7 +111,7 @@
                                 <tr>
                                     <td align="center"><%=dienthoai.getProduct_id()%></td>                                        
                                     <td align="center"><%=dienthoai.getProduct_name()%></td>
-                                    <td align="center"><%=dienthoai.getProduct_price()%><span>0.000₫</span></td>                                       
+                                    <td align="center"><%=new DecimalFormat("###,###,###").format(dienthoai.getProduct_price() * Math.pow(10, 6))%><span>₫</span></td>                                       
                                     <td align="center"><%=dienthoai.getProduct_discount()%></td>
                                     <td width="150">
                                         <center>

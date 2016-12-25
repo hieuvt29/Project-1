@@ -4,6 +4,7 @@
     Author     : user
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="model.Bill"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.User"%>
@@ -102,7 +103,7 @@
                                 <tr>
                                     <td align="center"><%=i + 1%></td>                                        
                                     <td align="center"><%=bill.getBill_id()%></td>
-                                    <td align="center"><%=bill.getBill_total()%><span>0.000₫</span></td>                                       
+                                    <td align="center"><%=new DecimalFormat("###,###,###").format(bill.getBill_total() * Math.pow(10, 6))%><span>₫</span></td>                                       
                                     <td align="center"><%=bill.getBill_payment()%></td>
                                     <td align="center"><%=bill.getBill_address()%></td>
                                     <td align="center"><%=bill.getBill_order_date()%></td>

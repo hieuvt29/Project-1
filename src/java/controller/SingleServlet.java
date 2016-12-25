@@ -37,51 +37,51 @@ public class SingleServlet extends HttpServlet {
         RequestDispatcher jsp = request.getRequestDispatcher("/single.jsp");
         String product_id = request.getParameter("product_id");
         String s1 = product_id.substring(0, 2);
-        
+
         try {
             if (s1.equals("dt")) {
                 DienthoaiDAO dienthoaiDAO = new DienthoaiDAO();
                 Dienthoai dienthoai = new Dienthoai();
                 dienthoai = dienthoaiDAO.getProduct(product_id);
-                
+
                 ArrayList<Product> listManyProductDienthoai = new ArrayList<>();
-                if(dienthoai.getCategory_id() == 1) {
+                if (dienthoai.getCategory_id() == 1) {
                     listManyProductDienthoai = dienthoaiDAO.getProducts("%", "%", 5);
-                } else if(dienthoai.getCategory_id() == 2) {
+                } else if (dienthoai.getCategory_id() == 2) {
                     listManyProductDienthoai = dienthoaiDAO.getProducts("%", "%", 5);
-                } else if(dienthoai.getCategory_id() == 3) {
+                } else if (dienthoai.getCategory_id() == 3) {
                     listManyProductDienthoai = dienthoaiDAO.getProducts("%", "%", 5);
                 }
                 request.setAttribute("product", dienthoai);
                 request.setAttribute("listManyProduct", listManyProductDienthoai);
-            } else if(s1.equals("mt")) {
+            } else if (s1.equals("mt")) {
                 LaptopDAO laptopDAO = new LaptopDAO();
                 Laptop laptop = new Laptop();
                 laptop = laptopDAO.getProduct(product_id);
-                
+
                 ArrayList<Product> listManyProductLaptop = new ArrayList<>();
-                
-                if(laptop.getCategory_id() == 1) {
+
+                if (laptop.getCategory_id() == 1) {
                     listManyProductLaptop = laptopDAO.getProducts("%", "%", 5);
-                } else if(laptop.getCategory_id() == 2) {
+                } else if (laptop.getCategory_id() == 2) {
                     listManyProductLaptop = laptopDAO.getProducts("%", "%", 5);
-                } else if(laptop.getCategory_id() == 3) {
+                } else if (laptop.getCategory_id() == 3) {
                     listManyProductLaptop = laptopDAO.getProducts("%", "%", 5);
                 }
                 request.setAttribute("product", laptop);
                 request.setAttribute("listManyProduct", listManyProductLaptop);
-            } else if(s1.equals("ma")) {
+            } else if (s1.equals("ma")) {
                 MayanhDAO mayanhDAO = new MayanhDAO();
                 Mayanh mayanh = new Mayanh();
                 mayanh = mayanhDAO.getProduct(product_id);
-                
+
                 ArrayList<Product> listManyProductMayanh = new ArrayList<>();
-                
-                if(mayanh.getCategory_id() == 1) {
+
+                if (mayanh.getCategory_id() == 1) {
                     listManyProductMayanh = mayanhDAO.getProducts("%", "%", 5);
-                } else if(mayanh.getCategory_id() == 2) {
+                } else if (mayanh.getCategory_id() == 2) {
                     listManyProductMayanh = mayanhDAO.getProducts("%", "%", 5);
-                } else if(mayanh.getCategory_id() == 3) {
+                } else if (mayanh.getCategory_id() == 3) {
                     listManyProductMayanh = mayanhDAO.getProducts("%", "%", 5);
                 }
                 request.setAttribute("product", mayanh);
@@ -98,7 +98,23 @@ public class SingleServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
 
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+        DienthoaiDAO dienthoaiDAO = new DienthoaiDAO();
+        Dienthoai dienthoai = new Dienthoai();
+        dienthoai = dienthoaiDAO.getProduct("dt0001");
+
+        ArrayList<Product> listManyProductDienthoai = new ArrayList<>();
+        if (dienthoai.getCategory_id() == 1) {
+            listManyProductDienthoai = dienthoaiDAO.getProducts("%", "%", 5);
+        } else if (dienthoai.getCategory_id() == 2) {
+            listManyProductDienthoai = dienthoaiDAO.getProducts("%", "%", 5);
+        } else if (dienthoai.getCategory_id() == 3) {
+            listManyProductDienthoai = dienthoaiDAO.getProducts("%", "%", 5);
+        }
+        System.out.println(dienthoai.getProduct_id());
+        System.out.println(listManyProductDienthoai.size());
+    }
 }

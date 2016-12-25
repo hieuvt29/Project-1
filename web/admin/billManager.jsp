@@ -3,6 +3,7 @@
     Created on : Oct 24, 2016, 9:45:00 AM
     Author     : LOREMSUM
 --%>
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Bill"%>
@@ -68,7 +69,7 @@
                                     <tr>
                                         <td align="center"><%=i + 1%></td>                                        
                                         <td align="center"><%=bill.getBill_id()%></td>
-                                        <td align="center"><%=bill.getBill_total()%><span>0.000₫</span></td>                                       
+                                        <td align="center"><%=new DecimalFormat("###,###,###").format(bill.getBill_total() * Math.pow(10, 6))%><span>₫</span></td>                                       
                                         <td align="center"><%=bill.getBill_payment()%></td>
                                         <td align="center"><%=bill.getBill_address()%></td>
                                         <td align="center"><%=bill.getBill_order_date()%></td>

@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="model.Product"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Mayanh"%>
@@ -119,19 +120,19 @@
                             <h3 class="m_3"><%=dt.getProduct_name()%></h3>
                             <%
                                 if (dt.getCategory_id() == 3) {
-                                    d = dt.getProduct_price() - (dt.getProduct_price() * dt.getProduct_discount() / 100) * Math.pow(10, 6);
+                                    d = Math.round((dt.getProduct_price() - (dt.getProduct_price() * dt.getProduct_discount() / 100)) * Math.pow(10, 6));
                             %>
-                            <p class="m_5"><font color="red"><%=d%><span>₫ </span></font><span class="reducedfrom"><%=dt.getProduct_price() * Math.pow(10, 6)%><span>₫</span></span> <a href="#">click for offer</a></p>
+                            <p class="m_5"><font color="red"><%=new DecimalFormat("###,###,###").format(d)%><span>₫ </span></font><span class="reducedfrom"><%=new DecimalFormat("###,###,###").format(Math.round(dt.getProduct_price() * Math.pow(10, 6)))%><span>₫</span></span> <a href="#">click for offer</a></p>
                                 <%
                                 } else {
                                 %>
-                            <p class="m_5"><%=dt.getProduct_price() * Math.pow(10, 6)%><span>₫</span><a href="#"> click for offer</a></p>
+                            <p class="m_5"><%=new DecimalFormat("###,###,###").format(Math.round(dt.getProduct_price() * Math.pow(10, 6)))%><span>₫</span><a href="#"> click for offer</a></p>
                             <%
                                 }
                             %>
                             <div class="btn_form">
                                 <form>
-                                    <input type="submit" value="buy" title="">
+                                    <input type="submit" value="BUY" title="">
                                 </form>
                             </div>
                             <span class="m_link"><a href="#">login to save in wishlist</a></span>
@@ -197,19 +198,19 @@
                             <h3 class="m_3"><%=lt.getProduct_name()%></h3>
                             <%
                                 if (lt.getCategory_id() == 3) {
-                                    d = lt.getProduct_price() - (lt.getProduct_price() * lt.getProduct_discount() / 100) * Math.pow(10, 6);
+                                    d = Math.round((lt.getProduct_price() - (lt.getProduct_price() * lt.getProduct_discount() / 100)) * Math.pow(10, 6));
                             %>
-                            <p class="m_5"><font color="red"><%=d%><span>₫ </span></font><span class="reducedfrom"><%=lt.getProduct_price() * Math.pow(10, 6)%><span>₫</span></span> <a href="#">click for offer</a></p>
+                            <p class="m_5"><font color="red"><%=new DecimalFormat("###,###,###").format(d)%><span>₫ </span></font><span class="reducedfrom"><%=new DecimalFormat("###,###,###").format(Math.round(ma.getProduct_price() * Math.pow(10, 6)))%><span>₫</span></span> <a href="#">click for offer</a></p>
                                 <%
                                 } else {
                                 %>
-                            <p class="m_5"><%=lt.getProduct_price()%><span>0.000₫</span><a href="#"> click for offer</a></p>
+                            <p class="m_5"><%=new DecimalFormat("###,###,###").format(Math.round(lt.getProduct_price()* Math.pow(10, 6)))%><span>₫</span><a href="#"> click for offer</a></p>
                             <%
                                 }
                             %>
                             <div class="btn_form">
                                 <form>
-                                    <input type="submit" value="buy" title="">
+                                    <input type="submit" value="BUY" title="">
                                 </form>
                             </div>
                             <span class="m_link"><a href="#">login to save in wishlist</a></span>
@@ -276,19 +277,19 @@
                             <h3 class="m_3"><%=ma.getProduct_name()%></h3>
                             <%
                                 if (ma.getCategory_id() == 3) {
-                                    d = ma.getProduct_price() - (ma.getProduct_price() * ma.getProduct_discount() / 100) * Math.pow(10, 6);
+                                    d = Math.round((ma.getProduct_price() - (ma.getProduct_price() * ma.getProduct_discount() / 100)) * Math.pow(10, 6));
                             %>
-                            <p class="m_5"><font color="red"><%=d%><span>₫ </span></font><span class="reducedfrom"><%=ma.getProduct_price() * Math.pow(10, 6)%><span>₫</span></span> <a href="#">click for offer</a></p>
+                            <p class="m_5"><font color="red"><%=new DecimalFormat("###,###,###").format(d)%><span>₫ </span></font><span class="reducedfrom"><%=new DecimalFormat("###,###,###").format(Math.round(ma.getProduct_price() * Math.pow(10, 6)))%><span>₫</span></span> <a href="#">click for offer</a></p>
                                 <%
                                 } else {
                                 %>
-                            <p class="m_5"><%=ma.getProduct_price()%><span>0.000₫</span><a href="#"> click for offer</a></p>
+                            <p class="m_5"><%=new DecimalFormat("###,###,###").format(Math.round(ma.getProduct_price() * Math.pow(10, 6)))%><span>₫</span><a href="#"> click for offer</a></p>
                             <%
                                 }
                             %>
                             <div class="btn_form">
                                 <form>
-                                    <input type="submit" value="buy" title="">
+                                    <input type="submit" value="BUY" title="">
                                 </form>
                             </div>
                             <span class="m_link"><a href="#">login to save in wishlist</a></span>

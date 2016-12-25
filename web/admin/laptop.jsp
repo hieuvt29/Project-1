@@ -4,6 +4,7 @@
     Author     : LOREMSUM
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="model.Product"%>
 <%@page import="dao.LaptopDAO"%>
 <%@page import="model.Supplier"%>
@@ -104,7 +105,7 @@
                                     <tr>
                                         <td align="center"><%=laptop.getProduct_id()%></td>                                        
                                         <td align="center"><%=laptop.getProduct_name()%></td>
-                                        <td align="center"><%=laptop.getProduct_price()%><span>0.000₫</span></td>                                       
+                                        <td align="center"><%=new DecimalFormat("###,###,###").format(laptop.getProduct_price()* Math.pow(10, 6))%><span>₫</span></td>                                       
                                         <td align="center"><%=laptop.getProduct_discount()%></td>
                                         <td width="150">
                                             <center>

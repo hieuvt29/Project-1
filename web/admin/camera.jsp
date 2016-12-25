@@ -4,6 +4,7 @@
     Author     : LOREMSUM
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="model.Product"%>
 <%@page import="dao.MayanhDAO"%>
 <%@page import="model.Supplier"%>
@@ -106,11 +107,12 @@
                                     </tr>
                                     <%
                                         for(Product mayanh : listCamera) {
+                                            double price = Math.round(mayanh.getProduct_price() * Math.pow(10, 6));
                                     %>
                                     <tr>
                                         <td align="center"><%=mayanh.getProduct_id()%></td>                                        
                                         <td align="center"><%=mayanh.getProduct_name()%></td>
-                                        <td align="center"><%=mayanh.getProduct_price()%><span>0.000₫</span></td>                                       
+                                        <td align="center"><%=new DecimalFormat("###,###,###").format(price)%><span>₫</span></td>                                       
                                         <td align="center"><%=mayanh.getProduct_discount()%></td>
                                         <td width="150">
                                             <center>
